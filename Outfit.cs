@@ -1,6 +1,8 @@
 ﻿using Mutagen.Bethesda;
 using Mutagen.Bethesda.Environments;
 using Mutagen.Bethesda.Plugins;
+using Mutagen.Bethesda.Plugins.Binary.Parameters;
+using Mutagen.Bethesda.Plugins.Order;
 using Mutagen.Bethesda.Starfield;
 using System;
 using System.Collections.Generic;
@@ -13,7 +15,7 @@ namespace StarArmory
 {
     public class Outfit
     {
-        public static void DoOutfits()
+        public static void DoOutfits(List<string> mods)
         {
             //Setup
             var env = GameEnvironment.Typical.Starfield(StarfieldRelease.Starfield);
@@ -37,6 +39,10 @@ namespace StarArmory
                     {
                         continue;
                     }
+                    if (!mods.Contains(mod.Value.FileName))
+                    {
+                        continue;
+                    }
                     if (mod.Value.Mod != null)
                     {
                         var armours = mod.Value.Mod.Armors.ToList();
@@ -48,11 +54,14 @@ namespace StarArmory
                     }
                 }
             }
-            
-            
 
+            env.Dispose();
             //Export
-            myMod.WriteToBinary("StarArmoryPatch.esm");
+            myMod.WriteToBinary(env.DataFolderPath + "\\StarArmoryPatch.esm", new BinaryWriteParameters()
+            {
+                MastersListOrdering = new MastersListOrderingByLoadOrder(env.LoadOrder)
+            });
+            MessageBox.Show("Exported StarArmoryPatch.esm to Data Folder");
         }
     }
 }
