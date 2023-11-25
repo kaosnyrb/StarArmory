@@ -3,55 +3,31 @@ using Mutagen.Bethesda.Plugins;
 using Mutagen.Bethesda.Starfield;
 
 using Mutagen.Bethesda;
+using Mutagen.Bethesda.Plugins.Cache;
+using System.Drawing.Drawing2D;
+using static System.Windows.Forms.LinkLabel;
 
 namespace StarArmory
 {
-    internal class LeveledItem
+    class LeveledItem
     {
-        public void stuff()
+        public static void AddItemsToLevelledList(StarfieldMod myMod, List<IArmorGetter> newitems, uint levellist)
         {
-            //Setup
-            var env = GameEnvironment.Typical.Starfield(StarfieldRelease.Starfield);
-            var starfieldesmKey = env.LoadOrder[0].ModKey;
-            var linkCache = env.LoadOrder.ToImmutableLinkCache();
-            ModKey newMod = new ModKey("StarArmoryPatch", ModType.Master);
-            StarfieldMod myMod = new StarfieldMod(newMod, StarfieldRelease.Starfield);
-
-
-            //LL_Clothes_Civilian_Casual_Any [LVLI:00134208]
-            FormKey formKey = new FormKey(starfieldesmKey, 1262088);
-            var citizenclothes = linkCache.Resolve<ILeveledItemGetter>(formKey);
+            FormKey formKey = new FormKey(Armory.gameEnvironment.LoadOrder[0].ModKey, levellist);
+            var citizenclothes = Armory.immutableLoadOrderLinkCache.Resolve<ILeveledItemGetter>(formKey);
             var newlist = myMod.LeveledItems.GetOrAddAsOverride(citizenclothes);
-            newlist.Entries.Clear();
 
-            foreach (var mod in env.LoadOrder)
+            for (int i = 0; i < newitems.Count; i++)
             {
-                if (mod.Value.FileName == "Starfield.esm")
+                newlist.Entries.Add(new LeveledItemEntry()
                 {
-                    continue;
-                }
-                if (mod.Value.Mod != null)
-                {
-                    var armours = mod.Value.Mod.Armors.ToList();
-                    foreach (var armor in armours)
-                    {
-                        var link = linkCache.Resolve<IArmorGetter>(armor.FormKey);
-                        newlist.Entries.Add(new LeveledItemEntry()
-                        {
-                            Level = 1,
-                            ChanceNone = new Noggog.Percent(0),
-                            Count = 1,
-                            Reference = link.ToLink<ILeveledItemGetter>()
-                        });
-                    }
-                }
+                    Level = 1,
+                    ChanceNone = new Noggog.Percent(0),
+                    Count = 1,
+                    Reference = newitems[i].ToLink<ILeveledItemGetter>()
+                });
             }
-
-            // Modify the name to be different inside myMod
-            newlist.EditorID = "Updated";
-
-            //Export
-            myMod.WriteToBinary("StarArmoryPatch.esm");
         }
+
     }
 }

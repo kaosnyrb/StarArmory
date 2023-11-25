@@ -16,7 +16,6 @@ namespace StarArmory
             var env = GameEnvironment.Typical.Starfield(StarfieldRelease.Starfield);
             foreach (var mod in env.LoadOrder)
             {
-                if (mod.Value.FileName == "Starfield.esm") continue;
                 if (mod.Value.Mod != null)
                 {
                     if (mod.Value.Mod.Armors != null)
@@ -29,6 +28,11 @@ namespace StarArmory
                 }
             }
 
+            Armory.clothes = new List<IArmorGetter>();
+            Armory.gameEnvironment = GameEnvironment.Typical.Starfield(StarfieldRelease.Starfield);
+            Armory.immutableLoadOrderLinkCache = Armory.gameEnvironment.LoadOrder.ToImmutableLinkCache();
+
+
 
         }
 
@@ -39,7 +43,35 @@ namespace StarArmory
             {
                 checkedmods.Add(item.ToString());
             }
-            Outfit.DoOutfits(checkedmods);
+            Armory.LoadClothes(checkedmods);
+
+            ModKey newMod = new ModKey("StarArmoryPatch", ModType.Master);
+            StarfieldMod myMod = new StarfieldMod(newMod, StarfieldRelease.Starfield);
+
+            //Outfit.DoOutfits(myMod,checkedmods);
+            LeveledItem.AddItemsToLevelledList(myMod,Armory.hats, 737735);//LL_Crowd_Hairs_Hats_Neon [LVLI:000B41C7]
+
+            var targets = new List<uint>() { };
+            targets.Add(1004639);// LL_Crowd_Clothes_Neon_Male[LVLI: 000F545F]
+            targets.Add(684083);//LL_Crowd_Clothes_Neon_Female_Thin [LVLI:000A7033]
+            targets.Add(1004638);//LL_Crowd_Clothes_Neon_Female[LVLI: 000F545E]
+            targets.Add(684082);//LL_Crowd_Clothes_Neon_Female_Overweight [LVLI:000A7032]
+            for (int i = 0; i < targets.Count; i++) {
+                LeveledItem.AddItemsToLevelledList(myMod, Armory.clothes, targets[i]);
+            }
+
+            LeveledItem.AddItemsToLevelledList(myMod, Armory.spacesuits, 496138);//LL_Armor_Spacer_Body_Leveled_Any [LVLI:0007920A]
+            LeveledItem.AddItemsToLevelledList(myMod, Armory.spacehelmets, 496140);//LL_Armor_Spacer_Helmet_Leveled_Any [LVLI:0007920C]
+            LeveledItem.AddItemsToLevelledList(myMod, Armory.boostpacks, 496136);//LL_Armor_Spacer_Backpack_Leveled_Any[LVLI: 00079208]
+
+            //Export
+            Armory.gameEnvironment.Dispose();
+            myMod.WriteToBinary(Armory.gameEnvironment.DataFolderPath + "\\StarArmoryPatch.esm", new BinaryWriteParameters()
+            {
+                MastersListOrdering = new MastersListOrderingByLoadOrder(Armory.gameEnvironment.LoadOrder)
+            });
+            MessageBox.Show("Exported StarArmoryPatch.esm to Data Folder");
+
         }
     }
 }
