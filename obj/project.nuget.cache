@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "yLCKYo3mUpvbg9fGf2wmxmyoncLtgp4+htb8hZBxO0s87pXSPljZ/+/Ey8klJynwTOrKaHtlGGpS15yMlBuOUQ==",
+  "dgSpecHash": "fKuYhetSsmAfII3NcjY1cx0hTG1KAeZzkHcF3Eh3W0aDtMAGzPhzOri0PKSaLvI8Yq+NQ3RG+3FmO1gRAgN56w==",
   "success": true,
-  "projectFilePath": "C:\\git\\StarArmory\\StarArmory\\StarArmory.csproj",
+  "projectFilePath": "C:\\git\\StarArmory\\StarArmory.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\chaos\\.nuget\\packages\\dotnetzip\\1.16.0\\dotnetzip.1.16.0.nupkg.sha512",
     "C:\\Users\\chaos\\.nuget\\packages\\dynamicdata\\8.1.1\\dynamicdata.8.1.1.nupkg.sha512",

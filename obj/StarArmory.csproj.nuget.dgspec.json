@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\git\\StarArmory\\StarArmory\\StarArmory.csproj": {}
+    "C:\\git\\StarArmory\\StarArmory.csproj": {}
   },
   "projects": {
-    "C:\\git\\StarArmory\\StarArmory\\StarArmory.csproj": {
+    "C:\\git\\StarArmory\\StarArmory.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\git\\StarArmory\\StarArmory\\StarArmory.csproj",
+        "projectUniqueName": "C:\\git\\StarArmory\\StarArmory.csproj",
         "projectName": "StarArmory",
-        "projectPath": "C:\\git\\StarArmory\\StarArmory\\StarArmory.csproj",
+        "projectPath": "C:\\git\\StarArmory\\StarArmory.csproj",
         "packagesPath": "C:\\Users\\chaos\\.nuget\\packages\\",
-        "outputPath": "C:\\git\\StarArmory\\StarArmory\\obj\\",
+        "outputPath": "C:\\git\\StarArmory\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
