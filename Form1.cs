@@ -106,7 +106,7 @@ namespace StarArmory
             }
             catch(Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                MessageBox.Show("Can't save, patch is already in data folder. Delete patch esm then restart. TO FIX.");
             }
 
         }

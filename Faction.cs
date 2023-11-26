@@ -37,16 +37,4 @@ namespace StarArmory
 
         public List<string> mods { get; set; }
     }
-
-
-    /*
-    Faction NeonFaction = new Faction();
-    NeonFaction.Name = "Neon Citizens";
-    NeonFaction.Hats = new List<SimpleForm>();
-    NeonFaction.Hats.Add(new SimpleForm(Armory.gameEnvironment.LoadOrder[0].FileName, 737735));
-
-    YamlExporter.WriteObjToYamlFile("Neon.yaml", NeonFaction);
-    */
-
-
 }
