@@ -31,11 +31,13 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StarArmory));
             button1 = new Button();
             loadedMods = new CheckedListBox();
-            factionsplansbox = new ListBox();
             FactionList = new ComboBox();
             button2 = new Button();
             label1 = new Label();
             label2 = new Label();
+            label3 = new Label();
+            label4 = new Label();
+            factionPlanTree = new TreeView();
             SuspendLayout();
             // 
             // button1
@@ -51,24 +53,15 @@
             // loadedMods
             // 
             loadedMods.FormattingEnabled = true;
-            loadedMods.Location = new Point(12, 41);
+            loadedMods.Location = new Point(12, 95);
             loadedMods.Name = "loadedMods";
-            loadedMods.Size = new Size(277, 364);
+            loadedMods.Size = new Size(277, 310);
             loadedMods.TabIndex = 3;
-            // 
-            // factionsplansbox
-            // 
-            factionsplansbox.FormattingEnabled = true;
-            factionsplansbox.ItemHeight = 15;
-            factionsplansbox.Location = new Point(394, 41);
-            factionsplansbox.Name = "factionsplansbox";
-            factionsplansbox.Size = new Size(295, 364);
-            factionsplansbox.TabIndex = 4;
             // 
             // FactionList
             // 
             FactionList.FormattingEnabled = true;
-            FactionList.Location = new Point(12, 12);
+            FactionList.Location = new Point(12, 41);
             FactionList.Name = "FactionList";
             FactionList.Size = new Size(277, 23);
             FactionList.TabIndex = 5;
@@ -80,7 +73,7 @@
             button2.Name = "button2";
             button2.Size = new Size(93, 86);
             button2.TabIndex = 6;
-            button2.Text = "Add to Plan";
+            button2.Text = "Add to Plan ->";
             button2.UseVisualStyleBackColor = true;
             button2.Click += button2_Click;
             // 
@@ -102,16 +95,44 @@
             label2.TabIndex = 8;
             label2.Text = "Use once all factions are planned";
             // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(12, 20);
+            label3.Name = "label3";
+            label3.Size = new Size(51, 15);
+            label3.TabIndex = 9;
+            label3.Text = "Factions";
+            label3.Click += label3_Click;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(12, 77);
+            label4.Name = "label4";
+            label4.Size = new Size(53, 15);
+            label4.TabIndex = 10;
+            label4.Text = "Mod List";
+            // 
+            // factionPlanTree
+            // 
+            factionPlanTree.Location = new Point(394, 41);
+            factionPlanTree.Name = "factionPlanTree";
+            factionPlanTree.Size = new Size(295, 364);
+            factionPlanTree.TabIndex = 11;
+            // 
             // StarArmory
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(876, 450);
+            ClientSize = new Size(876, 428);
+            Controls.Add(factionPlanTree);
+            Controls.Add(label4);
+            Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(button2);
             Controls.Add(FactionList);
-            Controls.Add(factionsplansbox);
             Controls.Add(loadedMods);
             Controls.Add(button1);
             Icon = (Icon)resources.GetObject("$this.Icon");
@@ -126,10 +147,12 @@
 
         private Button button1;
         private CheckedListBox loadedMods;
-        private ListBox factionsplansbox;
         private ComboBox FactionList;
         private Button button2;
         private Label label1;
         private Label label2;
+        private Label label3;
+        private Label label4;
+        private TreeView factionPlanTree;
     }
 }

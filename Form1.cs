@@ -5,6 +5,7 @@ using Mutagen.Bethesda.Plugins;
 using Mutagen.Bethesda.Starfield;
 using Mutagen.Bethesda.Plugins.Binary.Parameters;
 using Mutagen.Bethesda.Plugins.Order;
+using System.Reactive.Joins;
 
 namespace StarArmory
 {
@@ -44,15 +45,16 @@ namespace StarArmory
                 Armory.factions.Add(faction.Name, faction);
                 FactionList.Items.Add(faction.Name);
             }
+
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
+
             ModKey newMod = new ModKey("StarArmoryPatch", ModType.Master);
             StarfieldMod myMod = new StarfieldMod(newMod, StarfieldRelease.Starfield);
 
-            foreach(var plan in Armory.plans)
+            foreach (var plan in Armory.plans)
             {
                 Armory.Clear();
                 Armory.LoadClothes(plan.mods);
@@ -104,7 +106,7 @@ namespace StarArmory
                 MessageBox.Show("Exported StarArmoryPatch.esm to Data Folder");
 
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show("Can't save, patch is already in data folder. Delete patch esm then restart. TO FIX.");
             }
@@ -134,7 +136,27 @@ namespace StarArmory
 
             factionplan.mods = checkedmods;
             Armory.plans.Add(factionplan);
-            factionsplansbox.Items.Add(factionplan.faction.Name);
+
+            factionPlanTree.Nodes.Clear();
+
+            factionPlanTree.BeginUpdate();
+            factionPlanTree.Nodes.Add("Plan");
+            for (int i = 0; i < Armory.plans.Count; i++)
+            {
+                factionPlanTree.Nodes[0].Nodes.Add(Armory.plans[i].faction.Name);
+                for (int j = 0; j < Armory.plans[i].mods.Count; j++)
+                {
+                    factionPlanTree.Nodes[0].Nodes[i].Nodes.Add(Armory.plans[i].mods[j]);
+                }
+            }
+            factionPlanTree.EndUpdate();
+
         }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }
