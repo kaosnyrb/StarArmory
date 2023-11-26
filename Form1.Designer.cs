@@ -48,7 +48,7 @@
             button1.TabIndex = 0;
             button1.Text = "Build ESM";
             button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            button1.Click += ExportESMButton;
             // 
             // loadedMods
             // 
@@ -65,7 +65,6 @@
             FactionList.Name = "FactionList";
             FactionList.Size = new Size(277, 23);
             FactionList.TabIndex = 5;
-            FactionList.SelectedIndexChanged += FactionList_SelectedIndexChanged;
             // 
             // button2
             // 
@@ -75,7 +74,7 @@
             button2.TabIndex = 6;
             button2.Text = "Add to Plan ->";
             button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
+            button2.Click += AddToPlanButton;
             // 
             // label1
             // 
@@ -103,7 +102,6 @@
             label3.Size = new Size(51, 15);
             label3.TabIndex = 9;
             label3.Text = "Factions";
-            label3.Click += label3_Click;
             // 
             // label4
             // 
@@ -138,7 +136,6 @@
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "StarArmory";
             Text = "StarArmory";
-            Load += StarArmory_Load;
             ResumeLayout(false);
             PerformLayout();
         }

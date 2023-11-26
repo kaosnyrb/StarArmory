@@ -6,11 +6,13 @@ using Mutagen.Bethesda.Starfield;
 using Mutagen.Bethesda.Plugins.Binary.Parameters;
 using Mutagen.Bethesda.Plugins.Order;
 using System.Reactive.Joins;
+using System;
 
 namespace StarArmory
 {
     public partial class StarArmory : Form
     {
+        public static StarfieldMod myMod;
 
         public StarArmory()
         {
@@ -47,12 +49,39 @@ namespace StarArmory
             }
 
         }
+        private void AddToPlanButton(object sender, EventArgs e)
+        {
+            var factionplan = new FactionPlan();
+            factionplan.faction = Armory.factions[FactionList.SelectedItem.ToString()];
+            List<string> checkedmods = new List<string>();
+            foreach (var item in loadedMods.CheckedItems)
+            {
+                checkedmods.Add(item.ToString());
+            }
 
-        private void button1_Click(object sender, EventArgs e)
+            factionplan.mods = checkedmods;
+            Armory.plans.Add(factionplan);
+
+            factionPlanTree.Nodes.Clear();
+
+            factionPlanTree.BeginUpdate();
+            factionPlanTree.Nodes.Add("Plan");
+            for (int i = 0; i < Armory.plans.Count; i++)
+            {
+                factionPlanTree.Nodes[0].Nodes.Add(Armory.plans[i].faction.Name);
+                for (int j = 0; j < Armory.plans[i].mods.Count; j++)
+                {
+                    factionPlanTree.Nodes[0].Nodes[i].Nodes.Add(Armory.plans[i].mods[j]);
+                }
+            }
+            factionPlanTree.EndUpdate();
+        }
+
+        private void ExportESMButton(object sender, EventArgs e)
         {
 
             ModKey newMod = new ModKey("StarArmoryPatch", ModType.Master);
-            StarfieldMod myMod = new StarfieldMod(newMod, StarfieldRelease.Starfield);
+            myMod = new StarfieldMod(newMod, StarfieldRelease.Starfield);
 
             foreach (var plan in Armory.plans)
             {
@@ -94,69 +123,20 @@ namespace StarArmory
                     }
                 }
             }
-
+            string datapath = Armory.gameEnvironment.DataFolderPath;
             //Export
             Armory.gameEnvironment.Dispose();
+            Armory.immutableLoadOrderLinkCache.Dispose();
+            GC.Collect(); GC.WaitForPendingFinalizers();
             try
             {
-                myMod.WriteToBinary(Armory.gameEnvironment.DataFolderPath + "\\StarArmoryPatch.esm", new BinaryWriteParameters()
-                {
-                    MastersListOrdering = new MastersListOrderingByLoadOrder(Armory.gameEnvironment.LoadOrder)
-                });
+                myMod.WriteToBinary(datapath + "\\StarArmoryPatch.esm");
                 MessageBox.Show("Exported StarArmoryPatch.esm to Data Folder");
-
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Can't save, patch is already in data folder. Delete patch esm then restart. TO FIX.");
+                MessageBox.Show(ex.Message);
             }
-
         }
-
-        private void StarArmory_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void FactionList_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            var factionplan = new FactionPlan();
-            factionplan.faction = Armory.factions[FactionList.SelectedItem.ToString()];
-            List<string> checkedmods = new List<string>();
-            foreach (var item in loadedMods.CheckedItems)
-            {
-                checkedmods.Add(item.ToString());
-            }
-
-            factionplan.mods = checkedmods;
-            Armory.plans.Add(factionplan);
-
-            factionPlanTree.Nodes.Clear();
-
-            factionPlanTree.BeginUpdate();
-            factionPlanTree.Nodes.Add("Plan");
-            for (int i = 0; i < Armory.plans.Count; i++)
-            {
-                factionPlanTree.Nodes[0].Nodes.Add(Armory.plans[i].faction.Name);
-                for (int j = 0; j < Armory.plans[i].mods.Count; j++)
-                {
-                    factionPlanTree.Nodes[0].Nodes[i].Nodes.Add(Armory.plans[i].mods[j]);
-                }
-            }
-            factionPlanTree.EndUpdate();
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
     }
 }
