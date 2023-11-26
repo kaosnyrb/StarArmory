@@ -1,0 +1,15 @@
+LL_Armor_CrimsonFleet_Body_AllRoles_Leveled_Any [LVLI:00367F46]
+
+LL_Armor_CrimsonFleet_Helmet_AllRoles_Leveled_Any [LVLI:00367F47]
+LL_Armor_CrimsonFleet_Backpack_Leveled_Any [LVLI:0002C7B2]
+
+LL_Armor_Ecliptic_Helmet_Leveled_Any [LVLI:0002C607]
+LL_Armor_Ecliptic_Body_Leveled_Any [LVLI:0002C7B1]
+LL_Armor_Ecliptic_Backpack_Leveled_Any [LVLI:00039B2C]
+
+LL_Spacesuit_Miner_Body_AnyQuality [LVLI:0015FD0C]
+LL_Spacesuit_Miner_Helmet_AnyQuality [LVLI:0015FD0B]
+LL_Spacesuit_Miner_Backpack_Any_AnyQuality [LVLI:0015FD0D]
+
+LL_Clothes_Civilian_Formal_Any [LVLI:00134207]
+
