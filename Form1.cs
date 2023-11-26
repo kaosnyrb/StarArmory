@@ -10,19 +10,21 @@ namespace StarArmory
 {
     public partial class StarArmory : Form
     {
+
         public StarArmory()
         {
             InitializeComponent();
             var env = GameEnvironment.Typical.Starfield(StarfieldRelease.Starfield);
             foreach (var mod in env.LoadOrder)
             {
+                if (mod.Value.ModKey.FileName == "Starfield.esm") continue;
                 if (mod.Value.Mod != null)
                 {
                     if (mod.Value.Mod.Armors != null)
                     {
                         if (mod.Value.Mod.Armors.Count > 0)
                         {
-                            loadedMods.Items.Add(mod.Value.FileName,true);
+                            loadedMods.Items.Add(mod.Value.FileName, true);
                         }
                     }
                 }
@@ -32,46 +34,107 @@ namespace StarArmory
             Armory.gameEnvironment = GameEnvironment.Typical.Starfield(StarfieldRelease.Starfield);
             Armory.immutableLoadOrderLinkCache = Armory.gameEnvironment.LoadOrder.ToImmutableLinkCache();
 
+            Armory.plans = new List<FactionPlan>();
+            Armory.factions = new Dictionary<string, Faction>();
 
-
+            string[] fileEntries = Directory.GetFiles("Factions/");
+            foreach (var entry in fileEntries)
+            {
+                var faction = YamlImporter.getObjectFromFile<Faction>(entry);
+                Armory.factions.Add(faction.Name, faction);
+                FactionList.Items.Add(faction.Name);
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            List<string> checkedmods = new List<string>();
-            foreach(var item in loadedMods.CheckedItems)
-            {
-                checkedmods.Add(item.ToString());
-            }
-            Armory.LoadClothes(checkedmods);
-
+            
             ModKey newMod = new ModKey("StarArmoryPatch", ModType.Master);
             StarfieldMod myMod = new StarfieldMod(newMod, StarfieldRelease.Starfield);
 
-            //Outfit.DoOutfits(myMod,checkedmods);
-            LeveledItem.AddItemsToLevelledList(myMod,Armory.hats, 737735);//LL_Crowd_Hairs_Hats_Neon [LVLI:000B41C7]
-
-            var targets = new List<uint>() { };
-            targets.Add(1004639);// LL_Crowd_Clothes_Neon_Male[LVLI: 000F545F]
-            targets.Add(684083);//LL_Crowd_Clothes_Neon_Female_Thin [LVLI:000A7033]
-            targets.Add(1004638);//LL_Crowd_Clothes_Neon_Female[LVLI: 000F545E]
-            targets.Add(684082);//LL_Crowd_Clothes_Neon_Female_Overweight [LVLI:000A7032]
-            for (int i = 0; i < targets.Count; i++) {
-                LeveledItem.AddItemsToLevelledList(myMod, Armory.clothes, targets[i]);
+            foreach(var plan in Armory.plans)
+            {
+                Armory.Clear();
+                Armory.LoadClothes(plan.mods);
+                if (plan.faction.Hats != null)
+                {
+                    foreach (var hat in plan.faction.Hats)
+                    {
+                        LeveledItem.AddItemsToLevelledList(myMod, Armory.hats, hat.modname, hat.formkey);
+                    }
+                }
+                if (plan.faction.Clothes != null)
+                {
+                    foreach (var clothes in plan.faction.Clothes)
+                    {
+                        LeveledItem.AddItemsToLevelledList(myMod, Armory.clothes, clothes.modname, clothes.formkey);
+                    }
+                }
+                if (plan.faction.Spacesuits != null)
+                {
+                    foreach (var suit in plan.faction.Spacesuits)
+                    {
+                        LeveledItem.AddItemsToLevelledList(myMod, Armory.spacesuits, suit.modname, suit.formkey);
+                    }
+                }
+                if (plan.faction.SpaceHelmets != null)
+                {
+                    foreach (var helm in plan.faction.SpaceHelmets)
+                    {
+                        LeveledItem.AddItemsToLevelledList(myMod, Armory.spacehelmets, helm.modname, helm.formkey);
+                    }
+                }
+                if (plan.faction.Boostpacks != null)
+                {
+                    foreach (var pack in plan.faction.Boostpacks)
+                    {
+                        LeveledItem.AddItemsToLevelledList(myMod, Armory.boostpacks, pack.modname, pack.formkey);
+                    }
+                }
             }
-
-            LeveledItem.AddItemsToLevelledList(myMod, Armory.spacesuits, 496138);//LL_Armor_Spacer_Body_Leveled_Any [LVLI:0007920A]
-            LeveledItem.AddItemsToLevelledList(myMod, Armory.spacehelmets, 496140);//LL_Armor_Spacer_Helmet_Leveled_Any [LVLI:0007920C]
-            LeveledItem.AddItemsToLevelledList(myMod, Armory.boostpacks, 496136);//LL_Armor_Spacer_Backpack_Leveled_Any[LVLI: 00079208]
 
             //Export
             Armory.gameEnvironment.Dispose();
-            myMod.WriteToBinary(Armory.gameEnvironment.DataFolderPath + "\\StarArmoryPatch.esm", new BinaryWriteParameters()
+            try
             {
-                MastersListOrdering = new MastersListOrderingByLoadOrder(Armory.gameEnvironment.LoadOrder)
-            });
-            MessageBox.Show("Exported StarArmoryPatch.esm to Data Folder");
+                myMod.WriteToBinary(Armory.gameEnvironment.DataFolderPath + "\\StarArmoryPatch.esm", new BinaryWriteParameters()
+                {
+                    MastersListOrdering = new MastersListOrderingByLoadOrder(Armory.gameEnvironment.LoadOrder)
+                });
+                MessageBox.Show("Exported StarArmoryPatch.esm to Data Folder");
 
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+
+        }
+
+        private void StarArmory_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FactionList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            var factionplan = new FactionPlan();
+            factionplan.faction = Armory.factions[FactionList.SelectedItem.ToString()];
+            List<string> checkedmods = new List<string>();
+            foreach (var item in loadedMods.CheckedItems)
+            {
+                checkedmods.Add(item.ToString());
+            }
+
+            factionplan.mods = checkedmods;
+            Armory.plans.Add(factionplan);
+            factionsplansbox.Items.Add(factionplan.faction.Name);
         }
     }
 }

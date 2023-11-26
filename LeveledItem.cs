@@ -11,9 +11,24 @@ namespace StarArmory
 {
     class LeveledItem
     {
-        public static void AddItemsToLevelledList(StarfieldMod myMod, List<IArmorGetter> newitems, uint levellist)
+        public static void AddItemsToLevelledList(StarfieldMod myMod, List<IArmorGetter> newitems, string filename, uint levellist)
         {
-            FormKey formKey = new FormKey(Armory.gameEnvironment.LoadOrder[0].ModKey, levellist);
+            ModKey key = new ModKey();
+            bool found = false;
+            for(int i =0; i < Armory.gameEnvironment.LoadOrder.Count; i++)
+            {
+                if (Armory.gameEnvironment.LoadOrder[0].FileName == filename)
+                {
+                    key = Armory.gameEnvironment.LoadOrder[0].ModKey;
+                    found = true;
+                    break;
+                }
+            }
+            if (!found)
+            {
+                new Exception("Couldn't file mod name " + filename + " in load order! Check the factions yamls for the error file.");
+            }
+            FormKey formKey = new FormKey(key, levellist);
             var citizenclothes = Armory.immutableLoadOrderLinkCache.Resolve<ILeveledItemGetter>(formKey);
             var newlist = myMod.LeveledItems.GetOrAddAsOverride(citizenclothes);
 

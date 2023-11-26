@@ -11,6 +11,7 @@
   <ItemGroup>
     <PackageReference Include="Mutagen.Bethesda.FormKeys.Starfield" Version="3.2.0" />
     <PackageReference Include="Mutagen.Bethesda.Starfield" Version="0.43.0.1-nightly-20231117-100516" />
+    <PackageReference Include="YamlDotNet" Version="13.7.1" />
   </ItemGroup>
 
 </Project>

@@ -28,6 +28,18 @@ namespace StarArmory
         public static List<IArmorGetter> spacehelmets { get; set; } = new List<IArmorGetter>();
         public static List<IArmorGetter> boostpacks { get; set; } = new List<IArmorGetter>();
 
+        public static List<FactionPlan> plans;
+        public static Dictionary<string, Faction> factions;
+
+
+        public static void Clear()
+        {
+            clothes.Clear();
+            hats.Clear();
+            spacesuits.Clear();
+            spacehelmets.Clear();
+            boostpacks.Clear();
+        }
 
         public static void LoadClothes(List<string> mods)
         {
