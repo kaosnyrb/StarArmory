@@ -1,0 +1,14 @@
+Name: Paradiso Citizens
+Hats:
+- Formkey: 737734
+  Modname: Starfield.esm
+Clothes: 
+- Formkey: 779336
+  Modname: Starfield.esm
+  EditorId: LL_Clothes_PD_GenericGuest_ResortWear [LVLI:000BE448]
+- Formkey: 779335
+  Modname: Starfield.esm
+  EditorId: LL_Clothes_PD_GenericGuest_Swimwear [LVLI:000BE447]
+Spacesuits: 
+SpaceHelmets: 
+Boostpacks: 

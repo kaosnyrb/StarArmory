@@ -1,12 +1,21 @@
 Name: Crimson Fleet
 Hats:
 Clothes: 
+- Formkey: 363050
+  Modname: Starfield.esm
+  EditorId: LL_Clothes_CrimsonFleet_Any [LVLI:0013420C]
+- Formkey: 363050
+  Modname: Starfield.esm
+  EditorId: LL_Clothes_CrimsonFleet_NoCaptain [LVLI:001CC022]
 Spacesuits: 
 - Formkey: 3571526
   Modname: Starfield.esm
+  EditorId: LL_Armor_CrimsonFleet_Body_AllRoles_Leveled_Any [LVLI:00367F46]
 SpaceHelmets: 
 - Formkey: 3571527
   Modname: Starfield.esm
+  EditorId: LL_Armor_CrimsonFleet_Helmet_AllRoles_Leveled_Any [LVLI:00367F47]
 Boostpacks: 
 - Formkey: 182194
   Modname: Starfield.esm
+  EditorId: LL_Armor_CrimsonFleet_Backpack_Leveled_Any [LVLI:0002C7B2]

@@ -2,13 +2,17 @@ Name: Akila Citizens
 Hats:
 - Formkey: 737734
   Modname: Starfield.esm
+  EditorId: LL_Crowd_Hairs_Hats_Akila [LVLI:000B41C6]
 Clothes: 
 - Formkey: 1004640
   Modname: Starfield.esm
+  EditorId: LL_Crowd_Clothes_Akila [LVLI:000F5460]
 - Formkey: 684090
   Modname: Starfield.esm
+  EditorId: LL_Crowd_Clothes_Akila_Overweight [LVLI:000A703A]
 - Formkey: 684073
   Modname: Starfield.esm
+  EditorId: LL_Crowd_Clothes_Akila_Thin [LVLI:000A7029]
 Spacesuits: 
 SpaceHelmets: 
 Boostpacks: 

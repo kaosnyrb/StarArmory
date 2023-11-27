@@ -4,9 +4,12 @@ Clothes:
 Spacesuits: 
 - Formkey: 496138
   Modname: Starfield.esm
+  EditorId: LL_Armor_Spacer_Body_Leveled_Any [LVLI:0007920A]
 SpaceHelmets: 
 - Formkey: 496140
   Modname: Starfield.esm
+  EditorId: LL_Armor_Spacer_Helmet_Leveled_Any [LVLI:0007920C]
 Boostpacks: 
 - Formkey: 496136
   Modname: Starfield.esm
+  EditorId: LL_Armor_Spacer_Backpack_Leveled_Any [LVLI:00079208]

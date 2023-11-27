@@ -29,6 +29,9 @@ namespace StarArmory
 
         public uint formkey { get; set; }
         public string modname { get; set; }
+
+        //Optional but useful when making factions.
+        public string editorId { get; set; }
     }
 
     class FactionPlan

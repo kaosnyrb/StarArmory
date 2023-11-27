@@ -1,0 +1,52 @@
+Name: Miners and Workers
+Hats:
+- Formkey: 1629593
+  Modname: Starfield.esm
+  EditorId: LL_Clothes_CY_Citizen_Hat [LVLI:0018DD99]
+- Formkey: 46618
+  Modname: Starfield.esm
+  EditorId: LL_Clothes_NH_Citizen_Hat [LVLI:0000B61A]
+Clothes: 
+- Formkey: 202733
+  Modname: Starfield.esm
+  EditorId: LL_Outfit_CY_Miner_Any [LVLI:000317ED]
+- Formkey: 338676
+  Modname: Starfield.esm
+  EditorId: LL_Outfit_CY_Miner_Clothing [LVLI:00052AF4]  
+- Formkey: 237775
+  Modname: Starfield.esm
+  EditorId: LL_Clothes_Worker_Any [LVLI:0003A0CF]
+- Formkey: 1262082
+  Modname: Starfield.esm
+  EditorId: LL_Clothes_Utility_Any [LVLI:00134202]
+- Formkey: 2448640
+  Modname: Starfield.esm
+  EditorId: LL_Clothes_Miner_Any [LVLI:00255D00]
+- Formkey: 604730
+  Modname: Starfield.esm
+  EditorId: LL_Clothes_CY_Civilian_Any [LVLI:00093A3A]
+- Formkey: 46565
+  Modname: Starfield.esm
+  EditorId: LL_Clothes_NH_Civilian_Any [LVLI:0000B5E5]
+Spacesuits: 
+- Formkey: 1441036
+  Modname: Starfield.esm
+  EditorId: LL_Spacesuit_Miner_Body_AnyQuality [LVLI:0015FD0C]
+- Formkey: 1873049
+  Modname: Starfield.esm
+  EditorId: LL_Spacesuit_Any_Leveled [LVLI:001C9499]
+- Formkey: 1441054
+  Modname: Starfield.esm
+  EditorId: LL_Spacesuit_SpaceTrucker_Body_AnyQuality [LVLI:0015FD1E]  
+SpaceHelmets: 
+- Formkey: 1441035
+  Modname: Starfield.esm
+  EditorId: LL_Spacesuit_Miner_Helmet_AnyQuality [LVLI:0015FD0B]
+Boostpacks: 
+- Formkey: 1441037
+  Modname: Starfield.esm
+  EditorId: LL_Spacesuit_Miner_Backpack_Any_AnyQuality [LVLI:0015FD0D]
+- Formkey: 2513556
+  Modname: Starfield.esm
+  EditorId: LL_Spacesuit_Backpack_Any_Leveled [LVLI:00265A94]
+

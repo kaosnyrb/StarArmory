@@ -16,6 +16,7 @@ namespace StarArmory
             using (var env = GameEnvironment.Typical.Starfield(StarfieldRelease.Starfield))
             {
                 var immutableLoadOrderLinkCache = env.LoadOrder.ToImmutableLinkCache();
+
                 ModKey key = new ModKey();
                 bool found = false;
                 for (int i = 0; i < env.LoadOrder.Count; i++)
@@ -33,8 +34,9 @@ namespace StarArmory
                 }
                 FormKey formKey = new FormKey(key, levellist);
                 var citizenclothes = immutableLoadOrderLinkCache.Resolve<ILeveledItemGetter>(formKey);
+                //Remove any existing patchs.
+                bool result = myMod.LeveledItems.Remove(formKey);
                 var newlist = myMod.LeveledItems.GetOrAddAsOverride(citizenclothes);
-
                 for (int i = 0; i < newitems.Count; i++)
                 {
                     newlist.Entries.Add(new LeveledItemEntry()

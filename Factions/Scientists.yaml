@@ -1,0 +1,17 @@
+Name: Scientists
+Hats:
+- Formkey: 737734
+  Modname: Starfield.esm
+Clothes: 
+- Formkey: 1262086
+  Modname: Starfield.esm
+  EditorId: LL_Clothes_Science_Any [LVLI:00134206]
+- Formkey: 150774
+  Modname: Starfield.esm
+  EditorId: LL_Clothes_Ryujin_LabWorker_Any [LVLI:00024CF6]
+- Formkey: 2535674
+  Modname: Starfield.esm
+  EditorId: LL_Clothes_SQ_Scientist_Any [LVLI:0026B0FA]
+Spacesuits: 
+SpaceHelmets: 
+Boostpacks: 

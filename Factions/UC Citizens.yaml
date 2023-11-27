@@ -2,21 +2,56 @@ Name: UC Citizens
 Hats:
 - Formkey: 737736
   Modname: Starfield.esm
+  EditorId: LL_Crowd_Hairs_Hats_NA [LVLI:000B41C8]
 - Formkey: 3216188
   Modname: Starfield.esm
+  EditorId: LL_Crowd_Hairs_Hats_ALL [LVLI:0031133C]
+- Formkey: 2535672
+  Modname: Starfield.esm
+  EditorId: LL_Clothes_Colonist_Headwear_Any [LVLI:0026B0F8]
 Clothes: 
 - Formkey: 2441757
   Modname: Starfield.esm
+  EditorId: LL_Crowd_Clothes_Generic_Female [LVLI:0025421D]
 - Formkey: 684088
   Modname: Starfield.esm
+  EditorId: LL_Crowd_Clothes_Generic_Female_Overweight [LVLI:000A7038]
 - Formkey: 684080
   Modname: Starfield.esm
+  EditorId: LL_Crowd_Clothes_Generic_Female_Thin [LVLI:000A7030]
 - Formkey: 413386
   Modname: Starfield.esm
+  EditorId: LL_Crowd_Clothes_Generic_Male [LVLI:00064ECA]
 - Formkey: 684070
   Modname: Starfield.esm
+  EditorId: LL_Crowd_Clothes_Generic_Male_Overweight [LVLI:000A7026]
 - Formkey: 684081
   Modname: Starfield.esm
+  EditorId: LL_Crowd_Clothes_Generic_Male_Thin [LVLI:000A7031]
+- Formkey: 2734548
+  Modname: Starfield.esm
+  EditorId: LL_Clothes_Settler_Any [LVLI:0029B9D4]
+- Formkey: 1262093
+  Modname: Starfield.esm
+  EditorId: LL_Clothes_Colonist_Any [LVLI:0013420D]
+- Formkey: 2535673
+  Modname: Starfield.esm
+  EditorId: LL_Clothes_Merchant_Any [LVLI:0026B0F9]
+- Formkey: 1441054
+  Modname: Starfield.esm
+  EditorId: LL_Clothes_Employee_Any [LVLI:00134209]
+- Formkey: 1441054
+  Modname: Starfield.esm
+  EditorId: LL_Clothes_Civilian_UC [LVLI:002E2B4E]
+- Formkey: 1441054
+  Modname: Starfield.esm
+  EditorId: LL_Clothes_Civilian_Any [LVLI:0013420E]
+- Formkey: 1441054
+  Modname: Starfield.esm
+  EditorId: LL_Clothes_Any [LVLI:0027926D]
 Spacesuits: 
 SpaceHelmets: 
 Boostpacks: 
+- Formkey: 837619
+  Modname: Starfield.esm
+  EditorId: LL_Spacesuit_Backpack_Citizen_Leveled [LVLI:000CC7F3]

@@ -47,6 +47,7 @@ namespace StarArmory
                 Armory.factions.Add(faction.Name, faction);
                 FactionList.Items.Add(faction.Name);
             }
+            FactionList.SelectedItem = FactionList.Items[0];
 
         }
         private void AddToPlanButton(object sender, EventArgs e)
@@ -60,6 +61,14 @@ namespace StarArmory
             }
 
             factionplan.mods = checkedmods;
+            for (int i = 0; i < Armory.plans.Count; i++)
+            {
+                if (Armory.plans[i].faction.Name == factionplan.faction.Name)
+                {
+                    Armory.plans.RemoveAt(i);
+                }
+            }
+
             Armory.plans.Add(factionplan);
 
             factionPlanTree.Nodes.Clear();
@@ -74,11 +83,18 @@ namespace StarArmory
                     factionPlanTree.Nodes[0].Nodes[i].Nodes.Add(Armory.plans[i].mods[j]);
                 }
             }
+            factionPlanTree.Nodes[0].Expand();
             factionPlanTree.EndUpdate();
         }
 
         private void ExportESMButton(object sender, EventArgs e)
         {
+            string datapath = "";
+            using (var env = GameEnvironment.Typical.Starfield(StarfieldRelease.Starfield))
+            {
+                datapath = env.DataFolderPath;
+            }
+            File.Delete(datapath + "\\StarArmoryPatch.esm");
 
             ModKey newMod = new ModKey("StarArmoryPatch", ModType.Master);
             myMod = new StarfieldMod(newMod, StarfieldRelease.Starfield);
@@ -123,11 +139,7 @@ namespace StarArmory
                     }
                 }
             }
-            string datapath = "";
-            using (var env = GameEnvironment.Typical.Starfield(StarfieldRelease.Starfield))
-            {
-                datapath = env.DataFolderPath;
-            }
+
             //Export
             try
             {

@@ -72,7 +72,7 @@
             button2.Name = "button2";
             button2.Size = new Size(93, 86);
             button2.TabIndex = 6;
-            button2.Text = "Add to Plan ->";
+            button2.Text = "Add to Faction Leveled List ->";
             button2.UseVisualStyleBackColor = true;
             button2.Click += AddToPlanButton;
             // 
