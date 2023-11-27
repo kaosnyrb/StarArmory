@@ -16,11 +16,7 @@ using static Mutagen.Bethesda.FormKeys.Starfield.Starfield;
 namespace StarArmory
 {
     class Armory
-    {
-        public static IGameEnvironment<IStarfieldMod, IStarfieldModGetter> gameEnvironment;
-        public static Mutagen.Bethesda.Plugins.Cache.Internals.Implementations.ImmutableLoadOrderLinkCache<IStarfieldMod, IStarfieldModGetter> immutableLoadOrderLinkCache;
-
-
+    {        
         public static List<IArmorGetter> clothes { get; set; } = new List<IArmorGetter>();
         public static List<IArmorGetter> hats { get; set; } = new List<IArmorGetter>();
 
@@ -43,53 +39,56 @@ namespace StarArmory
 
         public static void LoadClothes(List<string> mods)
         {
-            FormKey Apparel = new FormKey(gameEnvironment.LoadOrder[0].ModKey, 918668);//ArmorTypeApparelOrNakedBody[KYWD: 000E048C]
-            FormKey Head = new FormKey(gameEnvironment.LoadOrder[0].ModKey, 918667);//ArmorTypeApparelHead [KYWD:000E048B]
-            FormKey spacesuit = new FormKey(gameEnvironment.LoadOrder[0].ModKey, 2344896);//ArmorTypeSpacesuitBody [KYWD:0023C7C0]
-            FormKey spacehelmet = new FormKey(gameEnvironment.LoadOrder[0].ModKey, 2344897);//ArmorTypeSpacesuitBackpack [KYWD:0023C7BF]
-            FormKey boostpack = new FormKey(gameEnvironment.LoadOrder[0].ModKey, 2344895);//ArmorTypeSpacesuitHelmet[KYWD: 0023C7C1]
-
-
-            foreach (var mod in gameEnvironment.LoadOrder)
+            using (var env = GameEnvironment.Typical.Starfield(StarfieldRelease.Starfield))
             {
-                if (!mods.Contains(mod.Value.FileName))
+                var immutableLoadOrderLinkCache = env.LoadOrder.ToImmutableLinkCache();
+                FormKey Apparel = new FormKey(env.LoadOrder[0].ModKey, 918668);//ArmorTypeApparelOrNakedBody[KYWD: 000E048C]
+                FormKey Head = new FormKey(env.LoadOrder[0].ModKey, 918667);//ArmorTypeApparelHead [KYWD:000E048B]
+                FormKey spacesuit = new FormKey(env.LoadOrder[0].ModKey, 2344896);//ArmorTypeSpacesuitBody [KYWD:0023C7C0]
+                FormKey spacehelmet = new FormKey(env.LoadOrder[0].ModKey, 2344897);//ArmorTypeSpacesuitBackpack [KYWD:0023C7BF]
+                FormKey boostpack = new FormKey(env.LoadOrder[0].ModKey, 2344895);//ArmorTypeSpacesuitHelmet[KYWD: 0023C7C1]
+
+
+                foreach (var mod in env.LoadOrder)
                 {
-                    continue;
-                }
-                if (mod.Value.Mod != null)
-                {
-                    var armours = mod.Value.Mod.Armors.ToList();
-                    foreach (var armor in armours)
+                    if (!mods.Contains(mod.Value.FileName))
                     {
-                        if (armor.HasKeyword(Apparel))
+                        continue;
+                    }
+                    if (mod.Value.Mod != null)
+                    {
+                        var armours = mod.Value.Mod.Armors.ToList();
+                        foreach (var armor in armours)
                         {
-                            var link = immutableLoadOrderLinkCache.Resolve<IArmorGetter>(armor.FormKey);
-                            clothes.Add(link);
-                        }
-                        if (armor.HasKeyword(Head))
-                        {
-                            var link = immutableLoadOrderLinkCache.Resolve<IArmorGetter>(armor.FormKey);
-                            hats.Add(link);
-                        }
-                        if (armor.HasKeyword(spacesuit))
-                        {
-                            var link = immutableLoadOrderLinkCache.Resolve<IArmorGetter>(armor.FormKey);
-                            spacesuits.Add(link);
-                        }
-                        if (armor.HasKeyword(spacehelmet))
-                        {
-                            var link = immutableLoadOrderLinkCache.Resolve<IArmorGetter>(armor.FormKey);
-                            spacehelmets.Add(link);
-                        }
-                        if (armor.HasKeyword(boostpack))
-                        {
-                            var link = immutableLoadOrderLinkCache.Resolve<IArmorGetter>(armor.FormKey);
-                            boostpacks.Add(link);
+                            if (armor.HasKeyword(Apparel))
+                            {
+                                var link = immutableLoadOrderLinkCache.Resolve<IArmorGetter>(armor.FormKey);
+                                clothes.Add(link);
+                            }
+                            if (armor.HasKeyword(Head))
+                            {
+                                var link = immutableLoadOrderLinkCache.Resolve<IArmorGetter>(armor.FormKey);
+                                hats.Add(link);
+                            }
+                            if (armor.HasKeyword(spacesuit))
+                            {
+                                var link = immutableLoadOrderLinkCache.Resolve<IArmorGetter>(armor.FormKey);
+                                spacesuits.Add(link);
+                            }
+                            if (armor.HasKeyword(spacehelmet))
+                            {
+                                var link = immutableLoadOrderLinkCache.Resolve<IArmorGetter>(armor.FormKey);
+                                spacehelmets.Add(link);
+                            }
+                            if (armor.HasKeyword(boostpack))
+                            {
+                                var link = immutableLoadOrderLinkCache.Resolve<IArmorGetter>(armor.FormKey);
+                                boostpacks.Add(link);
+                            }
                         }
                     }
                 }
             }
         }
-
     }
 }

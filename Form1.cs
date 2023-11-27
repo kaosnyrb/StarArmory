@@ -17,25 +17,25 @@ namespace StarArmory
         public StarArmory()
         {
             InitializeComponent();
-            var env = GameEnvironment.Typical.Starfield(StarfieldRelease.Starfield);
-            foreach (var mod in env.LoadOrder)
+            using (var env = GameEnvironment.Typical.Starfield(StarfieldRelease.Starfield))
             {
-                if (mod.Value.ModKey.FileName == "Starfield.esm") continue;
-                if (mod.Value.Mod != null)
+                foreach (var mod in env.LoadOrder)
                 {
-                    if (mod.Value.Mod.Armors != null)
+                    if (mod.Value.ModKey.FileName == "Starfield.esm") continue;
+                    if (mod.Value.Mod != null)
                     {
-                        if (mod.Value.Mod.Armors.Count > 0)
+                        if (mod.Value.Mod.Armors != null)
                         {
-                            loadedMods.Items.Add(mod.Value.FileName, true);
+                            if (mod.Value.Mod.Armors.Count > 0)
+                            {
+                                loadedMods.Items.Add(mod.Value.FileName, true);
+                            }
                         }
                     }
                 }
             }
 
             Armory.clothes = new List<IArmorGetter>();
-            Armory.gameEnvironment = GameEnvironment.Typical.Starfield(StarfieldRelease.Starfield);
-            Armory.immutableLoadOrderLinkCache = Armory.gameEnvironment.LoadOrder.ToImmutableLinkCache();
 
             Armory.plans = new List<FactionPlan>();
             Armory.factions = new Dictionary<string, Faction>();
@@ -123,11 +123,12 @@ namespace StarArmory
                     }
                 }
             }
-            string datapath = Armory.gameEnvironment.DataFolderPath;
+            string datapath = "";
+            using (var env = GameEnvironment.Typical.Starfield(StarfieldRelease.Starfield))
+            {
+                datapath = env.DataFolderPath;
+            }
             //Export
-            Armory.gameEnvironment.Dispose();
-            Armory.immutableLoadOrderLinkCache.Dispose();
-            GC.Collect(); GC.WaitForPendingFinalizers();
             try
             {
                 myMod.WriteToBinary(datapath + "\\StarArmoryPatch.esm");
