@@ -39,7 +39,7 @@ namespace StarArmory
 
         public static void LoadClothes(List<string> mods)
         {
-            using (var env = GameEnvironment.Typical.Starfield(StarfieldRelease.Starfield))
+            using (var env = StarArmory.GetGameEnvironment())
             {
                 var immutableLoadOrderLinkCache = env.LoadOrder.ToImmutableLinkCache();
                 FormKey Apparel = new FormKey(env.LoadOrder[0].ModKey, 918668);//ArmorTypeApparelOrNakedBody[KYWD: 000E048C]

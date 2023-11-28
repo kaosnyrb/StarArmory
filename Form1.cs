@@ -7,6 +7,7 @@ using Mutagen.Bethesda.Plugins.Binary.Parameters;
 using Mutagen.Bethesda.Plugins.Order;
 using System.Reactive.Joins;
 using System;
+using Noggog;
 
 namespace StarArmory
 {
@@ -14,12 +15,28 @@ namespace StarArmory
     {
         public static StarfieldMod myMod;
 
+        public static IGameEnvironment<IStarfieldMod,IStarfieldModGetter> GetGameEnvironment()
+        {
+            try
+            {
+                var env = GameEnvironment.Typical.Starfield(StarfieldRelease.Starfield);
+                //throw new Exception();
+                return env;
+            }
+            catch {
+                var env = GameEnvironment.Typical.Builder<IStarfieldMod, IStarfieldModGetter>(GameRelease.Starfield)
+                    .TransformLoadOrderListings(x => x.Where(x => !x.ModKey.Name.Contains("StarArmory")))
+                    .WithTargetDataFolder(new DirectoryPath("../")).Build();
+                return env;
+            }
+        }
+
         public StarArmory()
         {
             InitializeComponent();
             try
             {
-                using (var env = GameEnvironment.Typical.Starfield(StarfieldRelease.Starfield))
+                using (var env = GetGameEnvironment())
                 {
                     foreach (var mod in env.LoadOrder)
                     {
@@ -105,7 +122,7 @@ namespace StarArmory
             try
             {
                 string datapath = "";
-                using (var env = GameEnvironment.Typical.Starfield(StarfieldRelease.Starfield))
+                using (var env = GetGameEnvironment())
                 {
                     datapath = env.DataFolderPath;
                 }

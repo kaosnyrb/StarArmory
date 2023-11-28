@@ -13,7 +13,7 @@ namespace StarArmory
     {
         public static void AddItemsToLevelledList(StarfieldMod myMod, List<IArmorGetter> newitems, string filename, uint levellist)
         {
-            using (var env = GameEnvironment.Typical.Starfield(StarfieldRelease.Starfield))
+            using (var env = StarArmory.GetGameEnvironment())
             {
                 var immutableLoadOrderLinkCache = env.LoadOrder.ToImmutableLinkCache();
 
