@@ -34,9 +34,6 @@ Clothes:
 - Formkey: 1262093
   Modname: Starfield.esm
   EditorId: LL_Clothes_Colonist_Any [LVLI:0013420D]
-- Formkey: 2535673
-  Modname: Starfield.esm
-  EditorId: LL_Clothes_Merchant_Any [LVLI:0026B0F9]
 - Formkey: 1441054
   Modname: Starfield.esm
   EditorId: LL_Clothes_Employee_Any [LVLI:00134209]
@@ -55,3 +52,8 @@ Boostpacks:
 - Formkey: 837619
   Modname: Starfield.esm
   EditorId: LL_Spacesuit_Backpack_Citizen_Leveled [LVLI:000CC7F3]
+OutfitSpacesuit:
+- Formkey: 425106
+  Modname: Starfield.esm
+  EditorId: Outfit_Spacesuit_Settler [OTFT:00067C92]
+OutfitClothes:

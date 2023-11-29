@@ -1,9 +1,4 @@
 ﻿using Mutagen.Bethesda.Plugins;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace StarArmory
 {
@@ -15,6 +10,9 @@ namespace StarArmory
         public List<SimpleForm> Spacesuits { get; set; }
         public List<SimpleForm> SpaceHelmets { get; set; }
         public List<SimpleForm> Boostpacks { get; set; }
+        public List<SimpleForm> OutfitSpacesuit { get; set; }
+        public List<SimpleForm> OutfitClothes { get; set; }
+
     }
 
     class SimpleForm
@@ -32,6 +30,14 @@ namespace StarArmory
 
         //Optional but useful when making factions.
         public string editorId { get; set; }
+
+        public FormKey GetFormKey()
+        {
+            string stripped = this.modname.Replace(".esm", "");
+            ModKey modKey = new ModKey(stripped, ModType.Master);
+            FormKey key = new FormKey(modKey, this.formkey);
+            return key;
+        }
     }
 
     class FactionPlan

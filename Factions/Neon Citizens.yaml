@@ -25,3 +25,19 @@ Clothes:
 Spacesuits: 
 SpaceHelmets: 
 Boostpacks: 
+OutfitClothes:
+- Formkey: 3547042
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Neon_Nightlife_Jumpsuit_01 [OTFT:00361FA2]
+- Formkey: 1260932
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Neon_Nightlife_Skirt_01 [OTFT:00133D84]
+- Formkey: 2039251
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Neon_Nightlife_Skirt_Black [OTFT:001F1DD3]
+- Formkey: 2039252
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Neon_Nightlife_Skirt_OliveBrown [OTFT:001F1DD4]
+- Formkey: 2039252
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Neon_Nightlife_Skirt_OliveBrown [OTFT:001F1DD4]

@@ -1,11 +1,8 @@
-﻿using Mutagen.Bethesda.Environments;
-using Mutagen.Bethesda.Plugins;
+﻿using Mutagen.Bethesda.Plugins;
 using Mutagen.Bethesda.Starfield;
 
 using Mutagen.Bethesda;
-using Mutagen.Bethesda.Plugins.Cache;
-using System.Drawing.Drawing2D;
-using static System.Windows.Forms.LinkLabel;
+using Noggog;
 
 namespace StarArmory
 {
@@ -21,9 +18,9 @@ namespace StarArmory
                 bool found = false;
                 for (int i = 0; i < env.LoadOrder.Count; i++)
                 {
-                    if (env.LoadOrder[0].FileName == filename)
+                    if (env.LoadOrder[i].FileName == filename)
                     {
-                        key = env.LoadOrder[0].ModKey;
+                        key = env.LoadOrder[i].ModKey;
                         found = true;
                         break;
                     }
@@ -47,6 +44,20 @@ namespace StarArmory
                         Reference = newitems[i].ToLink<ILeveledItemGetter>()
                     });
                 }
+            }
+        }
+
+        public static void AddItemsToList(StarfieldMod myMod, List<IArmorGetter> newitems, ExtendedList<LeveledItemEntry> leveledItemEntries, double ChanceNone)
+        {
+            for (int i = 0; i < newitems.Count; i++)
+            {
+                leveledItemEntries.Add(new LeveledItemEntry()
+                {
+                    Level = 1,
+                    ChanceNone = new Noggog.Percent(ChanceNone),
+                    Count = 1,
+                    Reference = newitems[i].ToLink<ILeveledItemGetter>()
+                });
             }
         }
     }

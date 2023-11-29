@@ -1,0 +1,44 @@
+Name: Business
+Hats:
+Clothes: 
+- Formkey: 2535673
+  Modname: Starfield.esm
+  EditorId: LL_Clothes_Merchant_Any [LVLI:0026B0F9]
+Spacesuits: 
+SpaceHelmets: 
+Boostpacks: 
+OutfitClothes:
+- Formkey: 1260922
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Ryujin_BusinessSuit_Executive_01 [OTFT:00133D7A]
+- Formkey: 2440074
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_BusinessSuit [OTFT:00253B8A]
+- Formkey: 2497028
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_BusinessSuitGreen [OTFT:00261A04]
+- Formkey: 1052198
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_BusinessSuitGreen_Neuroamp [OTFT:00100E26]
+- Formkey: 1781067
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_BusinessSuit_InfinityLTD [OTFT:001B2D4B]
+- Formkey: 84211
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Business_Any_NoRyujin [OTFT:000148F3]
+- Formkey: 1627058
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Formal_ShirtSlacks [OTFT:0018D3B2]
+- Formkey: 1627059
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Formal_ShirtSlacks_Pink [OTFT:0018D3B3]
+- Formkey: 1627057
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Formal_ShirtSlacks_Vest [OTFT:0018D3B1]
+- Formkey: 1627060
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Formal_ShirtSlacks_VestOrange [OTFT:0018D3B4]
+
+
+
+

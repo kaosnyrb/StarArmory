@@ -1,0 +1,39 @@
+Name: Security
+Hats:
+Clothes: 
+- Formkey: 1262086
+  Modname: Starfield.esm
+  EditorId: LL_Clothes_Science_Any [LVLI:00134206]
+Spacesuits: 
+SpaceHelmets: 
+Boostpacks: 
+OutfitClothes:
+- Formkey: 1415712
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Security_Generic [OTFT:00159A20]
+- Formkey: 3987475
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Security_Guard_01_Generdyne_with_Helmet [OTFT:003CD813]
+- Formkey: 1260896
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Security_Guard_01_NoHelmet [OTFT:00133D60]
+- Formkey: 3646288
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Security_Guard_01_Ryujin_NoHelmet [OTFT:0037A350]
+- Formkey: 3646289
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Security_Guard_01_Ryujin_with_Helmet [OTFT:0037A351]
+- Formkey: 1520074
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Security_Guard_01_Trident_with_Helmet [OTFT:001731CA]
+- Formkey: 1260898
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Security_Guard_01_with_Helmet [OTFT:00133D62]
+- Formkey: 1260898
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Security_Guard_01_with_Helmet [OTFT:00133D62]
+- Formkey: 2826521
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_UCPolice [OTFT:002B2119]
+
+

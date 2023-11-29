@@ -1,0 +1,11 @@
+Name: Starborn
+Hats:
+Clothes: 
+Spacesuits: 
+SpaceHelmets: 
+Boostpacks: 
+OutfitSpacesuit:
+- Formkey: 2556508
+  Modname: Starfield.esm
+  EditorId: Outfit_Spacesuit_Starborn_NPC [OTFT:0027025C]
+OutfitClothes:

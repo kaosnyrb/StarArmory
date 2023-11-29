@@ -13,3 +13,46 @@ Clothes:
 Spacesuits: 
 SpaceHelmets: 
 Boostpacks: 
+OutfitClothes:
+- Formkey: 1260871
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Medical_Doctor_01 [OTFT:00133D47]
+- Formkey: 11405
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Medical_Doctor_02 [OTFT:00002C8D]
+- Formkey: 8697
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Medical_Doctor_03 [OTFT:000021F9]
+- Formkey: 1467384
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Ryujin_LabWorker_Any [OTFT:001663F8]
+- Formkey: 1052203
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Ryujin_LabWorker_Neuroamp [OTFT:00100E2B]
+- Formkey: 1260905
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Ryujin_LabWorker_NoHood [OTFT:00133D69]
+- Formkey: 1260900
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Ryujin_LabWorker_with_Hood [OTFT:00133D64]
+- Formkey: 2440091
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_ScienceLabTec [OTFT:00253B9B]
+- Formkey: 213269
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_ScienceLabTec_02 [OTFT:00034115]
+- Formkey: 3989707
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_ScienceLabTec_Generdyne_NoShield [OTFT:003CE0CB]
+- Formkey: 3855797
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_ScienceLabTec_NoShield [OTFT:003AD5B5]
+- Formkey: 1952601
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_ScienceLabTec_Xenofresh [OTFT:001DCB59]
+- Formkey: 1607372
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Science_Random_NoRyujin [OTFT:001886CC]
+
+
+

@@ -1,0 +1,26 @@
+Name: Crew
+Hats:
+Clothes: 
+Spacesuits: 
+SpaceHelmets: 
+Boostpacks: 
+OutfitClothes:
+- Formkey: 1260518
+  Modname: Starfield.esm
+  EditorId: Outfit_Crew_Generic [OTFT:00133BE6]
+OutfitSpacesuit:
+- Formkey: 246139
+  Modname: Starfield.esm
+  EditorId: Outfit_Crew_Spacesuit_Assault [OTFT:0003C17B]
+- Formkey: 246140
+  Modname: Starfield.esm
+  EditorId: Outfit_Crew_Spacesuit_Explorer [OTFT:0003C17C]
+- Formkey: 2554169
+  Modname: Starfield.esm
+  EditorId: Outfit_Crew_Spacesuit_Generic [OTFT:0026F939]
+- Formkey: 246141
+  Modname: Starfield.esm
+  EditorId: Outfit_Crew_Spacesuit_Navigator [OTFT:0003C17D]
+- Formkey: 246143
+  Modname: Starfield.esm
+  EditorId: Outfit_Crew_Spacesuit_Recon [OTFT:0003C17F]

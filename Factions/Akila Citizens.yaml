@@ -16,3 +16,43 @@ Clothes:
 Spacesuits: 
 SpaceHelmets: 
 Boostpacks: 
+OutfitClothes:
+- Formkey: 1260918
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Colonist_Adventurous_01_NoHat [OTFT:00133D76]
+- Formkey: 1260917
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Colonist_Adventurous_01_with_Hat [OTFT:00133D75]
+- Formkey: 1260916
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Colonist_Adventurous_Poncho_01_NoHat [OTFT:00133D74]
+- Formkey: 1260915
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Colonist_Adventurous_Poncho_01_with_Hat [OTFT:00133D73]
+- Formkey: 1260910
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Colonist_BeadedCollarShirt_01_NoHat [OTFT:00133D6E]
+- Formkey: 1260910
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Colonist_BeadedCollarShirt_01_NoHat [OTFT:00133D6E]
+- Formkey: 1260909
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Colonist_BeadedCollarShirt_01_with_Hat [OTFT:00133D6D]
+- Formkey: 1260907
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Colonist_CroppedVest_01 [OTFT:00133D6B]
+- Formkey: 1260906
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Colonist_CroppedVest_02 [OTFT:00133D6A]
+- Formkey: 1260904
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Colonist_QuarterPaddedVest_01_NoHat [OTFT:00133D68]
+- Formkey: 1260903
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Colonist_QuarterPaddedVest_01_with_Hat [OTFT:00133D67]
+- Formkey: 1260901
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Colonist_QuarterPaddedVest_02_NoHat [OTFT:00133D65]
+- Formkey: 1260901
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_PaddedVest [OTFT:00253B94]

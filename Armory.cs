@@ -1,17 +1,6 @@
-﻿using DynamicData;
-using Mutagen.Bethesda;
-using Mutagen.Bethesda.Environments;
+﻿using Mutagen.Bethesda;
 using Mutagen.Bethesda.Plugins;
-using Mutagen.Bethesda.Plugins.Binary.Parameters;
-using Mutagen.Bethesda.Plugins.Cache;
-using Mutagen.Bethesda.Plugins.Order;
 using Mutagen.Bethesda.Starfield;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static Mutagen.Bethesda.FormKeys.Starfield.Starfield;
 
 namespace StarArmory
 {
@@ -37,6 +26,8 @@ namespace StarArmory
             boostpacks.Clear();
         }
 
+
+
         public static void LoadClothes(List<string> mods)
         {
             using (var env = StarArmory.GetGameEnvironment())
@@ -60,29 +51,49 @@ namespace StarArmory
                         var armours = mod.Value.Mod.Armors.ToList();
                         foreach (var armor in armours)
                         {
+                            var link = immutableLoadOrderLinkCache.Resolve<IArmorGetter>(armor.FormKey);
                             if (armor.HasKeyword(Apparel))
                             {
-                                var link = immutableLoadOrderLinkCache.Resolve<IArmorGetter>(armor.FormKey);
-                                clothes.Add(link);
+                                //These are based on various armors i've in my mod list. There will be more here.
+                                if (armor.FirstPersonFlags.Value != FirstPersonFlag.Backpack &&
+                                    armor.FirstPersonFlags.Value != FirstPersonFlag.SSBackpackMisc &&
+                                    armor.FirstPersonFlags.Value != FirstPersonFlag.SSMisc1 &&
+                                    armor.FirstPersonFlags.Value != FirstPersonFlag.SSMisc2 &&
+                                    armor.FirstPersonFlags.Value != FirstPersonFlag.SSMisc3 &&
+                                    armor.FirstPersonFlags.Value != FirstPersonFlag.AddonRig &&
+                                    armor.FirstPersonFlags.Value != FirstPersonFlag.SSAddonRig &&
+                                    armor.FirstPersonFlags.Value != FirstPersonFlag.Hat &&
+                                    (ulong) armor.FirstPersonFlags.Value != (long)288230376151711744 //"Unused"
+                                    )
+
+                                {
+                                    clothes.Add(link);
+                                }
                             }
                             if (armor.HasKeyword(Head))
                             {
-                                var link = immutableLoadOrderLinkCache.Resolve<IArmorGetter>(armor.FormKey);
                                 hats.Add(link);
                             }
                             if (armor.HasKeyword(spacesuit))
                             {
-                                var link = immutableLoadOrderLinkCache.Resolve<IArmorGetter>(armor.FormKey);
-                                spacesuits.Add(link);
+                                //Check that it actually is a spacesuit.
+                                if (armor.FirstPersonFlags.Value == FirstPersonFlag.SSBODY)
+                                {
+                                    spacesuits.Add(link);
+                                }
                             }
                             if (armor.HasKeyword(spacehelmet))
                             {
-                                var link = immutableLoadOrderLinkCache.Resolve<IArmorGetter>(armor.FormKey);
-                                spacehelmets.Add(link);
+                                //Check that it actually is a helmet
+                                if (armor.FirstPersonFlags.Value == FirstPersonFlag.SSHelmet ||
+                                    armor.FirstPersonFlags.Value == FirstPersonFlag.Eyepatch
+                                    )
+                                {
+                                    spacehelmets.Add(link);
+                                }
                             }
                             if (armor.HasKeyword(boostpack))
                             {
-                                var link = immutableLoadOrderLinkCache.Resolve<IArmorGetter>(armor.FormKey);
                                 boostpacks.Add(link);
                             }
                         }
