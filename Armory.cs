@@ -1,6 +1,7 @@
 ﻿using Mutagen.Bethesda;
 using Mutagen.Bethesda.Plugins;
 using Mutagen.Bethesda.Starfield;
+using System.Linq;
 
 namespace StarArmory
 {
@@ -8,7 +9,6 @@ namespace StarArmory
     {        
         public static List<IArmorGetter> clothes { get; set; } = new List<IArmorGetter>();
         public static List<IArmorGetter> hats { get; set; } = new List<IArmorGetter>();
-
         public static List<IArmorGetter> spacesuits { get; set; } = new List<IArmorGetter>();
         public static List<IArmorGetter> spacehelmets { get; set; } = new List<IArmorGetter>();
         public static List<IArmorGetter> boostpacks { get; set; } = new List<IArmorGetter>();
@@ -25,8 +25,6 @@ namespace StarArmory
             spacehelmets.Clear();
             boostpacks.Clear();
         }
-
-
 
         public static void LoadClothes(List<string> mods)
         {
@@ -55,16 +53,8 @@ namespace StarArmory
                             if (armor.HasKeyword(Apparel))
                             {
                                 //These are based on various armors i've in my mod list. There will be more here.
-                                if (armor.FirstPersonFlags.Value != FirstPersonFlag.Backpack &&
-                                    armor.FirstPersonFlags.Value != FirstPersonFlag.SSBackpackMisc &&
-                                    armor.FirstPersonFlags.Value != FirstPersonFlag.SSMisc1 &&
-                                    armor.FirstPersonFlags.Value != FirstPersonFlag.SSMisc2 &&
-                                    armor.FirstPersonFlags.Value != FirstPersonFlag.SSMisc3 &&
-                                    armor.FirstPersonFlags.Value != FirstPersonFlag.AddonRig &&
-                                    armor.FirstPersonFlags.Value != FirstPersonFlag.SSAddonRig &&
-                                    armor.FirstPersonFlags.Value != FirstPersonFlag.Hat &&
-                                    (ulong) armor.FirstPersonFlags.Value != (long)288230376151711744 //"Unused"
-                                    )
+                                if (!StarArmory.settingsManager.clothesFirstPersonFlagsBlacklist.Contains(armor.FirstPersonFlags.Value) &&
+                                    !StarArmory.settingsManager.clothesFirstPersonFlagsLongBlacklist.Contains((ulong)armor.FirstPersonFlags.Value))
 
                                 {
                                     clothes.Add(link);

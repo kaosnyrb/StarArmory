@@ -9,7 +9,7 @@ namespace StarArmory
     public partial class StarArmory : Form
     {
         public static StarfieldMod myMod;
-
+        public static SettingsManager settingsManager;
         public static IGameEnvironment<IStarfieldMod,IStarfieldModGetter> GetGameEnvironment()
         {
             try
@@ -70,6 +70,7 @@ namespace StarArmory
                     factionPlanTree.Nodes.Add("Plan");
                     for (int i = 0; i < Armory.plans.Count; i++)
                     {
+                        Armory.plans[i].faction = Armory.factions[Armory.plans[i].faction.Name];
                         factionPlanTree.Nodes[0].Nodes.Add(Armory.plans[i].faction.Name);
                         for (int j = 0; j < Armory.plans[i].mods.Count; j++)
                         {
@@ -78,6 +79,15 @@ namespace StarArmory
                     }
                     factionPlanTree.Nodes[0].Expand();
                     factionPlanTree.EndUpdate();
+                }
+                settingsManager = new SettingsManager();
+                if (!File.Exists("./Settings.yaml"))
+                {
+                    YamlExporter.WriteObjToYamlFile("Settings.yaml", settingsManager);
+                }
+                else
+                {
+                    settingsManager = YamlImporter.getObjectFromFile<SettingsManager>("Settings.yaml");
                 }
             }
             catch (Exception ex)
@@ -342,7 +352,7 @@ namespace StarArmory
                     var ListOutfitHats = myMod.LeveledItems.AddNew();
                     ListOutfitHats.EditorID = link.EditorID + "_SA_hats";
                     ListOutfitHats.Entries = new ExtendedList<LeveledItemEntry>();
-                    ListOutfitHats.ChanceNone = 50f;
+                    ListOutfitHats.ChanceNone = settingsManager.HatChance;
 
                     var ListOutfitClothes = myMod.LeveledItems.AddNew();
                     ListOutfitClothes.EditorID = link.EditorID + "_SA_clothes";
