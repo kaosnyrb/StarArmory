@@ -32,5 +32,13 @@ OutfitClothes:
 - Formkey: 2826521
   Modname: Starfield.esm
   EditorId: Outfit_Clothes_UCPolice [OTFT:002B2119]
-
-
+OutfitSpacesuit:
+- Formkey: 171209
+  Modname: Starfield.esm
+  EditorId: Outfit_UCPolice_with_Helmet [OTFT:00029CC9]
+- Formkey: 2487846
+  Modname: Starfield.esm
+  EditorId: Outfit_UCPolice_NoHelmet [OTFT:0025F626]
+- Formkey: 2487845
+  Modname: Starfield.esm
+  EditorId: Outfit_UCPolice_Security [OTFT:0025F625]

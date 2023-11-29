@@ -41,3 +41,12 @@ OutfitClothes:
 - Formkey: 2039252
   Modname: Starfield.esm
   EditorId: Outfit_Clothes_Neon_Nightlife_Skirt_OliveBrown [OTFT:001F1DD4]
+- Formkey: 2440086
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Fishworker_Hoodie [OTFT:00253B96]
+- Formkey: 2440087
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Fishworker_Hoodie_with_Mask [OTFT:00253B97]
+- Formkey: 2440088
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Fishworker_Poncho [OTFT:00253B98]

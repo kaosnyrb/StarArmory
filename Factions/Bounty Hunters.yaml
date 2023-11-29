@@ -8,5 +8,14 @@ Clothes:
   Modname: Starfield.esm
   EditorId: LL_Clothes_RM_Patron_Any [LVLI:00058A2A]  
 Spacesuits: 
+- Formkey: 182193
+  Modname: Starfield.esm
+  EditorId: LL_Armor_Ecliptic_Body_Leveled_Any [LVLI:0002C7B1]
 SpaceHelmets: 
+- Formkey: 181767
+  Modname: Starfield.esm
+  EditorId: LL_Armor_Ecliptic_Helmet_Leveled_Any [LVLI:0002C607]
 Boostpacks: 
+- Formkey: 236332
+  Modname: Starfield.esm
+  EditorId: LL_Armor_Ecliptic_Backpack_Leveled_Any [LVLI:00039B2C]

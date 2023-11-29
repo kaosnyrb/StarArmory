@@ -57,3 +57,8 @@ OutfitSpacesuit:
   Modname: Starfield.esm
   EditorId: Outfit_Spacesuit_Settler [OTFT:00067C92]
 OutfitClothes:
+- Formkey: 2440083
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_CroppedVest_CargoPants [OTFT:00253B93]
+
+

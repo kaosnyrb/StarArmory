@@ -1,0 +1,74 @@
+Name: Truckers
+Hats:
+- Formkey: 1629593
+  Modname: Starfield.esm
+  EditorId: LL_Clothes_CY_Citizen_Hat [LVLI:0018DD99]
+- Formkey: 46618
+  Modname: Starfield.esm
+  EditorId: LL_Clothes_NH_Citizen_Hat [LVLI:0000B61A]
+Clothes: 
+- Formkey: 237775
+  Modname: Starfield.esm
+  EditorId: LL_Clothes_Worker_Any [LVLI:0003A0CF]
+Spacesuits: 
+- Formkey: 1873049
+  Modname: Starfield.esm
+  EditorId: LL_Spacesuit_Any_Leveled [LVLI:001C9499]
+- Formkey: 1441054
+  Modname: Starfield.esm
+  EditorId: LL_Spacesuit_SpaceTrucker_Body_AnyQuality [LVLI:0015FD1E]  
+SpaceHelmets: 
+Boostpacks: 
+- Formkey: 2513556
+  Modname: Starfield.esm
+  EditorId: LL_Spacesuit_Backpack_Any_Leveled [LVLI:00265A94]
+OutfitSpacesuit:
+OutfitClothes:
+- Formkey: 2440088
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Trucker_Flannel_01_NoHat [OTFT:1260873]
+- Formkey: 1260874
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Trucker_Flannel_01_with_Hat [OTFT:00133D4A]
+- Formkey: 1260879
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Trucker_AShirt_01_NoHat [OTFT:00133D4F]
+- Formkey: 1260878
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Trucker_AShirt_01_with_Hat [OTFT:00133D4E]
+- Formkey: 1260875
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Trucker_AShirt_Jacket_01_NoHat [OTFT:00133D4B]
+- Formkey: 1260876
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Trucker_AShirt_Jacket_01_with_Hat [OTFT:00133D4C]
+- Formkey: 1260873
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Trucker_Flannel_01_NoHat [OTFT:00133D49]
+- Formkey: 1260874
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Trucker_Flannel_01_with_Hat [OTFT:00133D4A]
+- Formkey: 1260870
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Trucker_Flannel_Jacket_01_NoHat [OTFT:00133D46]
+- Formkey: 1260872
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Trucker_Flannel_Jacket_01_with_Hat [OTFT:00133D48]
+- Formkey: 1260867
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Trucker_LongSleeve_01_NoHat [OTFT:00133D43]
+- Formkey: 1260869
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Trucker_LongSleeve_01_with_Hat [OTFT:00133D45]
+- Formkey: 1260865
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Trucker_LongSleeve_Jacket_01_NoHat [OTFT:00133D41]
+- Formkey: 1260864
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Trucker_Tee_01_with_Hat [OTFT:00133D40]
+- Formkey: 1260861
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Trucker_Tee_Jacket_01_NoHat [OTFT:00133D3D]
+- Formkey: 1260862
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Trucker_Tee_Jacket_01_with_Hat [OTFT:00133D3E]

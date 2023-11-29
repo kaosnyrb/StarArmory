@@ -72,3 +72,9 @@ OutfitSpacesuit:
 - Formkey: 801069
   Modname: Starfield.esm
   EditorId: Outfit_Spacesuit_UCMarine_UCSEC [OTFT:000C392D]
+- Formkey: 27453
+  Modname: Starfield.esm
+  EditorId: Outfit_Spacesuit_UCVanguard_NoHelmet_NoBackpack [OTFT:00006B3D]
+
+
+  

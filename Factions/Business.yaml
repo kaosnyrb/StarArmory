@@ -38,7 +38,21 @@ OutfitClothes:
 - Formkey: 1627060
   Modname: Starfield.esm
   EditorId: Outfit_Clothes_Formal_ShirtSlacks_VestOrange [OTFT:0018D3B4]
-
-
-
-
+- Formkey: 2440078
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_ShirtAndSlacks [OTFT:00253B8E]
+- Formkey: 1052194
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_ShirtAndSlacks_Neuroamp [OTFT:00100E22]
+- Formkey: 2497032
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_ShirtAndSlacks_Pink [OTFT:00261A08]
+- Formkey: 2440079
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_ShirtAndSlacks_Vest [OTFT:00253B8F]
+- Formkey: 2497033
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_ShirtAndSlacks_Vest_Orange [OTFT:00261A09]
+- Formkey: 1031298
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_ShirtAndSlacks_Vest_UC03_Lou [OTFT:000FBC82]
