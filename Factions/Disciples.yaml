@@ -14,6 +14,9 @@ OutfitClothes:
 - Formkey: 294171
   Modname: Starfield.esm
   EditorId: Outfit_Clothes_Neon_Gang_Disciples_HoltHenley_NOTPLAYABLE [OTFT:00047D1B]
+- Formkey: 1260949
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Neon_Gang_Disciples [OTFT:00133D95]
 OutfitSpacesuit:
 
 

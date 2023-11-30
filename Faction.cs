@@ -31,6 +31,8 @@ namespace StarArmory
         //Optional but useful when making factions.
         public string editorId { get; set; }
 
+        public bool? Helmet { get; set; }
+
         public FormKey GetFormKey()
         {
             string stripped = this.modname.Replace(".esm", "");

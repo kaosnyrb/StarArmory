@@ -8,4 +8,14 @@ OutfitClothes:
 - Formkey: 69948
   Modname: Starfield.esm
   EditorId: Outfit_Clothes_Tomisar [OTFT:0001113C]
+- Formkey: 1260923
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Varuun_Ambassador [OTFT:00133D7B]
 OutfitSpacesuit:
+- Formkey: 880552
+  Modname: Starfield.esm
+  EditorId: Outfit_Spacesuit_Varuun_NoHelmetNoBackpack [OTFT:000D6FA8]
+  Helmet: false
+- Formkey: 2590485
+  Modname: Starfield.esm
+  EditorId: Outfit_Spacesuit_Varuun [OTFT:00278715]

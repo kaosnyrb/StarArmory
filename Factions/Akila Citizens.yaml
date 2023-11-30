@@ -17,42 +17,6 @@ Spacesuits:
 SpaceHelmets: 
 Boostpacks: 
 OutfitClothes:
-- Formkey: 1260918
-  Modname: Starfield.esm
-  EditorId: Outfit_Clothes_Colonist_Adventurous_01_NoHat [OTFT:00133D76]
-- Formkey: 1260917
-  Modname: Starfield.esm
-  EditorId: Outfit_Clothes_Colonist_Adventurous_01_with_Hat [OTFT:00133D75]
-- Formkey: 1260916
-  Modname: Starfield.esm
-  EditorId: Outfit_Clothes_Colonist_Adventurous_Poncho_01_NoHat [OTFT:00133D74]
-- Formkey: 1260915
-  Modname: Starfield.esm
-  EditorId: Outfit_Clothes_Colonist_Adventurous_Poncho_01_with_Hat [OTFT:00133D73]
-- Formkey: 1260910
-  Modname: Starfield.esm
-  EditorId: Outfit_Clothes_Colonist_BeadedCollarShirt_01_NoHat [OTFT:00133D6E]
-- Formkey: 1260910
-  Modname: Starfield.esm
-  EditorId: Outfit_Clothes_Colonist_BeadedCollarShirt_01_NoHat [OTFT:00133D6E]
-- Formkey: 1260909
-  Modname: Starfield.esm
-  EditorId: Outfit_Clothes_Colonist_BeadedCollarShirt_01_with_Hat [OTFT:00133D6D]
-- Formkey: 1260907
-  Modname: Starfield.esm
-  EditorId: Outfit_Clothes_Colonist_CroppedVest_01 [OTFT:00133D6B]
-- Formkey: 1260906
-  Modname: Starfield.esm
-  EditorId: Outfit_Clothes_Colonist_CroppedVest_02 [OTFT:00133D6A]
-- Formkey: 1260904
-  Modname: Starfield.esm
-  EditorId: Outfit_Clothes_Colonist_QuarterPaddedVest_01_NoHat [OTFT:00133D68]
-- Formkey: 1260903
-  Modname: Starfield.esm
-  EditorId: Outfit_Clothes_Colonist_QuarterPaddedVest_01_with_Hat [OTFT:00133D67]
-- Formkey: 1260901
-  Modname: Starfield.esm
-  EditorId: Outfit_Clothes_Colonist_QuarterPaddedVest_02_NoHat [OTFT:00133D65]
 - Formkey: 1260901
   Modname: Starfield.esm
   EditorId: Outfit_Clothes_PaddedVest [OTFT:00253B94]
@@ -62,17 +26,25 @@ OutfitClothes:
 - Formkey: 268462
   Modname: Starfield.esm
   EditorId: MQ103Shaw_Outfit [OTFT:000418AE]
-- Formkey: 440896
+- Formkey: 1052190
   Modname: Starfield.esm
-  EditorId: Outfit_Clothes_Civilian_RubberPocketPants_Jacket_02 [OTFT:0006BA40]
-- Formkey: 440899
+  EditorId: Outfit_FC_AC_Bar_Female_02 [OTFT:00100E1E]
+- Formkey: 1052191
   Modname: Starfield.esm
-  EditorId: Outfit_Clothes_Civilian_RubberPocketPants_Jacket_03 [OTFT:0006BA43]
-- Formkey: 440992
+  EditorId: Outfit_FC_AC_KateFoley [OTFT:00100E1F]
+- Formkey: 1052192
   Modname: Starfield.esm
-  EditorId: Outfit_Clothes_Civilian_RubberPocketPants_Jacket_04 [OTFT:0006BAA0]
-- Formkey: 441093
+  EditorId: Outfit_FC_AC_JustinSnead [OTFT:00100E20]
+- Formkey: 1052193
   Modname: Starfield.esm
-  EditorId: Outfit_Clothes_Civilian_RubberPocketPants_02 [OTFT:0006BB05]
-
-  
+  EditorId: Outfit_FC_AC_JohnSmith [OTFT:00100E21]
+- Formkey: 1260913
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Colonist_Adventurous_Poncho_Mask_01_with_Hat [OTFT:00133D71]
+- Formkey: 1260914
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Colonist_Adventurous_Poncho_Mask_01_NoHat [OTFT:00133D72]
+  Helmet: false
+- Formkey: 2983457
+  Modname: Starfield.esm
+  EditorId: MQ103ShawBodyguardOutfit [OTFT:002D8621]

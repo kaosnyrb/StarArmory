@@ -11,7 +11,13 @@ OutfitClothes:
 - Formkey: 25085
   Modname: Starfield.esm
   EditorId: Outfit_Clothes_Seokguh_Syndicate_Member [OTFT:000061FD]
+- Formkey: 1052201
+  Modname: Starfield.esm
+  EditorId: Outfit_RI05_Kumiho [OTFT:00100E29]
+- Formkey: 1176497
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Neon_BusinessSuit_Seokguh_Syndicate_Member_01 [OTFT:0011F3B1]
+- Formkey: 1176503
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Neon_BusinessSuit_Seokguh_Syndicate_Leader_01 [OTFT:0011F3B7]
 OutfitSpacesuit:
-
-
-

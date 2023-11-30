@@ -28,24 +28,12 @@ Clothes:
 - Formkey: 684081
   Modname: Starfield.esm
   EditorId: LL_Crowd_Clothes_Generic_Male_Thin [LVLI:000A7031]
-- Formkey: 2734548
-  Modname: Starfield.esm
-  EditorId: LL_Clothes_Settler_Any [LVLI:0029B9D4]
-- Formkey: 1262093
-  Modname: Starfield.esm
-  EditorId: LL_Clothes_Colonist_Any [LVLI:0013420D]
 - Formkey: 1441054
   Modname: Starfield.esm
   EditorId: LL_Clothes_Employee_Any [LVLI:00134209]
 - Formkey: 1441054
   Modname: Starfield.esm
   EditorId: LL_Clothes_Civilian_UC [LVLI:002E2B4E]
-- Formkey: 1441054
-  Modname: Starfield.esm
-  EditorId: LL_Clothes_Civilian_Any [LVLI:0013420E]
-- Formkey: 1441054
-  Modname: Starfield.esm
-  EditorId: LL_Clothes_Any [LVLI:0027926D]
 Spacesuits: 
 SpaceHelmets: 
 Boostpacks: 
@@ -59,26 +47,42 @@ OutfitSpacesuit:
 - Formkey: 99101
   Modname: Starfield.esm
   EditorId: Outfit_Spacesuit_ZeroNoHelmet [OTFT:0001831D]
+  Helmet: false
 - Formkey: 425105
   Modname: Starfield.esm
   EditorId: Outfit_Spacesuit_Citizen_NoBoostpack_NOTPLAYABLE [OTFT:00067C91]
 OutfitClothes:
-- Formkey: 2440083
-  Modname: Starfield.esm
-  EditorId: Outfit_Clothes_CroppedVest_CargoPants [OTFT:00253B93]
-- Formkey: 50088
-  Modname: Starfield.esm
-  EditorId: Outfit_Clothes_Medical_Patient_01 [OTFT:0000C3A8]
 - Formkey: 298806
   Modname: Starfield.esm
   EditorId: Outfit_NH_Citizen [OTFT:00048F36]
-- Formkey: 436402
-  Modname: Starfield.esm
-  EditorId: Outfit_Clothes_Civilian_RubberPocketPants_01 [OTFT:0006A8B2]
-- Formkey: 436445
-  Modname: Starfield.esm
-  EditorId: Outfit_Clothes_Civilian_RubberPocketPants_Jacket_01 [OTFT:0006A8DD]
 - Formkey: 776789
   Modname: Starfield.esm
   EditorId: Outfit_Citizen_Generic_UC_BECrew_Crew [OTFT:000BDA55]
- 
+- Formkey: 776803
+  Modname: Starfield.esm
+  EditorId: Outfit_Citizen_Generic_UC_BECrew_Security [OTFT:000BDA63]
+- Formkey: 776804
+  Modname: Starfield.esm
+  EditorId: Outfit_Citizen_Generic_UC_BECrew_Captain [OTFT:000BDA64]
+- Formkey: 1052195
+  Modname: Starfield.esm
+  EditorId: Outfit_UC_NA_CurtisJulien [OTFT:00100E23]
+- Formkey: 1052196
+  Modname: Starfield.esm
+  EditorId: Outfit_UC_NA_HenrikZuran [OTFT:00100E24]
+- Formkey: 1260881
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Ship_Captain_NoHat [OTFT:00133D51]
+  Helmet: false
+- Formkey: 1260882
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Ship_Captain_with_Hat [OTFT:00133D52]
+- Formkey: 1260927
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_NewAtlantis_FashionableSuit_01_green [OTFT:00133D7F]
+- Formkey: 1260928
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_NewAtlantis_FashionableSuit_01 [OTFT:00133D80]
+- Formkey: 3025852
+  Modname: Starfield.esm
+  EditorId: Outfit_Citizen_UC [OTFT:002E2BBC]

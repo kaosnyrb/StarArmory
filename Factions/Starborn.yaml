@@ -11,4 +11,19 @@ OutfitSpacesuit:
 - Formkey: 2556508
   Modname: Starfield.esm
   EditorId: Outfit_Spacesuit_Starborn_Companion_NPC_VoiceFilter [OTFT:0006AABC]
+- Formkey: 1135293
+  Modname: Starfield.esm
+  EditorId: Outfit_Spacesuit_Starborn_Unity_01_NPC [OTFT:001152BD]
+- Formkey: 1144805
+  Modname: Starfield.esm
+  EditorId: Outfit_Spacesuit_Starborn_Unity_02_NPC [OTFT:001177E5]
+- Formkey: 1144805
+  Modname: Starfield.esm
+  EditorId: Outfit_Spacesuit_Starborn_Player [OTFT:0012E186]
+- Formkey: 1260920
+  Modname: Starfield.esm
+  EditorId: Outfit_Spacesuit_Starborn_Companion_NPC [OTFT:00133D78]
+- Formkey: 1260925
+  Modname: Starfield.esm
+  EditorId: Outfit_Spacesuit_Starborn_Hunter_NPC [OTFT:00133D7D]
 OutfitClothes:

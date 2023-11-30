@@ -56,3 +56,15 @@ OutfitClothes:
 - Formkey: 58110
   Modname: Starfield.esm
   EditorId: MQ207C_Outfit_Scientist [OTFT:0000E2FE]
+- Formkey: 815271
+  Modname: Starfield.esm
+  EditorId: Outfit_FayeSengsavahn [OTFT:000C70A7]
+- Formkey: 1002510
+  Modname: Starfield.esm
+  EditorId: CF05_Outfit_Clothes_Scientist [OTFT:000F4C0E]
+- Formkey: 1052197
+  Modname: Starfield.esm
+  EditorId: Outfit_UC_NA_ChiefEngineerKulkarni [OTFT:00100E25]
+- Formkey: 1052200
+  Modname: Starfield.esm
+  EditorId: Outfit_FC_Clinic_KendrickLane [OTFT:00100E28]

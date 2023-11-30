@@ -14,9 +14,11 @@ OutfitClothes:
 - Formkey: 1260896
   Modname: Starfield.esm
   EditorId: Outfit_Clothes_Security_Guard_01_NoHelmet [OTFT:00133D60]
+  Helmet: false
 - Formkey: 3646288
   Modname: Starfield.esm
   EditorId: Outfit_Clothes_Security_Guard_01_Ryujin_NoHelmet [OTFT:0037A350]
+  Helmet: false
 - Formkey: 3646289
   Modname: Starfield.esm
   EditorId: Outfit_Clothes_Security_Guard_01_Ryujin_with_Helmet [OTFT:0037A351]
@@ -32,16 +34,51 @@ OutfitClothes:
 - Formkey: 2826521
   Modname: Starfield.esm
   EditorId: Outfit_Clothes_UCPolice [OTFT:002B2119]
-OutfitSpacesuit:
+- Formkey: 776792
+  Modname: Starfield.esm
+  EditorId: Outfit_Citizen_Freestar_Neon_BECrew_Security [OTFT:000BDA58]
 - Formkey: 171209
   Modname: Starfield.esm
   EditorId: Outfit_UCPolice_with_Helmet [OTFT:00029CC9]
 - Formkey: 2487846
   Modname: Starfield.esm
   EditorId: Outfit_UCPolice_NoHelmet [OTFT:0025F626]
+  Helmet: false  
 - Formkey: 2487845
   Modname: Starfield.esm
   EditorId: Outfit_UCPolice_Security [OTFT:0025F625]
+- Formkey: 944452
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Akila_Security [OTFT:000E6944]
+- Formkey: 1260957
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Neon_Security_with_Helmet [OTFT:00133D9D]
+- Formkey: 1260961
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_NewAtlantis_Security_NoHelmet [OTFT:00133DA1]
+  Helmet: false
+- Formkey: 1260962
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Neon_Security_NoHelmet [OTFT:00133DA2]
+  Helmet: false
+- Formkey: 1262047
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Akila_Security_NoHeadwear [OTFT:001341DF]
+  Helmet: false
+- Formkey: 1421410
+  Modname: Starfield.esm
+  EditorId: Outfit_Guard_NoHelmet [OTFT:0015B062]
+  Helmet: false
+OutfitSpacesuit:
 - Formkey: 246142
   Modname: Starfield.esm
   EditorId: Outfit_Spacesuit_Diver_NoBoostPack [OTFT:0003C17E] 
+- Formkey: 1070832
+  Modname: Starfield.esm
+  EditorId: Outfit_Spacesuit_Security_Freestar [OTFT:001056F0]
+- Formkey: 1415713
+  Modname: Starfield.esm
+  EditorId: Outfit_Spacesuit_Security_Generic [OTFT:00159A21]
+- Formkey: 2155216
+  Modname: Starfield.esm
+  EditorId: Outfit_Spacesuit_Assault_NoBoostPack [OTFT:0020E2D0]

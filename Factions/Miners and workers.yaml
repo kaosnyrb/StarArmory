@@ -50,12 +50,17 @@ OutfitSpacesuit:
 - Formkey: 372903
   Modname: Starfield.esm
   EditorId: Outfit_Spacesuit_Miner_NoHelmet [OTFT:0005B0A7]
+  Helmet: false
 - Formkey: 437250
   Modname: Starfield.esm
   EditorId: Outfit_Spacesuit_Miner_Orange [OTFT:0006AC02]
 - Formkey: 339085
   Modname: Starfield.esm
   EditorId: Outfit_Spacesuit_Miner_MQ101_NPCs [OTFT:00052C8D]
+- Formkey: 990459
+  Modname: Starfield.esm
+  EditorId: Outfit_Spacesuit_Miner_Deimos_CY_NoHelmet_NoBackpack [OTFT:000F1CFB]
+  Helmet: false
 OutfitClothes:
 - Formkey: 1262041
   Modname: Starfield.esm
@@ -63,9 +68,6 @@ OutfitClothes:
 - Formkey: 1803540
   Modname: Starfield.esm
   EditorId: Outfit_Clothes_Argos_Jumpsuit_OpenJacket [OTFT:001B8514]
-- Formkey: 1260874
-  Modname: Starfield.esm
-  EditorId: Outfit_Clothes_Civilian_RubberPants_01 [OTFT:2440080]
 - Formkey: 2440093
   Modname: Starfield.esm
   EditorId: Outfit_Clothes_Mechanic_TankTop [OTFT:00253B9D]
@@ -150,9 +152,36 @@ OutfitClothes:
 - Formkey: 565690
   Modname: Starfield.esm
   EditorId: Outfit_UtilityOveralls_ER_CoolingJacket [OTFT:0008A1BA]
-- Formkey: 776793
+- Formkey: 1246496
   Modname: Starfield.esm
-  EditorId: Outfit_Citizen_Freestar_Neon_BECrew_Captain [OTFT:000BDA59]
-- Formkey: 776795
+  EditorId: Outfit_Clothes_Factory_Jumpsuit_Blue [OTFT:00130520]
+- Formkey: 1249619
   Modname: Starfield.esm
-  EditorId: Outfit_Citizen_Freestar_Neon_BECrew_Crew [OTFT:000BDA5B]
+  EditorId: Outfit_Clothes_Factory_Jumpsuit_Gray [OTFT:00131153]
+- Formkey: 1249657
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Factory_Jumpsuit_Yellow [OTFT:00131179]
+- Formkey: 1260857
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Xenofresh_Jumpsuit [OTFT:00133D39]
+- Formkey: 1419352
+  Modname: Starfield.esm
+  EditorId: Outfit_UtilityOveralls_Mechanic_Welding_with_WeldingHatUp [OTFT:0015A858]
+- Formkey: 1419354
+  Modname: Starfield.esm
+  EditorId: Outfit_UtilityOveralls_Mechanic_Welding_with_WeldingHatUp_Black [OTFT:0015A85A]
+- Formkey: 1419356
+  Modname: Starfield.esm
+  EditorId: Outfit_UtilityOveralls_Mechanic_Welding_with_WeldingHatUp_Brown [OTFT:0015A85C]
+- Formkey: 1419358
+  Modname: Starfield.esm
+  EditorId: Outfit_UtilityOveralls_Mechanic_Welding_with_WeldingHatUp_Gray [OTFT:0015A85E]
+- Formkey: 1419360
+  Modname: Starfield.esm
+  EditorId: Outfit_UtilityOveralls_Mechanic_Welding_with_WeldingHatUp_Teal [OTFT:0015A860]
+- Formkey: 2418538
+  Modname: Starfield.esm
+  EditorId: Outfit_UtilityOveralls_SSO [OTFT:0024E76A]
+
+
+  

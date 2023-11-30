@@ -8,4 +8,26 @@ OutfitClothes:
 - Formkey: 776796
   Modname: Starfield.esm
   EditorId: Outfit_TheFirst_BECrew_Captain [OTFT:000BDA5C]
+- Formkey: 776805
+  Modname: Starfield.esm
+  EditorId: Outfit_TheFirst_BECrew_Crew [OTFT:000BDA65]
+- Formkey: 1260883
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_First_Mercenary_01_with_Hat [OTFT:00133D53]
+- Formkey: 1260885
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_First_Mech_Pilot_01_with_Helmet [OTFT:00133D55]
+- Formkey: 1260891
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_First_Mech_Pilot_01_NoHelmet [OTFT:00133D5B]
+  Helmet: false
+- Formkey: 1627084
+  Modname: Starfield.esm
+  EditorId: Outfit_First_Mercenary_02_CompanyLeader_NoHat [OTFT:0018D3CC]
+- Formkey: 2554716
+  Modname: Starfield.esm
+  EditorId: Outfit_TheFirst [OTFT:0026FB5C]
 OutfitSpacesuit:
+- Formkey: 1225775
+  Modname: Starfield.esm
+  EditorId: Outfit_Spacesuit_TheFirst [OTFT:0012B42F]

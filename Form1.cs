@@ -3,6 +3,7 @@ using Mutagen.Bethesda.Environments;
 using Mutagen.Bethesda.Plugins;
 using Mutagen.Bethesda.Starfield;
 using Noggog;
+using System.Windows.Forms;
 
 namespace StarArmory
 {
@@ -138,8 +139,14 @@ namespace StarArmory
             }
         }
 
+        public StreamWriter logr;
         private void ExportESMButton(object sender, EventArgs e)
         {
+            FileStream log = new FileStream("Log.txt", FileMode.Create);
+            logr = new StreamWriter(log);
+            logr.WriteLine("Starting Export");
+
+            uint lastformkey = 0;
             try
             {
                 YamlExporter.WriteObjToYamlFile("Plan.yaml", Armory.plans);
@@ -148,6 +155,9 @@ namespace StarArmory
                 {
                     datapath = env.DataFolderPath;
                 }
+                logr.WriteLine("Data folder at:" + datapath);
+                logr.WriteLine("Deleting :" + datapath + "StarArmoryPatch.esm");
+
                 File.Delete(datapath + "\\StarArmoryPatch.esm");
 
                 ModKey newMod = new ModKey("StarArmoryPatch", ModType.Master);
@@ -155,42 +165,54 @@ namespace StarArmory
 
                 foreach (var plan in Armory.plans)
                 {
+                    logr.WriteLine("Staring Faction : " + plan.faction.Name);
+
                     Armory.Clear();
                     Armory.LoadClothes(plan.mods);
                     //Levelled Lists
                     //Here we inject the modded items into the levelled lists defined in the faction files.
                     if (plan.faction.Hats != null)
                     {
+                        logr.WriteLine("Building Hats");
                         foreach (var hat in plan.faction.Hats)
                         {
+                            lastformkey = hat.formkey;
                             LeveledItem.AddItemsToLevelledList(myMod, Armory.hats, hat.modname, hat.formkey);
                         }
                     }
                     if (plan.faction.Clothes != null)
                     {
+                        logr.WriteLine("Building Clothes");
                         foreach (var clothes in plan.faction.Clothes)
                         {
+                            lastformkey = clothes.formkey;
                             LeveledItem.AddItemsToLevelledList(myMod, Armory.clothes, clothes.modname, clothes.formkey);
                         }
                     }
                     if (plan.faction.Spacesuits != null)
                     {
+                        logr.WriteLine("Building Spacesuits");
                         foreach (var suit in plan.faction.Spacesuits)
                         {
+                            lastformkey = suit.formkey;
                             LeveledItem.AddItemsToLevelledList(myMod, Armory.spacesuits, suit.modname, suit.formkey);
                         }
                     }
                     if (plan.faction.SpaceHelmets != null)
                     {
+                        logr.WriteLine("Building Helmets");
                         foreach (var helm in plan.faction.SpaceHelmets)
                         {
+                            lastformkey = helm.formkey;
                             LeveledItem.AddItemsToLevelledList(myMod, Armory.spacehelmets, helm.modname, helm.formkey);
                         }
                     }
                     if (plan.faction.Boostpacks != null)
                     {
+                        logr.WriteLine("Building Boostpacks");
                         foreach (var pack in plan.faction.Boostpacks)
                         {
+                            lastformkey = pack.formkey;
                             LeveledItem.AddItemsToLevelledList(myMod, Armory.boostpacks, pack.modname, pack.formkey);
                         }
                     }
@@ -199,6 +221,7 @@ namespace StarArmory
                     //In vanilla some outfits link directly to armor, things like the starborn.
                     //We need to create a new levelled list then replace the outfit with these lists.
                     //We also want to peserve the original outfit as an option.
+                    logr.WriteLine("Starting Outfits");
                     using (var env = StarArmory.GetGameEnvironment())
                     {
                         BuildSpaceOutfit(plan, env);
@@ -211,7 +234,13 @@ namespace StarArmory
             }
             catch (Exception ex)
             {
+                logr.WriteLine("Last processed formkey was: " + lastformkey);
                 MessageBox.Show(ex.Message);
+                logr.WriteLine(ex.Message);
+            }
+            finally
+            {
+                logr.Close();
             }
         }
 
@@ -262,9 +291,6 @@ namespace StarArmory
                     ListOutfitSpacesuit.EditorID = link.EditorID + "_SA_spacesuit";
                     ListOutfitSpacesuit.Entries = new ExtendedList<LeveledItemEntry>();
 
-                    var ListOutfitSpacehelmets = myMod.LeveledItems.AddNew();
-                    ListOutfitSpacehelmets.EditorID = link.EditorID + "_SA_spacehelmets";
-                    ListOutfitSpacehelmets.Entries = new ExtendedList<LeveledItemEntry>();
 
                     var ListOutfitBoostPacks = myMod.LeveledItems.AddNew();
                     ListOutfitBoostPacks.EditorID = link.EditorID + "_SA_boostpacks";
@@ -280,15 +306,26 @@ namespace StarArmory
                             Reference = suit.ToLink<ILeveledItemGetter>()
                         });
                     }
-                    foreach (var helmets in spacehelmets)
+                    LeveledItem.AddItemsToList(myMod, Armory.spacesuits, ListOutfitSpacesuit.Entries, 0);
+                    newoutfit.Items.Add(ListOutfitSpacesuit);
+                    if (outfit.Helmet == null)
                     {
-                        ListOutfitSpacehelmets.Entries.Add(new LeveledItemEntry()
+                        var ListOutfitSpacehelmets = myMod.LeveledItems.AddNew();
+                        ListOutfitSpacehelmets.EditorID = link.EditorID + "_SA_spacehelmets";
+                        ListOutfitSpacehelmets.Entries = new ExtendedList<LeveledItemEntry>();
+
+                        foreach (var helmets in spacehelmets)
                         {
-                            Level = 1,
-                            ChanceNone = new Noggog.Percent(0),
-                            Count = 1,
-                            Reference = helmets.ToLink<ILeveledItemGetter>()
-                        });
+                            ListOutfitSpacehelmets.Entries.Add(new LeveledItemEntry()
+                            {
+                                Level = 1,
+                                ChanceNone = new Noggog.Percent(0),
+                                Count = 1,
+                                Reference = helmets.ToLink<ILeveledItemGetter>()
+                            });
+                        }
+                        LeveledItem.AddItemsToList(myMod, Armory.spacehelmets, ListOutfitSpacehelmets.Entries, 0);
+                        newoutfit.Items.Add(ListOutfitSpacehelmets);
                     }
                     foreach (var boost in boostpacks)
                     {
@@ -300,13 +337,7 @@ namespace StarArmory
                             Reference = boost.ToLink<ILeveledItemGetter>()
                         });
                     }
-
-                    LeveledItem.AddItemsToList(myMod, Armory.spacesuits, ListOutfitSpacesuit.Entries, 0);
-                    LeveledItem.AddItemsToList(myMod, Armory.spacehelmets, ListOutfitSpacehelmets.Entries, 0);
                     LeveledItem.AddItemsToList(myMod, Armory.boostpacks, ListOutfitBoostPacks.Entries, 0);
-
-                    newoutfit.Items.Add(ListOutfitSpacesuit);
-                    newoutfit.Items.Add(ListOutfitSpacehelmets);
                     newoutfit.Items.Add(ListOutfitBoostPacks);
                 }
             }
@@ -383,7 +414,10 @@ namespace StarArmory
                     LeveledItem.AddItemsToList(myMod, Armory.hats, ListOutfitHats.Entries, 0);
                     LeveledItem.AddItemsToList(myMod, Armory.clothes, ListOutfitClothes.Entries, 0);
                     //Add each levelled list to outfit
-                    newoutfit.Items.Add(ListOutfitHats);
+                    if (outfit.Helmet == null)
+                    {
+                        newoutfit.Items.Add(ListOutfitHats);
+                    }
                     newoutfit.Items.Add(ListOutfitClothes);
                 }
             }

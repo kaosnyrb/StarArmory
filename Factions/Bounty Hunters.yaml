@@ -1,4 +1,4 @@
-Name: Bounty Hunters
+Name: Bounty Hunters / Mercs
 Hats:
 Clothes: 
 - Formkey: 2535671
@@ -23,6 +23,7 @@ OutfitSpacesuit:
 - Formkey: 101839
   Modname: Starfield.esm
   EditorId: Outfit_Spacesuit_BountyHunter_01_NoHelmet_NoBackpack [OTFT:00052B02]
+  Helmet: false
 - Formkey: 677431
   Modname: Starfield.esm
   EditorId: Outfit_Spacesuit_BountyHunter_02 [OTFT:000A5637]
@@ -32,9 +33,48 @@ OutfitSpacesuit:
 - Formkey: 338690
   Modname: Starfield.esm
   EditorId: Outfit_Spacesuit_BountyHunter_01_NoHelmet_NoBackpack [OTFT:00052B02]
+  Helmet: false
 - Formkey: 686256
   Modname: Starfield.esm
   EditorId: MQ202_Outfit_BountyHunter02_Mercenary_Spacesuit [OTFT:000A78B0]
 - Formkey: 686265
   Modname: Starfield.esm
   EditorId: MQ202_Outfit_BountyHunter03 [OTFT:000A78B9]
+- Formkey: 1036310
+  Modname: Starfield.esm
+  EditorId: Outfit_Spacesuit_BountyHunter_01_NoHelmet [OTFT:000FD016]
+  Helmet: false
+- Formkey: 1088252
+  Modname: Starfield.esm
+  EditorId: Outfit_Spacesuit_Recon_NoBoostpack [OTFT:00109AFC]  
+- Formkey: 1236939
+  Modname: Starfield.esm
+  EditorId: Outfit_Spacesuit_Loot [OTFT:0012DFCB]
+- Formkey: 1304016
+  Modname: Starfield.esm
+  EditorId: Outfit_Spacesuit_Ecliptic_NoHelmet [OTFT:0013E5D0]
+  Helmet: false
+- Formkey: 1315414
+  Modname: Starfield.esm
+  EditorId: Outfit_Spacesuit_Ecliptic_NoBackpack [OTFT:00141256]
+  Helmet: false
+- Formkey: 1434184
+  Modname: Starfield.esm
+  EditorId: Outfit_Spacesuit_BountyHunter_01 [OTFT:0015E248]
+- Formkey: 2156292
+  Modname: Starfield.esm
+  EditorId: Outfit_Spacesuit_RAD05_Targ [OTFT:0020E704]
+- Formkey: 2156293
+  Modname: Starfield.esm
+  EditorId: Outfit_Spacesuit_RAD05_Targ_NoHelmet [OTFT:0020E705]
+  Helmet: false
+OutfitClothes:
+- Formkey: 1304015
+  Modname: Starfield.esm
+  EditorId: Outfit_Mei_Devine [OTFT:0013E5CF]
+- Formkey: 3747560
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Service_Uniform_RedMile [OTFT:00392EE8]
+
+
+  

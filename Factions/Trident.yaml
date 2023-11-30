@@ -11,4 +11,7 @@ OutfitClothes:
 - Formkey: 9098
   Modname: Starfield.esm
   EditorId: Outfit_Clothes_Service_Uniform_Sandin [OTFT:0000238A]
+- Formkey: 1520077
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Service_Uniform_01_Trident [OTFT:001731CD]
 OutfitSpacesuit:
