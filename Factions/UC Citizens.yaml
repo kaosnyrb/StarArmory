@@ -56,9 +56,29 @@ OutfitSpacesuit:
 - Formkey: 425106
   Modname: Starfield.esm
   EditorId: Outfit_Spacesuit_Settler [OTFT:00067C92]
+- Formkey: 99101
+  Modname: Starfield.esm
+  EditorId: Outfit_Spacesuit_ZeroNoHelmet [OTFT:0001831D]
+- Formkey: 425105
+  Modname: Starfield.esm
+  EditorId: Outfit_Spacesuit_Citizen_NoBoostpack_NOTPLAYABLE [OTFT:00067C91]
 OutfitClothes:
 - Formkey: 2440083
   Modname: Starfield.esm
   EditorId: Outfit_Clothes_CroppedVest_CargoPants [OTFT:00253B93]
-
-
+- Formkey: 50088
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Medical_Patient_01 [OTFT:0000C3A8]
+- Formkey: 298806
+  Modname: Starfield.esm
+  EditorId: Outfit_NH_Citizen [OTFT:00048F36]
+- Formkey: 436402
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Civilian_RubberPocketPants_01 [OTFT:0006A8B2]
+- Formkey: 436445
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Civilian_RubberPocketPants_Jacket_01 [OTFT:0006A8DD]
+- Formkey: 776789
+  Modname: Starfield.esm
+  EditorId: Outfit_Citizen_Generic_UC_BECrew_Crew [OTFT:000BDA55]
+ 

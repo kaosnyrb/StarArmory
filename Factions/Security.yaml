@@ -42,3 +42,6 @@ OutfitSpacesuit:
 - Formkey: 2487845
   Modname: Starfield.esm
   EditorId: Outfit_UCPolice_Security [OTFT:0025F625]
+- Formkey: 246142
+  Modname: Starfield.esm
+  EditorId: Outfit_Spacesuit_Diver_NoBoostPack [OTFT:0003C17E] 

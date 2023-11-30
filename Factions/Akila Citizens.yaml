@@ -56,3 +56,23 @@ OutfitClothes:
 - Formkey: 1260901
   Modname: Starfield.esm
   EditorId: Outfit_Clothes_PaddedVest [OTFT:00253B94]
+- Formkey: 210199
+  Modname: Starfield.esm
+  EditorId: CF02_Outfit_RaganaCrew [OTFT:00033517]
+- Formkey: 268462
+  Modname: Starfield.esm
+  EditorId: MQ103Shaw_Outfit [OTFT:000418AE]
+- Formkey: 440896
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Civilian_RubberPocketPants_Jacket_02 [OTFT:0006BA40]
+- Formkey: 440899
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Civilian_RubberPocketPants_Jacket_03 [OTFT:0006BA43]
+- Formkey: 440992
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Civilian_RubberPocketPants_Jacket_04 [OTFT:0006BAA0]
+- Formkey: 441093
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Civilian_RubberPocketPants_02 [OTFT:0006BB05]
+
+  

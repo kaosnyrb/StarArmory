@@ -8,6 +8,9 @@ OutfitClothes:
 - Formkey: 1260518
   Modname: Starfield.esm
   EditorId: Outfit_Crew_Generic [OTFT:00133BE6]
+- Formkey: 698648
+  Modname: Starfield.esm
+  EditorId: Outfit_Elite_Moara [OTFT:000AA918]
 OutfitSpacesuit:
 - Formkey: 246139
   Modname: Starfield.esm

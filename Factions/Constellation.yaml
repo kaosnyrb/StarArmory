@@ -1,0 +1,23 @@
+Name: Constellation
+Hats:
+Clothes: 
+Spacesuits: 
+SpaceHelmets: 
+Boostpacks: 
+OutfitClothes:
+- Formkey: 420590
+  Modname: Starfield.esm
+  EditorId: Outfit_Sarah [OTFT:00066AEE]
+OutfitSpacesuit:
+- Formkey: 36502
+  Modname: Starfield.esm
+  EditorId: Outfit_Spacesuit_Mark1_White [OTFT:00008E96]
+- Formkey: 99100
+  Modname: Starfield.esm
+  EditorId: Outfit_Spacesuit_Zero [OTFT:0001831C]
+- Formkey: 684734
+  Modname: Starfield.esm
+  EditorId: Outfit_Spacesuit_Constellation [OTFT:000A72BE]
+- Formkey: 684735
+  Modname: Starfield.esm
+  EditorId: Outfit_Spacesuit_MatteoKhatri [OTFT:000A72BF]

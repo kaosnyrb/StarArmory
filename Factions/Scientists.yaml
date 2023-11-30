@@ -53,6 +53,6 @@ OutfitClothes:
 - Formkey: 1607372
   Modname: Starfield.esm
   EditorId: Outfit_Clothes_Science_Random_NoRyujin [OTFT:001886CC]
-
-
-
+- Formkey: 58110
+  Modname: Starfield.esm
+  EditorId: MQ207C_Outfit_Scientist [OTFT:0000E2FE]

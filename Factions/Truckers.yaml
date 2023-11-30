@@ -23,6 +23,12 @@ Boostpacks:
   Modname: Starfield.esm
   EditorId: LL_Spacesuit_Backpack_Any_Leveled [LVLI:00265A94]
 OutfitSpacesuit:
+- Formkey: 94340
+  Modname: Starfield.esm
+  EditorId: Outfit_Spacesuit_Trucker_NoHelmet_NoBackpack [OTFT:00017084]
+- Formkey: 233634
+  Modname: Starfield.esm
+  EditorId: Outfit_Spacesuit_Loot_Trucker [OTFT:000390A2]
 OutfitClothes:
 - Formkey: 2440088
   Modname: Starfield.esm

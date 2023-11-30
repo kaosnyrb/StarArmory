@@ -1,11 +1,11 @@
-Name: The First
+Name: House Varuun
 Hats:
 Clothes: 
 Spacesuits: 
 SpaceHelmets: 
 Boostpacks: 
 OutfitClothes:
-- Formkey: 776796
+- Formkey: 69948
   Modname: Starfield.esm
-  EditorId: Outfit_TheFirst_BECrew_Captain [OTFT:000BDA5C]
+  EditorId: Outfit_Clothes_Tomisar [OTFT:0001113C]
 OutfitSpacesuit:

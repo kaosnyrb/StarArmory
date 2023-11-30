@@ -5,4 +5,13 @@ Spacesuits:
 SpaceHelmets: 
 Boostpacks: 
 OutfitClothes:
+- Formkey: 25084
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Seokguh_Syndicate_Leader [OTFT:000061FC]
+- Formkey: 25085
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Seokguh_Syndicate_Member [OTFT:000061FD]
 OutfitSpacesuit:
+
+
+

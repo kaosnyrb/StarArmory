@@ -10,7 +10,7 @@ namespace StarArmory
     {
         public static StarfieldMod myMod;
         public static SettingsManager settingsManager;
-        public static IGameEnvironment<IStarfieldMod,IStarfieldModGetter> GetGameEnvironment()
+        public static IGameEnvironment<IStarfieldMod, IStarfieldModGetter> GetGameEnvironment()
         {
             try
             {
@@ -18,7 +18,8 @@ namespace StarArmory
                 //throw new Exception();
                 return env;
             }
-            catch {
+            catch
+            {
                 var env = GameEnvironment.Typical.Builder<IStarfieldMod, IStarfieldModGetter>(GameRelease.Starfield)
                     .TransformLoadOrderListings(x => x.Where(x => !x.ModKey.Name.Contains("StarArmory")))
                     .WithTargetDataFolder(new DirectoryPath("../")).Build();
@@ -141,7 +142,7 @@ namespace StarArmory
         {
             try
             {
-                YamlExporter.WriteObjToYamlFile("Plan.yaml",Armory.plans);
+                YamlExporter.WriteObjToYamlFile("Plan.yaml", Armory.plans);
                 string datapath = "";
                 using (var env = GetGameEnvironment())
                 {
@@ -315,7 +316,7 @@ namespace StarArmory
             var immutableLoadOrderLinkCache = env.LoadOrder.ToImmutableLinkCache();
             FormKey Apparel = new FormKey(env.LoadOrder[0].ModKey, 918668);//ArmorTypeApparelOrNakedBody[KYWD: 000E048C]
             FormKey Head = new FormKey(env.LoadOrder[0].ModKey, 918667);//ArmorTypeApparelHead [KYWD:000E048B]
-            
+
             if (plan.faction.OutfitClothes != null)
             {
                 foreach (var outfit in plan.faction.OutfitClothes)
@@ -348,7 +349,7 @@ namespace StarArmory
                     newoutfit.Items.Clear();
 
                     //create levelled list for each category for this outfit
-                    
+
                     var ListOutfitHats = myMod.LeveledItems.AddNew();
                     ListOutfitHats.EditorID = link.EditorID + "_SA_hats";
                     ListOutfitHats.Entries = new ExtendedList<LeveledItemEntry>();
@@ -356,7 +357,7 @@ namespace StarArmory
 
                     var ListOutfitClothes = myMod.LeveledItems.AddNew();
                     ListOutfitClothes.EditorID = link.EditorID + "_SA_clothes";
-                    ListOutfitClothes.Entries = new ExtendedList<LeveledItemEntry>();                    
+                    ListOutfitClothes.Entries = new ExtendedList<LeveledItemEntry>();
                     //add vanilla items from 1 to levelled list
                     foreach (var hat in hats)
                     {

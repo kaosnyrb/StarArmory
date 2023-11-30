@@ -5,4 +5,11 @@ Spacesuits:
 SpaceHelmets: 
 Boostpacks: 
 OutfitClothes:
+- Formkey: 412202
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Neon_Gang_Strikers_NoHelmet [OTFT:00064A2A]
+- Formkey: 612022
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Neon_Gang_Strikers [OTFT:000956B6]
 OutfitSpacesuit:
+

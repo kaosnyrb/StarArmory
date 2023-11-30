@@ -5,4 +5,13 @@ Spacesuits:
 SpaceHelmets: 
 Boostpacks: 
 OutfitClothes:
+- Formkey: 413422
+  Modname: Starfield.esm
+  EditorId: Outfit_UtilityOveralls_SSO_CoolingJacket_NoHat [OTFT:00064EEE]
 OutfitSpacesuit:
+- Formkey: 242725
+  Modname: Starfield.esm
+  EditorId: Outfit_Spacesuit_ShipServices_Cydonia [OTFT:0003B425]
+- Formkey: 420466
+  Modname: Starfield.esm
+  EditorId: Outfit_Spacesuit_GroundCrew_Body [OTFT:00066A72]

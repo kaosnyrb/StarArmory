@@ -19,3 +19,21 @@ Boostpacks:
 - Formkey: 182194
   Modname: Starfield.esm
   EditorId: LL_Armor_CrimsonFleet_Backpack_Leveled_Any [LVLI:0002C7B2]
+OutfitSpacesuit:
+- Formkey: 101839
+  Modname: Starfield.esm
+  EditorId: Outfit_Spacesuit_CrimsonFleet [OTFT:00018DCF]
+- Formkey: 419885
+  Modname: Starfield.esm
+  EditorId: Outfit_Spacesuit_CrimsonFleet_Assault [OTFT:0006682D]
+- Formkey: 420462
+  Modname: Starfield.esm
+  EditorId: Outfit_Spacesuit_CrimsonFleet_Sniper [OTFT:00066A6E]
+- Formkey: 420463
+  Modname: Starfield.esm
+  EditorId: Outfit_Spacesuit_CrimsonFleet_Charger [OTFT:00066A6F]
+OutfitClothes:
+- Formkey: 776794
+  Modname: Starfield.esm
+  EditorId: Outfit_CrimsonFleet_BECrew_Crew [OTFT:000BDA5A]
+

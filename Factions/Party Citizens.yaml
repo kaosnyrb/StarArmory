@@ -10,3 +10,11 @@ Clothes:
 Spacesuits: 
 SpaceHelmets: 
 Boostpacks: 
+OutfitClothes:
+- Formkey: 173195
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Resortwear_01 [OTFT:0002A48B]
+- Formkey: 173216
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Resortwear_02 [OTFT:0002A4A0]
+

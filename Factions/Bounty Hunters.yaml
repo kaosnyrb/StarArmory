@@ -19,3 +19,22 @@ Boostpacks:
 - Formkey: 236332
   Modname: Starfield.esm
   EditorId: LL_Armor_Ecliptic_Backpack_Leveled_Any [LVLI:00039B2C]
+OutfitSpacesuit:
+- Formkey: 101839
+  Modname: Starfield.esm
+  EditorId: Outfit_Spacesuit_BountyHunter_01_NoHelmet_NoBackpack [OTFT:00052B02]
+- Formkey: 677431
+  Modname: Starfield.esm
+  EditorId: Outfit_Spacesuit_BountyHunter_02 [OTFT:000A5637]
+- Formkey: 686253
+  Modname: Starfield.esm
+  EditorId: MQ202_Outfit_BountyHunter01 [OTFT:000A78AD]
+- Formkey: 338690
+  Modname: Starfield.esm
+  EditorId: Outfit_Spacesuit_BountyHunter_01_NoHelmet_NoBackpack [OTFT:00052B02]
+- Formkey: 686256
+  Modname: Starfield.esm
+  EditorId: MQ202_Outfit_BountyHunter02_Mercenary_Spacesuit [OTFT:000A78B0]
+- Formkey: 686265
+  Modname: Starfield.esm
+  EditorId: MQ202_Outfit_BountyHunter03 [OTFT:000A78B9]

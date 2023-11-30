@@ -53,6 +53,9 @@ OutfitSpacesuit:
 - Formkey: 437250
   Modname: Starfield.esm
   EditorId: Outfit_Spacesuit_Miner_Orange [OTFT:0006AC02]
+- Formkey: 339085
+  Modname: Starfield.esm
+  EditorId: Outfit_Spacesuit_Miner_MQ101_NPCs [OTFT:00052C8D]
 OutfitClothes:
 - Formkey: 1262041
   Modname: Starfield.esm
@@ -126,3 +129,30 @@ OutfitClothes:
 - Formkey: 2440097
   Modname: Starfield.esm
   EditorId: Outfit_Clothes_Mechanic_with_Hat_HeadphonesDown [OTFT:00253BA1]
+- Formkey: 31218
+  Modname: Starfield.esm
+  EditorId: Outfit_Miner_Jumpsuit_Shirt [OTFT:000079F2]
+- Formkey: 32633
+  Modname: Starfield.esm
+  EditorId: Outfit_DefaultPlayer [OTFT:00007F79]
+- Formkey: 1262041
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Argos_Jumpsuit [OTFT:001341D9]
+- Formkey: 378360
+  Modname: Starfield.esm
+  EditorId: Outfit_MinerJumpsuit_ClosedJacket [OTFT:0005C5F8]
+- Formkey: 378361
+  Modname: Starfield.esm
+  EditorId: Outfit_Miner_Jumpsuit_OpenJacket [OTFT:0005C5F9]
+- Formkey: 533273
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Worker_Jumpsuit_FilburnAG [OTFT:00082319]
+- Formkey: 565690
+  Modname: Starfield.esm
+  EditorId: Outfit_UtilityOveralls_ER_CoolingJacket [OTFT:0008A1BA]
+- Formkey: 776793
+  Modname: Starfield.esm
+  EditorId: Outfit_Citizen_Freestar_Neon_BECrew_Captain [OTFT:000BDA59]
+- Formkey: 776795
+  Modname: Starfield.esm
+  EditorId: Outfit_Citizen_Freestar_Neon_BECrew_Crew [OTFT:000BDA5B]

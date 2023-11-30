@@ -42,7 +42,7 @@
             // 
             // button1
             // 
-            button1.Location = new Point(733, 167);
+            button1.Location = new Point(695, 481);
             button1.Name = "button1";
             button1.Size = new Size(102, 86);
             button1.TabIndex = 0;
@@ -55,7 +55,7 @@
             loadedMods.FormattingEnabled = true;
             loadedMods.Location = new Point(12, 95);
             loadedMods.Name = "loadedMods";
-            loadedMods.Size = new Size(277, 310);
+            loadedMods.Size = new Size(277, 472);
             loadedMods.TabIndex = 3;
             // 
             // FactionList
@@ -68,7 +68,7 @@
             // 
             // button2
             // 
-            button2.Location = new Point(295, 167);
+            button2.Location = new Point(295, 481);
             button2.Name = "button2";
             button2.Size = new Size(93, 86);
             button2.TabIndex = 6;
@@ -88,7 +88,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(695, 149);
+            label2.Location = new Point(695, 463);
             label2.Name = "label2";
             label2.Size = new Size(180, 15);
             label2.TabIndex = 8;
@@ -116,14 +116,14 @@
             // 
             factionPlanTree.Location = new Point(394, 41);
             factionPlanTree.Name = "factionPlanTree";
-            factionPlanTree.Size = new Size(295, 364);
+            factionPlanTree.Size = new Size(295, 526);
             factionPlanTree.TabIndex = 11;
             // 
             // StarArmory
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(876, 428);
+            ClientSize = new Size(876, 585);
             Controls.Add(factionPlanTree);
             Controls.Add(label4);
             Controls.Add(label3);
