@@ -14,9 +14,11 @@ namespace StarArmory
         public List<FirstPersonFlag> clothesFirstPersonFlagsBlacklist { get; set; }
         public List<ulong> clothesFirstPersonFlagsLongBlacklist { get; set; }
 
+        public string DataPath { get; set; }
         public SettingsManager()
         {
             HatChance = 50f;
+            DataPath = "../";
             clothesFirstPersonFlagsBlacklist = new List<FirstPersonFlag>
             {
                 FirstPersonFlag.Backpack,

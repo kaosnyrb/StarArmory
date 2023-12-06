@@ -14,28 +14,28 @@ namespace StarArmory
     {
         public static StarfieldMod myMod;
         public static SettingsManager settingsManager;
-        public static IGameEnvironment<IStarfieldMod, IStarfieldModGetter> GetGameEnvironment()
-        {
-            try
-            {
-                //var env = GameEnvironment.Typical.Starfield(StarfieldRelease.Starfield);
-                var env = GameEnvironment.Typical.Builder<IStarfieldMod, IStarfieldModGetter>(GameRelease.Starfield)
-                                    .TransformLoadOrderListings(x => x.Where(x => !x.ModKey.Name.Contains("StarArmory"))).Build();
-                //throw new Exception();//Trigger fallback
-                return env;
-            }
-            catch
-            {
-                var env = GameEnvironment.Typical.Builder<IStarfieldMod, IStarfieldModGetter>(GameRelease.Starfield)
-                    .TransformLoadOrderListings(x => x.Where(x => !x.ModKey.Name.Contains("StarArmory")))
-                    .WithTargetDataFolder(new DirectoryPath("../")).Build();
-                return env;
-            }
-        }
+        public static StreamWriter logr;
 
         public StarArmory()
         {
             InitializeComponent();
+            FileStream log = new FileStream("Log.txt", FileMode.Create);
+            logr = new StreamWriter(log);
+            logr.WriteLine("StarArmory Starting...");
+            try
+            {
+                logr.WriteLine("Loading Settings.yaml");
+                settingsManager = YamlImporter.getObjectFromFile<SettingsManager>("Settings.yaml");
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show(ex.Message);
+                logr.WriteLine("Exception loading Settings.yaml: " + ex.Message);
+                logr.WriteLine("Creating new Settings.yaml");
+                settingsManager = new SettingsManager();
+                YamlExporter.WriteObjToYamlFile("Settings.yaml", settingsManager);
+            }
+
             try
             {
                 using (var env = GetGameEnvironment())
@@ -97,17 +97,42 @@ namespace StarArmory
             {
                 //MessageBox.Show(ex.Message);
             }
+        }
+
+        public static IGameEnvironment<IStarfieldMod, IStarfieldModGetter> GetGameEnvironment()
+        {
+            logr.WriteLine("Getting Game Environment");
             try
             {
-               settingsManager = YamlImporter.getObjectFromFile<SettingsManager>("Settings.yaml");
+                if (settingsManager.DataPath != "../")
+                {
+                    logr.WriteLine("DataPath in Settings.yaml is not default. Searching:" + settingsManager.DataPath);
+                    var env = GameEnvironment.Typical.Builder<IStarfieldMod, IStarfieldModGetter>(GameRelease.Starfield)
+                        .TransformLoadOrderListings(x => x.Where(x => !x.ModKey.Name.Contains("StarArmory")))
+                        .WithTargetDataFolder(new DirectoryPath(settingsManager.DataPath)).Build();
+                    logr.WriteLine("Environment Loaded with load order: " + env.LoadOrderFilePath);
+                    logr.WriteLine("Load order length: " + env.LoadOrder.Count);
+                    return env;
+                }
+                else
+                {
+                    logr.WriteLine("DataPath in Settings.yaml is not default. Searching:" + settingsManager.DataPath);
+                    var env = GameEnvironment.Typical.Builder<IStarfieldMod, IStarfieldModGetter>(GameRelease.Starfield)
+                                        .TransformLoadOrderListings(x => x.Where(x => !x.ModKey.Name.Contains("StarArmory"))).Build();
+                    return env;
+                }
+                //throw new Exception();//Trigger fallback                
             }
-            catch (Exception ex)
+            catch
             {
-                //MessageBox.Show(ex.Message);
-                settingsManager = new SettingsManager();
-                YamlExporter.WriteObjToYamlFile("Settings.yaml", settingsManager);
+                var env = GameEnvironment.Typical.Builder<IStarfieldMod, IStarfieldModGetter>(GameRelease.Starfield)
+                    .TransformLoadOrderListings(x => x.Where(x => !x.ModKey.Name.Contains("StarArmory")))
+                    .WithTargetDataFolder(new DirectoryPath(settingsManager.DataPath)).Build();
+                return env;
             }
         }
+
+
         private void AddToPlanButton(object sender, EventArgs e)
         {
             try
@@ -150,13 +175,9 @@ namespace StarArmory
             }
         }
 
-        public StreamWriter logr;
+        
         private void ExportESMButton(object sender, EventArgs e)
         {
-            FileStream log = new FileStream("Log.txt", FileMode.Create);
-            logr = new StreamWriter(log);
-            logr.WriteLine("Starting Export");
-
             uint lastformkey = 0;
             try
             {
