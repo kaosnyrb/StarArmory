@@ -1,9 +1,12 @@
 using Mutagen.Bethesda;
 using Mutagen.Bethesda.Environments;
 using Mutagen.Bethesda.Plugins;
+using Mutagen.Bethesda.Plugins.Cache.Internals.Implementations;
 using Mutagen.Bethesda.Starfield;
 using Noggog;
+using System.Globalization;
 using System.Windows.Forms;
+using YamlDotNet.Core.Tokens;
 
 namespace StarArmory
 {
@@ -15,8 +18,10 @@ namespace StarArmory
         {
             try
             {
-                var env = GameEnvironment.Typical.Starfield(StarfieldRelease.Starfield);
-                //throw new Exception();
+                //var env = GameEnvironment.Typical.Starfield(StarfieldRelease.Starfield);
+                var env = GameEnvironment.Typical.Builder<IStarfieldMod, IStarfieldModGetter>(GameRelease.Starfield)
+                                    .TransformLoadOrderListings(x => x.Where(x => !x.ModKey.Name.Contains("StarArmory"))).Build();
+                //throw new Exception();//Trigger fallback
                 return env;
             }
             catch
@@ -54,7 +59,7 @@ namespace StarArmory
                 Armory.clothes = new List<IArmorGetter>();
                 Armory.plans = new List<FactionPlan>();
                 Armory.factions = new Dictionary<string, Faction>();
-
+                
                 string[] fileEntries = Directory.GetFiles("Factions/");
                 foreach (var entry in fileEntries)
                 {
@@ -63,38 +68,44 @@ namespace StarArmory
                     FactionList.Items.Add(faction.Name);
                 }
                 FactionList.SelectedItem = FactionList.Items[0];
-
-                if (File.Exists("./Plan.yaml"))
-                {
-                    Armory.plans = YamlImporter.getObjectFromFile<List<FactionPlan>>("Plan.yaml");
-                    factionPlanTree.Nodes.Clear();
-                    factionPlanTree.BeginUpdate();
-                    factionPlanTree.Nodes.Add("Plan");
-                    for (int i = 0; i < Armory.plans.Count; i++)
-                    {
-                        Armory.plans[i].faction = Armory.factions[Armory.plans[i].faction.Name];
-                        factionPlanTree.Nodes[0].Nodes.Add(Armory.plans[i].faction.Name);
-                        for (int j = 0; j < Armory.plans[i].mods.Count; j++)
-                        {
-                            factionPlanTree.Nodes[0].Nodes[i].Nodes.Add(Armory.plans[i].mods[j]);
-                        }
-                    }
-                    factionPlanTree.Nodes[0].Expand();
-                    factionPlanTree.EndUpdate();
-                }
-                settingsManager = new SettingsManager();
-                if (!File.Exists("./Settings.yaml"))
-                {
-                    YamlExporter.WriteObjToYamlFile("Settings.yaml", settingsManager);
-                }
-                else
-                {
-                    settingsManager = YamlImporter.getObjectFromFile<SettingsManager>("Settings.yaml");
-                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+
+            //Used to check these existed before loading them, but it was triggering virus scanners.
+            try
+            {
+                Armory.plans = YamlImporter.getObjectFromFile<List<FactionPlan>>("Plan.yaml");
+                factionPlanTree.Nodes.Clear();
+                factionPlanTree.BeginUpdate();
+                factionPlanTree.Nodes.Add("Plan");
+                for (int i = 0; i < Armory.plans.Count; i++)
+                {
+                    Armory.plans[i].faction = Armory.factions[Armory.plans[i].faction.Name];
+                    factionPlanTree.Nodes[0].Nodes.Add(Armory.plans[i].faction.Name);
+                    for (int j = 0; j < Armory.plans[i].mods.Count; j++)
+                    {
+                        factionPlanTree.Nodes[0].Nodes[i].Nodes.Add(Armory.plans[i].mods[j]);
+                    }
+                }
+                factionPlanTree.Nodes[0].Expand();
+                factionPlanTree.EndUpdate();
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show(ex.Message);
+            }
+            try
+            {
+               settingsManager = YamlImporter.getObjectFromFile<SettingsManager>("Settings.yaml");
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show(ex.Message);
+                settingsManager = new SettingsManager();
+                YamlExporter.WriteObjToYamlFile("Settings.yaml", settingsManager);
             }
         }
         private void AddToPlanButton(object sender, EventArgs e)
@@ -158,7 +169,7 @@ namespace StarArmory
                 logr.WriteLine("Data folder at:" + datapath);
                 logr.WriteLine("Deleting :" + datapath + "StarArmoryPatch.esm");
 
-                File.Delete(datapath + "\\StarArmoryPatch.esm");
+                //File.Delete(datapath + "\\StarArmoryPatch.esm");
 
                 ModKey newMod = new ModKey("StarArmoryPatch", ModType.Master);
                 myMod = new StarfieldMod(newMod, StarfieldRelease.Starfield);
