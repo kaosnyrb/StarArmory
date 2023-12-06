@@ -15,6 +15,7 @@ namespace StarArmory
         public List<ulong> clothesFirstPersonFlagsLongBlacklist { get; set; }
 
         public string DataPath { get; set; }
+
         public SettingsManager()
         {
             HatChance = 50f;
@@ -28,11 +29,17 @@ namespace StarArmory
                 FirstPersonFlag.SSMisc3,
                 FirstPersonFlag.AddonRig,
                 FirstPersonFlag.SSAddonRig,
-                FirstPersonFlag.Hat
+                FirstPersonFlag.Hat,
+                FirstPersonFlag.Beard
             };
             clothesFirstPersonFlagsLongBlacklist = new List<ulong>
             {
-                288230376151711744
+                288230376151711744,
+                2228224,
+                67633152,
+                2752512,
+                2228736,
+                655360,
             };
         }
     }

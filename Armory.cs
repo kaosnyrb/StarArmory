@@ -1,6 +1,7 @@
 ﻿using Mutagen.Bethesda;
 using Mutagen.Bethesda.Plugins;
 using Mutagen.Bethesda.Starfield;
+using Noggog;
 using System.Linq;
 
 namespace StarArmory
@@ -49,20 +50,25 @@ namespace StarArmory
                         var armours = mod.Value.Mod.Armors.ToList();
                         foreach (var armor in armours)
                         {
+                            bool added = false;
+                            bool Keyword = false;
                             var link = immutableLoadOrderLinkCache.Resolve<IArmorGetter>(armor.FormKey);
                             if (armor.HasKeyword(Apparel))
                             {
                                 //These are based on various armors i've in my mod list. There will be more here.
                                 if (!StarArmory.settingsManager.clothesFirstPersonFlagsBlacklist.Contains(armor.FirstPersonFlags.Value) &&
                                     !StarArmory.settingsManager.clothesFirstPersonFlagsLongBlacklist.Contains((ulong)armor.FirstPersonFlags.Value))
-
                                 {
                                     clothes.Add(link);
+                                    added = true;
                                 }
+                                Keyword = true;
                             }
                             if (armor.HasKeyword(Head))
                             {
                                 hats.Add(link);
+                                added = true;
+                                Keyword = true;
                             }
                             if (armor.HasKeyword(spacesuit))
                             {
@@ -70,7 +76,9 @@ namespace StarArmory
                                 if (armor.FirstPersonFlags.Value == FirstPersonFlag.SSBODY)
                                 {
                                     spacesuits.Add(link);
+                                    added = true;
                                 }
+                                Keyword = true;
                             }
                             if (armor.HasKeyword(spacehelmet))
                             {
@@ -80,15 +88,24 @@ namespace StarArmory
                                     )
                                 {
                                     spacehelmets.Add(link);
+                                    added = true;
                                 }
+                                Keyword = true;
                             }
                             if (armor.HasKeyword(boostpack))
                             {
                                 boostpacks.Add(link);
+                                added = true;
+                                Keyword = true;
+                            }
+                            if (!added)
+                            {
+                                StarArmory.logr.WriteLine("Didn't load armor " + armor.EditorID + " from mod " + mod.Value.FileName + " Keyword found: " + Keyword.ToString() + " | FirstPersonFlags checks : " + added.ToString());
                             }
                         }
                     }
                 }
+                StarArmory.logr.Flush();
             }
         }
     }
