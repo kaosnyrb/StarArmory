@@ -3,6 +3,7 @@ using Mutagen.Bethesda.Starfield;
 
 using Mutagen.Bethesda;
 using Noggog;
+using Microsoft.VisualBasic.Logging;
 
 namespace StarArmory
 {
@@ -28,6 +29,8 @@ namespace StarArmory
                 if (!found)
                 {
                     new Exception("Couldn't file mod name " + filename + " in load order! Check the factions yamls for the error file.");
+                    StarArmory.logr.WriteLine("Couldn't file mod name " + filename + " in load order! Check the factions yamls for the error file.");
+
                 }
                 FormKey formKey = new FormKey(key, levellist);
                 var citizenclothes = immutableLoadOrderLinkCache.Resolve<ILeveledItemGetter>(formKey);
