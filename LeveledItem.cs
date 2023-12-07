@@ -14,7 +14,6 @@ namespace StarArmory
             using (var env = StarArmory.GetGameEnvironment())
             {
                 var immutableLoadOrderLinkCache = env.LoadOrder.ToImmutableLinkCache();
-
                 ModKey key = new ModKey();
                 bool found = false;
                 for (int i = 0; i < env.LoadOrder.Count; i++)
@@ -30,7 +29,6 @@ namespace StarArmory
                 {
                     new Exception("Couldn't file mod name " + filename + " in load order! Check the factions yamls for the error file.");
                     StarArmory.logr.WriteLine("Couldn't file mod name " + filename + " in load order! Check the factions yamls for the error file.");
-
                 }
                 FormKey formKey = new FormKey(key, levellist);
                 var citizenclothes = immutableLoadOrderLinkCache.Resolve<ILeveledItemGetter>(formKey);
@@ -118,9 +116,7 @@ namespace StarArmory
                 {
                     float speed = newitems[i].AttackSeconds;
                     if (speed == 0) speed = newitems[i].BaseSpeed;
-                    float dps = newitems[i].AttackDamage * speed;
-
-                    
+                    float dps = newitems[i].AttackDamage * speed;                    
                     short level = (short)(dps / 10);
                     newlist.Entries.Add(new LeveledItemEntry()
                     {

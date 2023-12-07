@@ -302,9 +302,12 @@ namespace StarArmory
                         BuildClothesOutfit(plan, env);
                     }
                 }
+
                 //Export
+                logr.WriteLine("Exporting to " + datapath + "\\StarArmoryPatch.esm");
                 myMod.WriteToBinary(datapath + "\\StarArmoryPatch.esm");
                 MessageBox.Show("Exported StarArmoryPatch.esm to Data Folder. Make sure to add it to plugins.txt at " + pluginspath);
+                logr.WriteLine("Export Complete");
             }
             catch (Exception ex)
             {
@@ -317,6 +320,7 @@ namespace StarArmory
             {
                 logr.Flush();
             }
+            logr.Flush();
         }
 
         private static void BuildSpaceOutfit(FactionPlan plan, IGameEnvironment<IStarfieldMod, IStarfieldModGetter> env)
@@ -423,6 +427,7 @@ namespace StarArmory
                         logr.WriteLine("Erroring modname was: " + outfit.modname);
                         MessageBox.Show(ex.Message);
                         logr.WriteLine(ex.Message);
+                        logr.Flush();
                     }
                 }
             }
@@ -513,6 +518,7 @@ namespace StarArmory
                         logr.WriteLine("Erroring modname was: " + outfit.modname);
                         MessageBox.Show(ex.Message);
                         logr.WriteLine(ex.Message);
+                        logr.Flush();
                     }
                 }
             }
