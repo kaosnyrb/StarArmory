@@ -7,12 +7,14 @@ using System.Linq;
 namespace StarArmory
 {
     class Armory
-    {        
+    {
         public static List<IArmorGetter> clothes { get; set; } = new List<IArmorGetter>();
         public static List<IArmorGetter> hats { get; set; } = new List<IArmorGetter>();
         public static List<IArmorGetter> spacesuits { get; set; } = new List<IArmorGetter>();
         public static List<IArmorGetter> spacehelmets { get; set; } = new List<IArmorGetter>();
         public static List<IArmorGetter> boostpacks { get; set; } = new List<IArmorGetter>();
+        public static List<IWeaponGetter> ranged_weapons { get; set; } = new List<IWeaponGetter>();
+        public static List<IWeaponGetter> melee_weapons { get; set; } = new List<IWeaponGetter>();
 
         public static List<FactionPlan> plans;
         public static Dictionary<string, Faction> factions;
@@ -37,7 +39,6 @@ namespace StarArmory
                 FormKey spacesuit = new FormKey(env.LoadOrder[0].ModKey, 2344896);//ArmorTypeSpacesuitBody [KYWD:0023C7C0]
                 FormKey spacehelmet = new FormKey(env.LoadOrder[0].ModKey, 2344897);//ArmorTypeSpacesuitBackpack [KYWD:0023C7BF]
                 FormKey boostpack = new FormKey(env.LoadOrder[0].ModKey, 2344895);//ArmorTypeSpacesuitHelmet[KYWD: 0023C7C1]
-
 
                 foreach (var mod in env.LoadOrder)
                 {
@@ -101,6 +102,30 @@ namespace StarArmory
                             if (!added)
                             {
                                 StarArmory.logr.WriteLine("Didn't load armor " + armor.EditorID + " from mod " + mod.Value.FileName + " Keyword found: " + Keyword.ToString() + " | FirstPersonFlags checks : " + added.ToString());
+                            }
+                        }
+
+                        FormKey weapon_ranged = new FormKey(env.LoadOrder[0].ModKey, 177940);//WeaponTypeRanged [KYWD:0002B714]
+                        FormKey weapon_melee = new FormKey(env.LoadOrder[0].ModKey, 303268);//WeaponTypeMelee1H [KYWD:0004A0A4]
+
+                        var weapons = mod.Value.Mod.Weapons.ToList();
+                        foreach (var weapon in weapons)
+                        {
+                            bool added = false;
+                            var link = immutableLoadOrderLinkCache.Resolve<IWeaponGetter>(weapon.FormKey);
+                            if (weapon.HasKeyword(weapon_ranged))
+                            {
+                                ranged_weapons.Add(link);
+                                added = true;
+                            }
+                            if (weapon.HasKeyword(weapon_melee))
+                            {
+                                melee_weapons.Add(link);
+                                added = true;
+                            }
+                            if (!added )
+                            {
+                                StarArmory.logr.WriteLine("Didn't load weapon " + weapon.EditorID + " from mod " + mod.Value.FileName + " Keyword found: " + added.ToString());
                             }
                         }
                     }

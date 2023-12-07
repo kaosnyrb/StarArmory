@@ -25,6 +25,9 @@ Clothes:
 - Formkey: 46565
   Modname: Starfield.esm
   EditorId: LL_Clothes_NH_Civilian_Any [LVLI:0000B5E5]
+- Formkey: 496366
+  Modname: Starfield.esm
+  EditorId: LL_Clothes_Functional [LVLI:000792EE]
 Spacesuits: 
 - Formkey: 1441036
   Modname: Starfield.esm

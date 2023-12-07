@@ -1,0 +1,11 @@
+Name: Weapons Heavy
+RangedWeapons:
+- Formkey: 1351598
+  Modname: Starfield.esm
+  EditorId: LL_Weapon_Ranged_Heavy [LVLI:00149FAE]
+- Formkey: 2201364
+  Modname: Starfield.esm
+  EditorId: LL_LegendaryItem_WeaponListHeavyWeapons_Common [LVLI:00219714]
+
+
+  

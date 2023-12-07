@@ -1,0 +1,9 @@
+Name: Legendary Clothes
+Hats:
+- Formkey: 1842504
+  Modname: Starfield.esm
+  EditorId: LL_LegendaryItem_ArmorListHelmets_AnyNPCFaction [LVLI:001C1D48]
+Clothes: 
+- Formkey: 1842474
+  Modname: Starfield.esm
+  EditorId: LL_LegendaryItem_ArmorList_AnyNPCFaction [LVLI:001C1D2A]

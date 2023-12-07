@@ -1,0 +1,14 @@
+Name: Weapons Melee
+MeleeWeapons:
+- Formkey: 1888076
+  Modname: Starfield.esm
+  EditorId: LL_Weapon_Melee_Any [LVLI:001CCF4C]
+- Formkey: 50662
+  Modname: Starfield.esm
+  EditorId: LL_Weapon_Melee_Charger [LVLI:0000C5E6]
+- Formkey: 2163747
+  Modname: Starfield.esm
+  EditorId: LL_Weapon_Melee_Citizen [LVLI:00210423]
+- Formkey: 562764
+  Modname: Starfield.esm
+  EditorId: LL_Weapon_Melee_UC [LVLI:0008964C]

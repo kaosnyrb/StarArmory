@@ -44,8 +44,10 @@ namespace StarArmory
                     logr.WriteLine("Plugin.txt location: " + env.LoadOrderFilePath);
                     logr.WriteLine("Load order length: " + env.LoadOrder.Count);
                     logr.WriteLine("Scanning Load Order for valid armor mods...");
+                    
                     foreach (var mod in env.LoadOrder)
                     {
+                        bool added = false;
                         if (mod.Value.ModKey.FileName == "Starfield.esm") continue;
                         if (mod.Value.Mod != null)
                         {
@@ -55,11 +57,24 @@ namespace StarArmory
                                 {
                                     loadedMods.Items.Add(mod.Value.FileName, true);
                                     logr.WriteLine(mod.Value.ModKey.FileName + " has " + mod.Value.Mod.Armors.Count + " Armors");
+                                    added = true;
                                 }
                             }
                             else
                             {
                                 logr.WriteLine(mod.Value.ModKey.FileName + " has no Armors, skipping.");
+                            }
+                            if (mod.Value.Mod.Weapons != null && !added)
+                            {
+                                if (mod.Value.Mod.Weapons.Count > 0)
+                                {
+                                    loadedMods.Items.Add(mod.Value.FileName, true);
+                                    logr.WriteLine(mod.Value.ModKey.FileName + " has " + mod.Value.Mod.Weapons.Count + " Weapons");
+                                }
+                            }
+                            else
+                            {
+                                logr.WriteLine(mod.Value.ModKey.FileName + " has no Weapons, skipping.");
                             }
                         }
                     }
@@ -68,6 +83,7 @@ namespace StarArmory
                 Armory.clothes = new List<IArmorGetter>();
                 Armory.plans = new List<FactionPlan>();
                 Armory.factions = new Dictionary<string, Faction>();
+
                 logr.WriteLine("Loading Faction Files...");
                 string[] fileEntries = Directory.GetFiles("Factions/");
                 foreach (var entry in fileEntries)
@@ -197,9 +213,11 @@ namespace StarArmory
                 logr.WriteLine("Exporting Plan.yaml");
                 YamlExporter.WriteObjToYamlFile("Plan.yaml", Armory.plans);
                 string datapath = "";
+                string pluginspath = "";
                 using (var env = GetGameEnvironment())
                 {
                     datapath = env.DataFolderPath;
+                    pluginspath = env.LoadOrderFilePath;
                 }
                 logr.WriteLine("Data folder at:" + datapath);
                 //File.Delete(datapath + "\\StarArmoryPatch.esm");
@@ -255,6 +273,23 @@ namespace StarArmory
                             LeveledItem.AddItemsToLevelledList(myMod, Armory.boostpacks, pack.modname, pack.formkey);
                         }
                     }
+                    if (plan.faction.RangedWeapons != null)
+                    {
+                        foreach (var rangedweapon in plan.faction.RangedWeapons)
+                        {
+                            lastformkey = rangedweapon;
+                            LeveledItem.AddItemsToLevelledList(myMod, Armory.ranged_weapons, rangedweapon.modname, rangedweapon.formkey);
+                        }
+                    }
+                    if (plan.faction.MeleeWeapons != null)
+                    {
+                        foreach (var meleeweapon in plan.faction.MeleeWeapons)
+                        {
+                            lastformkey = meleeweapon;
+                            LeveledItem.AddItemsToLevelledList(myMod, Armory.melee_weapons, meleeweapon.modname, meleeweapon.formkey);
+                        }
+                    }
+
                     //Outfits
                     //Outfits have another layer of complexity to the levelled lists
                     //In vanilla some outfits link directly to armor, things like the starborn.
@@ -269,7 +304,7 @@ namespace StarArmory
                 }
                 //Export
                 myMod.WriteToBinary(datapath + "\\StarArmoryPatch.esm");
-                MessageBox.Show("Exported StarArmoryPatch.esm to Data Folder");
+                MessageBox.Show("Exported StarArmoryPatch.esm to Data Folder. Make sure to add it to plugins.txt at " + pluginspath);
             }
             catch (Exception ex)
             {
