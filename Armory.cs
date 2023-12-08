@@ -20,6 +20,7 @@ namespace StarArmory
         public static List<FactionPlan> plans;
         public static Dictionary<string, Faction> factions;
 
+        public static List<string> UpgradedItems;//This is to prevent adding multiple keywords.
 
         public static void Clear()
         {
@@ -62,11 +63,19 @@ namespace StarArmory
                                 var link = immutableLoadOrderLinkCache.Resolve<IArmorGetter>(armor.FormKey);
                                 if (armor.HasKeyword(Apparel))
                                 {
+                                    StarArmory.logr.WriteLine("Processing Armor: " + armor.EditorID + " flags " + armor.FirstPersonFlags.Value);
                                     //These are based on various armors i've in my mod list. There will be more here.
                                     if (!StarArmory.settingsManager.clothesFirstPersonFlagsBlacklist.Contains(armor.FirstPersonFlags.Value) &&
                                         !StarArmory.settingsManager.clothesFirstPersonFlagsLongBlacklist.Contains((ulong)armor.FirstPersonFlags.Value))
                                     {
                                         clothes.Add(link);
+                                        added = true;
+                                        itemsAdded++;
+                                    }
+                                    else
+                                    {
+                                        //Things that aren't outfits are probably accessories.
+                                        hats.Add(link);
                                         added = true;
                                         itemsAdded++;
                                     }

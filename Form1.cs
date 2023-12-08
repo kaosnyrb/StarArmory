@@ -44,7 +44,7 @@ namespace StarArmory
                     logr.WriteLine("Plugin.txt location: " + env.LoadOrderFilePath);
                     logr.WriteLine("Load order length: " + env.LoadOrder.Count);
                     logr.WriteLine("Scanning Load Order for valid armor mods...");
-                    
+
                     foreach (var mod in env.LoadOrder)
                     {
                         bool added = false;
@@ -112,6 +112,7 @@ namespace StarArmory
                 {
                     Armory.plans[i].faction = Armory.factions[Armory.plans[i].faction.Name];
                     factionPlanTree.Nodes[0].Nodes.Add(Armory.plans[i].faction.Name);
+                    factionPlanTree.Nodes[0].Nodes[i].Nodes.Add("Clear Vanilla: " + Armory.plans[i].clearvanillaitems.ToString());
                     for (int j = 0; j < Armory.plans[i].mods.Count; j++)
                     {
                         factionPlanTree.Nodes[0].Nodes[i].Nodes.Add(Armory.plans[i].mods[j]);
@@ -165,6 +166,7 @@ namespace StarArmory
             {
                 var factionplan = new FactionPlan();
                 factionplan.faction = Armory.factions[FactionList.SelectedItem.ToString()];
+                factionplan.clearvanillaitems = donotusevanilla.Checked;
                 logr.WriteLine("Adding " + factionplan.faction.Name + " to plan.");
                 List<string> checkedmods = new List<string>();
                 foreach (var item in loadedMods.CheckedItems)
@@ -188,6 +190,7 @@ namespace StarArmory
                 for (int i = 0; i < Armory.plans.Count; i++)
                 {
                     factionPlanTree.Nodes[0].Nodes.Add(Armory.plans[i].faction.Name);
+                    factionPlanTree.Nodes[0].Nodes[i].Nodes.Add("Clear Vanilla: " + Armory.plans[i].clearvanillaitems.ToString());
                     for (int j = 0; j < Armory.plans[i].mods.Count; j++)
                     {
                         factionPlanTree.Nodes[0].Nodes[i].Nodes.Add(Armory.plans[i].mods[j]);
@@ -208,6 +211,7 @@ namespace StarArmory
         private void ExportESMButton(object sender, EventArgs e)
         {
             SimpleForm lastformkey = new SimpleForm();
+            Armory.UpgradedItems = new List<string>();
             try
             {
                 logr.WriteLine("Exporting Plan.yaml");
@@ -224,7 +228,7 @@ namespace StarArmory
 
                 ModKey newMod = new ModKey("StarArmoryPatch", ModType.Master);
                 myMod = new StarfieldMod(newMod, StarfieldRelease.Starfield);
-
+                myMod.Clear();
                 foreach (var plan in Armory.plans)
                 {
                     logr.WriteLine("Staring Faction : " + plan.faction.Name);
@@ -238,7 +242,7 @@ namespace StarArmory
                         foreach (var hat in plan.faction.Hats)
                         {
                             lastformkey = hat;
-                            LeveledItem.AddItemsToLevelledList(myMod, Armory.hats, hat.modname, hat.formkey);
+                            LeveledItem.AddItemsToLevelledList(myMod, Armory.hats, hat.modname, hat.formkey, plan.clearvanillaitems);
                         }
                     }
                     if (plan.faction.Clothes != null)
@@ -246,7 +250,7 @@ namespace StarArmory
                         foreach (var clothes in plan.faction.Clothes)
                         {
                             lastformkey = clothes;
-                            LeveledItem.AddItemsToLevelledList(myMod, Armory.clothes, clothes.modname, clothes.formkey);
+                            LeveledItem.AddItemsToLevelledList(myMod, Armory.clothes, clothes.modname, clothes.formkey, plan.clearvanillaitems);
                         }
                     }
                     if (plan.faction.Spacesuits != null)
@@ -254,7 +258,7 @@ namespace StarArmory
                         foreach (var suit in plan.faction.Spacesuits)
                         {
                             lastformkey = suit;
-                            LeveledItem.AddItemsToLevelledList(myMod, Armory.spacesuits, suit.modname, suit.formkey);
+                            LeveledItem.AddItemsToLevelledList(myMod, Armory.spacesuits, suit.modname, suit.formkey, plan.clearvanillaitems);
                         }
                     }
                     if (plan.faction.SpaceHelmets != null)
@@ -262,7 +266,7 @@ namespace StarArmory
                         foreach (var helm in plan.faction.SpaceHelmets)
                         {
                             lastformkey = helm;
-                            LeveledItem.AddItemsToLevelledList(myMod, Armory.spacehelmets, helm.modname, helm.formkey);
+                            LeveledItem.AddItemsToLevelledList(myMod, Armory.spacehelmets, helm.modname, helm.formkey, plan.clearvanillaitems);
                         }
                     }
                     if (plan.faction.Boostpacks != null)
@@ -270,7 +274,7 @@ namespace StarArmory
                         foreach (var pack in plan.faction.Boostpacks)
                         {
                             lastformkey = pack;
-                            LeveledItem.AddItemsToLevelledList(myMod, Armory.boostpacks, pack.modname, pack.formkey);
+                            LeveledItem.AddItemsToLevelledList(myMod, Armory.boostpacks, pack.modname, pack.formkey, plan.clearvanillaitems);
                         }
                     }
                     if (plan.faction.RangedWeapons != null)
@@ -278,7 +282,7 @@ namespace StarArmory
                         foreach (var rangedweapon in plan.faction.RangedWeapons)
                         {
                             lastformkey = rangedweapon;
-                            LeveledItem.AddItemsToLevelledList(myMod, Armory.ranged_weapons, rangedweapon.modname, rangedweapon.formkey);
+                            LeveledItem.AddItemsToLevelledList(myMod, Armory.ranged_weapons, rangedweapon.modname, rangedweapon.formkey, plan.clearvanillaitems);
                         }
                     }
                     if (plan.faction.MeleeWeapons != null)
@@ -286,7 +290,7 @@ namespace StarArmory
                         foreach (var meleeweapon in plan.faction.MeleeWeapons)
                         {
                             lastformkey = meleeweapon;
-                            LeveledItem.AddItemsToLevelledList(myMod, Armory.melee_weapons, meleeweapon.modname, meleeweapon.formkey);
+                            LeveledItem.AddItemsToLevelledList(myMod, Armory.melee_weapons, meleeweapon.modname, meleeweapon.formkey, plan.clearvanillaitems);
                         }
                     }
 
@@ -343,27 +347,31 @@ namespace StarArmory
                         List<IArmorGetter> spacesuits = new List<IArmorGetter>();
                         List<IArmorGetter> spacehelmets = new List<IArmorGetter>();
                         List<IArmorGetter> boostpacks = new List<IArmorGetter>();
-                        foreach (var item in olditems)
+                        if (!plan.clearvanillaitems)
                         {
-                            IArmorGetter? armorGetter;
-                            immutableLoadOrderLinkCache.TryResolve<IArmorGetter>(item.FormKey, out armorGetter);
-                            if (armorGetter != null)
+                            foreach (var item in olditems)
                             {
-                                // Note that things can multiple keywords, IE Starborn spacesuits count as suits/helmets and boost
-                                if (armorGetter.HasKeyword(spacesuit))
+                                IArmorGetter? armorGetter;
+                                immutableLoadOrderLinkCache.TryResolve<IArmorGetter>(item.FormKey, out armorGetter);
+                                if (armorGetter != null)
                                 {
-                                    spacesuits.Add(armorGetter);
-                                }
-                                else if (armorGetter.HasKeyword(spacehelmet))
-                                {
-                                    spacehelmets.Add(armorGetter);
-                                }
-                                else if (armorGetter.HasKeyword(boostpack))
-                                {
-                                    boostpacks.Add(armorGetter);
+                                    // Note that things can multiple keywords, IE Starborn spacesuits count as suits/helmets and boost
+                                    if (armorGetter.HasKeyword(spacesuit))
+                                    {
+                                        spacesuits.Add(armorGetter);
+                                    }
+                                    else if (armorGetter.HasKeyword(spacehelmet))
+                                    {
+                                        spacehelmets.Add(armorGetter);
+                                    }
+                                    else if (armorGetter.HasKeyword(boostpack))
+                                    {
+                                        boostpacks.Add(armorGetter);
+                                    }
                                 }
                             }
                         }
+
                         //clear outfit
                         var newoutfit = myMod.Outfits.GetOrAddAsOverride(link);
                         newoutfit.Items.Clear();
@@ -450,20 +458,23 @@ namespace StarArmory
                         var olditems = link.Items.ToList();
                         List<IArmorGetter> clothes = new List<IArmorGetter>();
                         List<IArmorGetter> hats = new List<IArmorGetter>();
-                        foreach (var item in olditems)
+                        if (!plan.clearvanillaitems)
                         {
-                            IArmorGetter? armorGetter;
-                            immutableLoadOrderLinkCache.TryResolve<IArmorGetter>(item.FormKey, out armorGetter);
-                            if (armorGetter != null)
+                            foreach (var item in olditems)
                             {
-                                // Note that things can multiple keywords, IE Starborn spacesuits count as suits/helmets and boost
-                                if (armorGetter.HasKeyword(Apparel))
+                                IArmorGetter? armorGetter;
+                                immutableLoadOrderLinkCache.TryResolve<IArmorGetter>(item.FormKey, out armorGetter);
+                                if (armorGetter != null)
                                 {
-                                    clothes.Add(armorGetter);
-                                }
-                                else if (armorGetter.HasKeyword(Head))
-                                {
-                                    hats.Add(armorGetter);
+                                    // Note that things can multiple keywords, IE Starborn spacesuits count as suits/helmets and boost
+                                    if (armorGetter.HasKeyword(Apparel))
+                                    {
+                                        clothes.Add(armorGetter);
+                                    }
+                                    else if (armorGetter.HasKeyword(Head))
+                                    {
+                                        hats.Add(armorGetter);
+                                    }
                                 }
                             }
                         }
@@ -522,6 +533,27 @@ namespace StarArmory
                     }
                 }
             }
+        }
+
+        private void selectallbutton_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < loadedMods.Items.Count; i++)
+            {
+                loadedMods.SetItemChecked(i, true);
+            }
+        }
+
+        private void clearbutton_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < loadedMods.Items.Count; i++)
+            {
+                loadedMods.SetItemChecked(i, false);
+            }
+        }
+
+        private void clearplanbutton_Click(object sender, EventArgs e)
+        {
+            Armory.plans.Clear();
         }
     }
 }

@@ -30,7 +30,9 @@ namespace StarArmory
                 FirstPersonFlag.AddonRig,
                 FirstPersonFlag.SSAddonRig,
                 FirstPersonFlag.Hat,
-                FirstPersonFlag.Beard
+                FirstPersonFlag.Beard,
+                FirstPersonFlag.Misc3VisOnly,
+
             };
             clothesFirstPersonFlagsLongBlacklist = new List<ulong>
             {
@@ -40,6 +42,7 @@ namespace StarArmory
                 2752512,
                 2228736,
                 655360,
+                67141632
             };
         }
     }

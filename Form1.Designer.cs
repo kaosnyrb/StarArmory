@@ -38,13 +38,18 @@
             label3 = new Label();
             label4 = new Label();
             factionPlanTree = new TreeView();
+            selectallbutton = new Button();
+            clearbutton = new Button();
+            label5 = new Label();
+            donotusevanilla = new CheckBox();
+            clearplanbutton = new Button();
             SuspendLayout();
             // 
             // button1
             // 
-            button1.Location = new Point(695, 481);
+            button1.Location = new Point(808, 484);
             button1.Name = "button1";
-            button1.Size = new Size(102, 86);
+            button1.Size = new Size(180, 47);
             button1.TabIndex = 0;
             button1.Text = "Build ESM";
             button1.UseVisualStyleBackColor = true;
@@ -55,22 +60,22 @@
             loadedMods.FormattingEnabled = true;
             loadedMods.Location = new Point(12, 95);
             loadedMods.Name = "loadedMods";
-            loadedMods.Size = new Size(277, 472);
+            loadedMods.Size = new Size(277, 436);
             loadedMods.TabIndex = 3;
             // 
             // FactionList
             // 
             FactionList.FormattingEnabled = true;
-            FactionList.Location = new Point(12, 41);
+            FactionList.Location = new Point(12, 51);
             FactionList.Name = "FactionList";
             FactionList.Size = new Size(277, 23);
             FactionList.TabIndex = 5;
             // 
             // button2
             // 
-            button2.Location = new Point(295, 481);
+            button2.Location = new Point(295, 484);
             button2.Name = "button2";
-            button2.Size = new Size(93, 86);
+            button2.Size = new Size(206, 47);
             button2.TabIndex = 6;
             button2.Text = "Add to Faction Leveled List ->";
             button2.UseVisualStyleBackColor = true;
@@ -79,7 +84,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(394, 20);
+            label1.Location = new Point(507, 23);
             label1.Name = "label1";
             label1.Size = new Size(77, 15);
             label1.TabIndex = 7;
@@ -88,7 +93,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(695, 463);
+            label2.Location = new Point(808, 466);
             label2.Name = "label2";
             label2.Size = new Size(180, 15);
             label2.TabIndex = 8;
@@ -97,7 +102,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(12, 20);
+            label3.Location = new Point(12, 23);
             label3.Name = "label3";
             label3.Size = new Size(51, 15);
             label3.TabIndex = 9;
@@ -114,16 +119,70 @@
             // 
             // factionPlanTree
             // 
-            factionPlanTree.Location = new Point(394, 41);
+            factionPlanTree.Location = new Point(507, 41);
             factionPlanTree.Name = "factionPlanTree";
-            factionPlanTree.Size = new Size(295, 526);
+            factionPlanTree.Size = new Size(295, 490);
             factionPlanTree.TabIndex = 11;
+            // 
+            // selectallbutton
+            // 
+            selectallbutton.Location = new Point(12, 537);
+            selectallbutton.Name = "selectallbutton";
+            selectallbutton.Size = new Size(75, 23);
+            selectallbutton.TabIndex = 12;
+            selectallbutton.Text = "Select All";
+            selectallbutton.UseVisualStyleBackColor = true;
+            selectallbutton.Click += selectallbutton_Click;
+            // 
+            // clearbutton
+            // 
+            clearbutton.Location = new Point(214, 537);
+            clearbutton.Name = "clearbutton";
+            clearbutton.Size = new Size(75, 23);
+            clearbutton.TabIndex = 13;
+            clearbutton.Text = "Clear All";
+            clearbutton.UseVisualStyleBackColor = true;
+            clearbutton.Click += clearbutton_Click;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(295, 23);
+            label5.Name = "label5";
+            label5.Size = new Size(91, 15);
+            label5.TabIndex = 14;
+            label5.Text = "Faction Settings";
+            // 
+            // donotusevanilla
+            // 
+            donotusevanilla.AutoSize = true;
+            donotusevanilla.Location = new Point(295, 53);
+            donotusevanilla.Name = "donotusevanilla";
+            donotusevanilla.Size = new Size(138, 19);
+            donotusevanilla.TabIndex = 15;
+            donotusevanilla.Text = "Remove Vanilla Items";
+            donotusevanilla.UseVisualStyleBackColor = true;
+            // 
+            // clearplanbutton
+            // 
+            clearplanbutton.Location = new Point(727, 537);
+            clearplanbutton.Name = "clearplanbutton";
+            clearplanbutton.Size = new Size(75, 23);
+            clearplanbutton.TabIndex = 16;
+            clearplanbutton.Text = "Clear Plan";
+            clearplanbutton.UseVisualStyleBackColor = true;
+            clearplanbutton.Click += clearplanbutton_Click;
             // 
             // StarArmory
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(876, 585);
+            ClientSize = new Size(1000, 579);
+            Controls.Add(clearplanbutton);
+            Controls.Add(donotusevanilla);
+            Controls.Add(label5);
+            Controls.Add(clearbutton);
+            Controls.Add(selectallbutton);
             Controls.Add(factionPlanTree);
             Controls.Add(label4);
             Controls.Add(label3);
@@ -151,5 +210,10 @@
         private Label label3;
         private Label label4;
         private TreeView factionPlanTree;
+        private Button selectallbutton;
+        private Button clearbutton;
+        private Label label5;
+        private CheckBox donotusevanilla;
+        private Button clearplanbutton;
     }
 }

@@ -7,9 +7,10 @@ using Microsoft.VisualBasic.Logging;
 
 namespace StarArmory
 {
+
     class LeveledItem
     {
-        public static void AddItemsToLevelledList(StarfieldMod myMod, List<IArmorGetter> newitems, string filename, uint levellist)
+        public static void AddItemsToLevelledList(StarfieldMod myMod, List<IArmorGetter> newitems, string filename, uint levellist, bool clearlist = false)
         {
             using (var env = StarArmory.GetGameEnvironment())
             {
@@ -32,32 +33,43 @@ namespace StarArmory
                 }
                 FormKey formKey = new FormKey(key, levellist);
                 var citizenclothes = immutableLoadOrderLinkCache.Resolve<ILeveledItemGetter>(formKey);
+                var newlist = myMod.LeveledItems.GetOrAddAsOverride(citizenclothes);
 
-                var newlist = myMod.LeveledItems.GetOrAddAsOverride(citizenclothes);               
+                if (clearlist)
+                {
+                    newlist.Entries.Clear();
+                }
+
                 for (int i = 0; i < newitems.Count; i++)
                 {
                     //Add Legendary and quality options to any armours that don't have them.
                     try
                     {
                         FormKey legrank1 = new FormKey(env.LoadOrder[0].ModKey, 1979080);//ap_Legendary_rank_1 [KYWD:001E32C8]                        
-                        if (newitems[i].AttachParentSlots == null )
+                        if (!Armory.UpgradedItems.Contains(newitems[i].EditorID))
                         {
-                            var newArmour = myMod.Armors.GetOrAddAsOverride(newitems[i]);
-                            newArmour.AttachParentSlots = new ExtendedList<IFormLinkGetter<IKeywordGetter>>
+                            if (newitems[i].AttachParentSlots == null)
+                            {
+
+                                var newArmour = myMod.Armors.GetOrAddAsOverride(newitems[i]);
+                                newArmour.AttachParentSlots = new ExtendedList<IFormLinkGetter<IKeywordGetter>>
                             {
                                 legrank1,
                                 new FormKey(env.LoadOrder[0].ModKey, 3316412),//ap_Legendary_rank_2 [KYWD:00329ABC]
                                 new FormKey(env.LoadOrder[0].ModKey, 3316413),//ap_Legendary_rank_3 [KYWD:00329ABD]
                                 new FormKey(env.LoadOrder[0].ModKey, 1172161)//ap_armor_Quality "Quality" [KYWD:0011E2C1]
                             };
-                        }
-                        else if (!newitems[i].AttachParentSlots.Contains(legrank1))
-                        {
-                            var newArmour = myMod.Armors.GetOrAddAsOverride(newitems[i]);
-                            newArmour.AttachParentSlots.Add(legrank1);
-                            newArmour.AttachParentSlots.Add(new FormKey(env.LoadOrder[0].ModKey, 3316412));//ap_Legendary_rank_2 [KYWD:00329ABC]
-                            newArmour.AttachParentSlots.Add(new FormKey(env.LoadOrder[0].ModKey, 3316413));//ap_Legendary_rank_3 [KYWD:00329ABD]
-                            newArmour.AttachParentSlots.Add(new FormKey(env.LoadOrder[0].ModKey, 1172161));//ap_armor_Quality "Quality" [KYWD:0011E2C1]
+                                Armory.UpgradedItems.Add(newArmour.EditorID);
+                            }
+                            else if (!newitems[i].AttachParentSlots.Contains(legrank1))
+                            {
+                                var newArmour = myMod.Armors.GetOrAddAsOverride(newitems[i]);
+                                newArmour.AttachParentSlots.Add(legrank1);
+                                newArmour.AttachParentSlots.Add(new FormKey(env.LoadOrder[0].ModKey, 3316412));//ap_Legendary_rank_2 [KYWD:00329ABC]
+                                newArmour.AttachParentSlots.Add(new FormKey(env.LoadOrder[0].ModKey, 3316413));//ap_Legendary_rank_3 [KYWD:00329ABD]
+                                newArmour.AttachParentSlots.Add(new FormKey(env.LoadOrder[0].ModKey, 1172161));//ap_armor_Quality "Quality" [KYWD:0011E2C1]
+                                Armory.UpgradedItems.Add(newArmour.EditorID);
+                            }
                         }
                     }
                     catch(Exception ex)
@@ -81,7 +93,7 @@ namespace StarArmory
             }
         }
 
-        public static void AddItemsToLevelledList(StarfieldMod myMod, List<IWeaponGetter> newitems, string filename, uint levellist)
+        public static void AddItemsToLevelledList(StarfieldMod myMod, List<IWeaponGetter> newitems, string filename, uint levellist, bool clearlist = false)
         {
             using (var env = StarArmory.GetGameEnvironment())
             {
@@ -111,6 +123,10 @@ namespace StarArmory
                 bool result = myMod.LeveledItems.Remove(formKey);
                 var newlist = myMod.LeveledItems.GetOrAddAsOverride(citizenclothes);
                 newlist.Flags = 0;//Don't use all for weapons.
+                if (clearlist)
+                {
+                    newlist.Entries.Clear();
+                }
 
                 for (int i = 0; i < newitems.Count; i++)
                 {
