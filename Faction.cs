@@ -46,6 +46,8 @@ namespace StarArmory
     class FactionPlan
     {
         public bool clearvanillaitems { get; set; }
+
+        public string gender { get; set; }
         public Faction faction { get; set; }
 
         public List<string> mods { get; set; }

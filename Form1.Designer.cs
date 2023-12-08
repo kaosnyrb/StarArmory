@@ -43,6 +43,8 @@
             label5 = new Label();
             donotusevanilla = new CheckBox();
             clearplanbutton = new Button();
+            genderdropdown = new ComboBox();
+            label6 = new Label();
             SuspendLayout();
             // 
             // button1
@@ -152,6 +154,7 @@
             label5.Size = new Size(91, 15);
             label5.TabIndex = 14;
             label5.Text = "Faction Settings";
+            label5.Click += label5_Click;
             // 
             // donotusevanilla
             // 
@@ -173,11 +176,33 @@
             clearplanbutton.UseVisualStyleBackColor = true;
             clearplanbutton.Click += clearplanbutton_Click;
             // 
+            // genderdropdown
+            // 
+            genderdropdown.FormattingEnabled = true;
+            genderdropdown.Items.AddRange(new object[] { "All", "Female Only", "Male Only" });
+            genderdropdown.Location = new Point(346, 74);
+            genderdropdown.Name = "genderdropdown";
+            genderdropdown.Size = new Size(155, 23);
+            genderdropdown.TabIndex = 17;
+            genderdropdown.Visible = false;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(295, 77);
+            label6.Name = "label6";
+            label6.Size = new Size(45, 15);
+            label6.TabIndex = 18;
+            label6.Text = "Gender";
+            label6.Visible = false;
+            // 
             // StarArmory
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1000, 579);
+            Controls.Add(label6);
+            Controls.Add(genderdropdown);
             Controls.Add(clearplanbutton);
             Controls.Add(donotusevanilla);
             Controls.Add(label5);
@@ -215,5 +240,7 @@
         private Label label5;
         private CheckBox donotusevanilla;
         private Button clearplanbutton;
+        private ComboBox genderdropdown;
+        private Label label6;
     }
 }
