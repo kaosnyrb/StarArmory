@@ -122,12 +122,14 @@ namespace StarArmory
                 //Remove any existing patchs.
                 bool result = myMod.LeveledItems.Remove(formKey);
                 var newlist = myMod.LeveledItems.GetOrAddAsOverride(citizenclothes);
-                newlist.Flags = 0;//Don't use all for weapons.
+                if (newlist.Flags == Mutagen.Bethesda.Starfield.LeveledItem.Flag.UseAll)
+                {
+                    newlist.Flags = 0;//Don't use all for weapons.
+                }
                 if (clearlist)
                 {
                     newlist.Entries.Clear();
                 }
-
                 for (int i = 0; i < newitems.Count; i++)
                 {
                     float speed = newitems[i].AttackSeconds;

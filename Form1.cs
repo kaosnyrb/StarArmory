@@ -5,6 +5,7 @@ using Mutagen.Bethesda.Plugins.Cache.Internals.Implementations;
 using Mutagen.Bethesda.Starfield;
 using Noggog;
 using System.Globalization;
+using System.Reactive.Joins;
 using System.Windows.Forms;
 using YamlDotNet.Core.Tokens;
 
@@ -105,21 +106,7 @@ namespace StarArmory
             {
                 logr.WriteLine("Loading Plan.yaml");
                 Armory.plans = YamlImporter.getObjectFromFile<List<FactionPlan>>("Plan.yaml");
-                factionPlanTree.Nodes.Clear();
-                factionPlanTree.BeginUpdate();
-                factionPlanTree.Nodes.Add("Plan");
-                for (int i = 0; i < Armory.plans.Count; i++)
-                {
-                    Armory.plans[i].faction = Armory.factions[Armory.plans[i].faction.Name];
-                    factionPlanTree.Nodes[0].Nodes.Add(Armory.plans[i].faction.Name);
-                    factionPlanTree.Nodes[0].Nodes[i].Nodes.Add("Clear Vanilla: " + Armory.plans[i].clearvanillaitems.ToString());
-                    for (int j = 0; j < Armory.plans[i].mods.Count; j++)
-                    {
-                        factionPlanTree.Nodes[0].Nodes[i].Nodes.Add(Armory.plans[i].mods[j]);
-                    }
-                }
-                factionPlanTree.Nodes[0].Expand();
-                factionPlanTree.EndUpdate();
+                UpdatePlan();
             }
             catch (Exception ex)
             {
@@ -127,7 +114,27 @@ namespace StarArmory
                 logr.WriteLine("Exception loading Plan.yaml. Assuming it's just not there.");
                 Armory.plans = new List<FactionPlan>();
             }
+            genderdropdown.SelectedIndex = 0;
             logr.Flush();
+        }
+
+        public void UpdatePlan()
+        {
+            factionPlanTree.Nodes.Clear();
+            factionPlanTree.BeginUpdate();
+            factionPlanTree.Nodes.Add("Plan");
+            for (int i = 0; i < Armory.plans.Count; i++)
+            {
+                Armory.plans[i].faction = Armory.factions[Armory.plans[i].faction.Name];
+                factionPlanTree.Nodes[0].Nodes.Add(Armory.plans[i].faction.Name);
+                factionPlanTree.Nodes[0].Nodes[i].Nodes.Add("Clear Vanilla: " + Armory.plans[i].clearvanillaitems.ToString());
+                for (int j = 0; j < Armory.plans[i].mods.Count; j++)
+                {
+                    factionPlanTree.Nodes[0].Nodes[i].Nodes.Add(Armory.plans[i].mods[j]);
+                }
+            }
+            factionPlanTree.Nodes[0].Expand();
+            factionPlanTree.EndUpdate();
         }
 
         public static IGameEnvironment<IStarfieldMod, IStarfieldModGetter> GetGameEnvironment()
@@ -164,16 +171,23 @@ namespace StarArmory
         {
             try
             {
-                var factionplan = new FactionPlan();
-                factionplan.faction = Armory.factions[FactionList.SelectedItem.ToString()];
-                factionplan.clearvanillaitems = donotusevanilla.Checked;
+                var factionplan = new FactionPlan
+                {
+                    faction = YamlImporter.getObjectFromYaml<Faction>(YamlExporter.BuildYaml(Armory.factions[FactionList.SelectedItem.ToString()])), //Yeah, looks stupid but it creates a clone.
+                    clearvanillaitems = donotusevanilla.Checked,
+                    gender = genderdropdown.SelectedItem.ToString()
+                };
+
+                if (factionplan.gender != "All")
+                {
+                    factionplan.faction.Name += " - " + factionplan.gender;
+                }
                 logr.WriteLine("Adding " + factionplan.faction.Name + " to plan.");
                 List<string> checkedmods = new List<string>();
                 foreach (var item in loadedMods.CheckedItems)
                 {
                     checkedmods.Add(item.ToString());
                 }
-
                 factionplan.mods = checkedmods;
                 for (int i = 0; i < Armory.plans.Count; i++)
                 {
@@ -182,22 +196,8 @@ namespace StarArmory
                         Armory.plans.RemoveAt(i);
                     }
                 }
-
                 Armory.plans.Add(factionplan);
-                factionPlanTree.Nodes.Clear();
-                factionPlanTree.BeginUpdate();
-                factionPlanTree.Nodes.Add("Plan");
-                for (int i = 0; i < Armory.plans.Count; i++)
-                {
-                    factionPlanTree.Nodes[0].Nodes.Add(Armory.plans[i].faction.Name);
-                    factionPlanTree.Nodes[0].Nodes[i].Nodes.Add("Clear Vanilla: " + Armory.plans[i].clearvanillaitems.ToString());
-                    for (int j = 0; j < Armory.plans[i].mods.Count; j++)
-                    {
-                        factionPlanTree.Nodes[0].Nodes[i].Nodes.Add(Armory.plans[i].mods[j]);
-                    }
-                }
-                factionPlanTree.Nodes[0].Expand();
-                factionPlanTree.EndUpdate();
+                UpdatePlan();
             }
             catch (Exception ex)
             {
@@ -237,63 +237,74 @@ namespace StarArmory
                     Armory.LoadClothes(plan.mods);
                     //Levelled Lists
                     //Here we inject the modded items into the levelled lists defined in the faction files.
-                    if (plan.faction.Hats != null)
+                    //If we're gendered ignore this section
+                    if (plan.gender == "All" || plan.gender == null)
                     {
-                        foreach (var hat in plan.faction.Hats)
+                        if (plan.faction.Hats != null)
                         {
-                            lastformkey = hat;
-                            LeveledItem.AddItemsToLevelledList(myMod, Armory.hats, hat.modname, hat.formkey, plan.clearvanillaitems);
+                            foreach (var hat in plan.faction.Hats)
+                            {
+                                lastformkey = hat;
+                                LeveledItem.AddItemsToLevelledList(myMod, Armory.hats, hat.modname, hat.formkey, plan.clearvanillaitems);
+                            }
+                        }
+                        if (plan.faction.Clothes != null)
+                        {
+                            foreach (var clothes in plan.faction.Clothes)
+                            {
+                                lastformkey = clothes;
+                                LeveledItem.AddItemsToLevelledList(myMod, Armory.clothes, clothes.modname, clothes.formkey, plan.clearvanillaitems);
+                            }
+                        }
+                        if (plan.faction.Spacesuits != null)
+                        {
+                            foreach (var suit in plan.faction.Spacesuits)
+                            {
+                                lastformkey = suit;
+                                LeveledItem.AddItemsToLevelledList(myMod, Armory.spacesuits, suit.modname, suit.formkey, plan.clearvanillaitems);
+                            }
+                        }
+                        if (plan.faction.SpaceHelmets != null)
+                        {
+                            foreach (var helm in plan.faction.SpaceHelmets)
+                            {
+                                lastformkey = helm;
+                                LeveledItem.AddItemsToLevelledList(myMod, Armory.spacehelmets, helm.modname, helm.formkey, plan.clearvanillaitems);
+                            }
+                        }
+                        if (plan.faction.Boostpacks != null)
+                        {
+                            foreach (var pack in plan.faction.Boostpacks)
+                            {
+                                lastformkey = pack;
+                                LeveledItem.AddItemsToLevelledList(myMod, Armory.boostpacks, pack.modname, pack.formkey, plan.clearvanillaitems);
+                            }
+                        }
+                        if (plan.faction.RangedWeapons != null)
+                        {
+                            foreach (var rangedweapon in plan.faction.RangedWeapons)
+                            {
+                                lastformkey = rangedweapon;
+                                LeveledItem.AddItemsToLevelledList(myMod, Armory.ranged_weapons, rangedweapon.modname, rangedweapon.formkey, plan.clearvanillaitems);
+                            }
+                        }
+                        if (plan.faction.MeleeWeapons != null)
+                        {
+                            foreach (var meleeweapon in plan.faction.MeleeWeapons)
+                            {
+                                lastformkey = meleeweapon;
+                                LeveledItem.AddItemsToLevelledList(myMod, Armory.melee_weapons, meleeweapon.modname, meleeweapon.formkey, plan.clearvanillaitems);
+                            }
+                        }
+                        if (plan.faction.Grenades != null)
+                        {
+                            foreach (var nade in plan.faction.Grenades)
+                            {
+                                lastformkey = nade;
+                                LeveledItem.AddItemsToLevelledList(myMod, Armory.grenades, nade.modname, nade.formkey, plan.clearvanillaitems);
+                            }
                         }
                     }
-                    if (plan.faction.Clothes != null)
-                    {
-                        foreach (var clothes in plan.faction.Clothes)
-                        {
-                            lastformkey = clothes;
-                            LeveledItem.AddItemsToLevelledList(myMod, Armory.clothes, clothes.modname, clothes.formkey, plan.clearvanillaitems);
-                        }
-                    }
-                    if (plan.faction.Spacesuits != null)
-                    {
-                        foreach (var suit in plan.faction.Spacesuits)
-                        {
-                            lastformkey = suit;
-                            LeveledItem.AddItemsToLevelledList(myMod, Armory.spacesuits, suit.modname, suit.formkey, plan.clearvanillaitems);
-                        }
-                    }
-                    if (plan.faction.SpaceHelmets != null)
-                    {
-                        foreach (var helm in plan.faction.SpaceHelmets)
-                        {
-                            lastformkey = helm;
-                            LeveledItem.AddItemsToLevelledList(myMod, Armory.spacehelmets, helm.modname, helm.formkey, plan.clearvanillaitems);
-                        }
-                    }
-                    if (plan.faction.Boostpacks != null)
-                    {
-                        foreach (var pack in plan.faction.Boostpacks)
-                        {
-                            lastformkey = pack;
-                            LeveledItem.AddItemsToLevelledList(myMod, Armory.boostpacks, pack.modname, pack.formkey, plan.clearvanillaitems);
-                        }
-                    }
-                    if (plan.faction.RangedWeapons != null)
-                    {
-                        foreach (var rangedweapon in plan.faction.RangedWeapons)
-                        {
-                            lastformkey = rangedweapon;
-                            LeveledItem.AddItemsToLevelledList(myMod, Armory.ranged_weapons, rangedweapon.modname, rangedweapon.formkey, plan.clearvanillaitems);
-                        }
-                    }
-                    if (plan.faction.MeleeWeapons != null)
-                    {
-                        foreach (var meleeweapon in plan.faction.MeleeWeapons)
-                        {
-                            lastformkey = meleeweapon;
-                            LeveledItem.AddItemsToLevelledList(myMod, Armory.melee_weapons, meleeweapon.modname, meleeweapon.formkey, plan.clearvanillaitems);
-                        }
-                    }
-
                     //Outfits
                     //Outfits have another layer of complexity to the levelled lists
                     //In vanilla some outfits link directly to armor, things like the starborn.
@@ -446,6 +457,8 @@ namespace StarArmory
             FormKey Apparel = new FormKey(env.LoadOrder[0].ModKey, 918668);//ArmorTypeApparelOrNakedBody[KYWD: 000E048C]
             FormKey Head = new FormKey(env.LoadOrder[0].ModKey, 918667);//ArmorTypeApparelHead [KYWD:000E048B]
 
+            Dictionary<string, string> outfitmapping = new Dictionary<string, string>();
+
             if (plan.faction.OutfitClothes != null)
             {
                 foreach (var outfit in plan.faction.OutfitClothes)
@@ -482,15 +495,14 @@ namespace StarArmory
                         var newoutfit = myMod.Outfits.GetOrAddAsOverride(link);
                         newoutfit.Items.Clear();
 
-                        //create levelled list for each category for this outfit
-
+                        //create levelled list for each category for this outfit                        
                         var ListOutfitHats = myMod.LeveledItems.AddNew();
-                        ListOutfitHats.EditorID = link.EditorID + "_SA_hats";
+                        ListOutfitHats.EditorID = link.EditorID + "_SA_hats_" + plan.gender;
                         ListOutfitHats.Entries = new ExtendedList<LeveledItemEntry>();
                         ListOutfitHats.ChanceNone = settingsManager.HatChance;
 
                         var ListOutfitClothes = myMod.LeveledItems.AddNew();
-                        ListOutfitClothes.EditorID = link.EditorID + "_SA_clothes";
+                        ListOutfitClothes.EditorID = link.EditorID + "_SA_clothes_" + plan.gender;
                         ListOutfitClothes.Entries = new ExtendedList<LeveledItemEntry>();
                         //add vanilla items from 1 to levelled list
                         foreach (var hat in hats)
@@ -517,11 +529,38 @@ namespace StarArmory
                         LeveledItem.AddItemsToList(myMod, Armory.hats, ListOutfitHats.Entries, 0);
                         LeveledItem.AddItemsToList(myMod, Armory.clothes, ListOutfitClothes.Entries, 0);
                         //Add each levelled list to outfit
-                        if (outfit.Helmet == null)
+                        if (plan.gender == "All")
                         {
-                            newoutfit.Items.Add(ListOutfitHats);
+                            if (outfit.Helmet == null)
+                            {
+                                newoutfit.Items.Add(ListOutfitHats);
+                            }
+                            newoutfit.Items.Add(ListOutfitClothes);
                         }
-                        newoutfit.Items.Add(ListOutfitClothes);
+                        else
+                        {
+                            var topleveloutfit = myMod.Outfits.AddNew();
+                            topleveloutfit.EditorID = newoutfit.EditorID + "_SA_" + plan.gender;
+                            topleveloutfit.Items = new ExtendedList<IFormLinkGetter<IOutfitTargetGetter>>();
+                            if (!outfitmapping.Keys.Contains(newoutfit.EditorID))
+                            {
+                                outfitmapping.Add(newoutfit.EditorID, newoutfit.EditorID + "_SA_" + plan.gender);
+                            }
+                            if (outfit.Helmet == null)
+                            {
+                                topleveloutfit.Items.Add(ListOutfitHats);
+                            }
+                            topleveloutfit.Items.Add(ListOutfitClothes);
+
+                            //Fun part, now we need to update every npc of a bodytype to wear the new outfit.
+                            //Loop through all npcs.... :|
+                            //Mutagen doesn't support this yet...
+                            /*
+                            foreach (var mod in env.LoadOrder)
+                            {
+                                mod.Value.Mod.Npcs
+                            }*/
+                        }
                     }
                     catch (Exception ex)
                     {
@@ -533,6 +572,7 @@ namespace StarArmory
                     }
                 }
             }
+            logr.WriteLine("Outfits to map : " + outfitmapping.Count);
         }
 
         private void selectallbutton_Click(object sender, EventArgs e)
@@ -554,6 +594,126 @@ namespace StarArmory
         private void clearplanbutton_Click(object sender, EventArgs e)
         {
             Armory.plans.Clear();
+            UpdatePlan();
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void modfilter_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            using (var env = GetGameEnvironment())
+            {
+                loadedMods.Items.Clear();
+                var filter = modfilter.SelectedItem;
+                foreach (var mod in env.LoadOrder)
+                {
+                    bool added = false;
+                    if (mod.Value.ModKey.FileName == "Starfield.esm") continue;
+                    if (mod.Value.Mod != null)
+                    {
+                        /*
+                         All
+                            Clothes
+                            Spacesuits
+                            Weapons
+                            Aid
+                         */
+                        switch (filter)
+                        {
+                            case "All":
+                                loadedMods.Items.Add(mod.Value.FileName, true);
+                                break;
+                            case "Clothes":
+                                if (mod.Value.Mod.Armors != null)
+                                {
+                                    if (mod.Value.Mod.Armors.Count > 0)
+                                    {
+                                        FormKey Apparel = new FormKey(env.LoadOrder[0].ModKey, 918668);//ArmorTypeApparelOrNakedBody[KYWD: 000E048C]
+                                        FormKey Head = new FormKey(env.LoadOrder[0].ModKey, 918667);//ArmorTypeApparelHead [KYWD:000E048B]
+                                        bool clothesinmod = false;
+                                        foreach (var armor in mod.Value.Mod.Armors)
+                                        {
+                                            if (armor.Keywords.Contains(Apparel) || armor.Keywords.Contains(Head))
+                                            {
+                                                clothesinmod = true;
+                                                break;
+                                            }
+                                        }
+                                        if (clothesinmod)
+                                        {
+                                            loadedMods.Items.Add(mod.Value.FileName, true);
+                                        }
+                                    }
+                                }
+                                break;
+                            case "Spacesuits":
+                                if (mod.Value.Mod.Armors != null)
+                                {
+                                    if (mod.Value.Mod.Armors.Count > 0)
+                                    {
+                                        FormKey spacesuit = new FormKey(env.LoadOrder[0].ModKey, 2344896);//ArmorTypeSpacesuitBody [KYWD:0023C7C0]
+                                        FormKey spacehelmet = new FormKey(env.LoadOrder[0].ModKey, 2344897);//ArmorTypeSpacesuitBackpack [KYWD:0023C7BF]
+                                        FormKey boostpack = new FormKey(env.LoadOrder[0].ModKey, 2344895);//ArmorTypeSpacesuitHelmet[KYWD: 0023C7C1]
+                                        bool clothesinmod = false;
+                                        foreach (var armor in mod.Value.Mod.Armors)
+                                        {
+                                            if (armor.Keywords.Contains(spacesuit) || armor.Keywords.Contains(spacehelmet) || armor.Keywords.Contains(boostpack))
+                                            {
+                                                clothesinmod = true;
+                                                break;
+                                            }
+                                        }
+                                        if (clothesinmod)
+                                        {
+                                            loadedMods.Items.Add(mod.Value.FileName, true);
+                                        }
+                                    }
+                                }
+                                break;
+                            case "Weapons":
+                                if (mod.Value.Mod.Weapons != null)
+                                {
+                                    if (mod.Value.Mod.Weapons.Count > 0)
+                                    {
+                                        FormKey weapon_ranged = new FormKey(env.LoadOrder[0].ModKey, 177940);//WeaponTypeRanged [KYWD:0002B714]
+                                        FormKey weapon_melee = new FormKey(env.LoadOrder[0].ModKey, 303268);//WeaponTypeMelee1H [KYWD:0004A0A4]
+                                        FormKey grenade = new FormKey(env.LoadOrder[0].ModKey, 303270);//WeaponTypeThrown [KYWD:0004A0A6]
+                                        bool inmod = false;
+                                        foreach (var armor in mod.Value.Mod.Weapons)
+                                        {
+                                            if (armor.Keywords.Contains(weapon_ranged) || armor.Keywords.Contains(weapon_melee) || armor.Keywords.Contains(grenade))
+                                            {
+                                                inmod = true;
+                                                break;
+                                            }
+                                        }
+                                        if (inmod)
+                                        {
+                                            loadedMods.Items.Add(mod.Value.FileName, true);
+                                        }
+                                    }
+                                }
+                                break;
+                        }
+                    }
+                }
+            }
+        }
+
+        private void deleteplan_Click(object sender, EventArgs e)
+        {
+            for(int i = 0; i < Armory.plans.Count; i++)
+            {
+                if (Armory.plans[i].faction.Name == factionPlanTree.SelectedNode.Text)
+                {
+                    Armory.plans.RemoveAt(i);
+                    UpdatePlan();
+                    break;
+                }
+            }            
         }
     }
 }

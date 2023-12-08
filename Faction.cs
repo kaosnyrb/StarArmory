@@ -14,6 +14,8 @@ namespace StarArmory
         public List<SimpleForm> OutfitClothes { get; set; }
         public List<SimpleForm> RangedWeapons { get; set; }
         public List<SimpleForm> MeleeWeapons { get; set; }
+        public List<SimpleForm> Grenades { get; set; }
+
     }
 
     class SimpleForm
@@ -46,6 +48,8 @@ namespace StarArmory
     class FactionPlan
     {
         public bool clearvanillaitems { get; set; }
+
+        public string gender { get; set; }
         public Faction faction { get; set; }
 
         public List<string> mods { get; set; }

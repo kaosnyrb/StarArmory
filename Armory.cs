@@ -16,6 +16,7 @@ namespace StarArmory
         public static List<IArmorGetter> boostpacks { get; set; } = new List<IArmorGetter>();
         public static List<IWeaponGetter> ranged_weapons { get; set; } = new List<IWeaponGetter>();
         public static List<IWeaponGetter> melee_weapons { get; set; } = new List<IWeaponGetter>();
+        public static List<IWeaponGetter> grenades { get; set; } = new List<IWeaponGetter>();
 
         public static List<FactionPlan> plans;
         public static Dictionary<string, Faction> factions;
@@ -136,6 +137,7 @@ namespace StarArmory
                         {
                             FormKey weapon_ranged = new FormKey(env.LoadOrder[0].ModKey, 177940);//WeaponTypeRanged [KYWD:0002B714]
                             FormKey weapon_melee = new FormKey(env.LoadOrder[0].ModKey, 303268);//WeaponTypeMelee1H [KYWD:0004A0A4]
+                            FormKey grenade = new FormKey(env.LoadOrder[0].ModKey, 303270);//WeaponTypeThrown [KYWD:0004A0A6]
 
                             var weapons = mod.Value.Mod.Weapons.ToList();
                             foreach (var weapon in weapons)
@@ -151,6 +153,12 @@ namespace StarArmory
                                 if (weapon.HasKeyword(weapon_melee))
                                 {
                                     melee_weapons.Add(link);
+                                    added = true;
+                                    itemsAdded++;
+                                }
+                                if (weapon.HasKeyword(grenade))
+                                {
+                                    grenades.Add(link);
                                     added = true;
                                     itemsAdded++;
                                 }
