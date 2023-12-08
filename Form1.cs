@@ -295,6 +295,14 @@ namespace StarArmory
                                 LeveledItem.AddItemsToLevelledList(myMod, Armory.melee_weapons, meleeweapon.modname, meleeweapon.formkey, plan.clearvanillaitems);
                             }
                         }
+                        if (plan.faction.Grenades != null)
+                        {
+                            foreach (var nade in plan.faction.Grenades)
+                            {
+                                lastformkey = nade;
+                                LeveledItem.AddItemsToLevelledList(myMod, Armory.grenades, nade.modname, nade.formkey, plan.clearvanillaitems);
+                            }
+                        }
                     }
                     //Outfits
                     //Outfits have another layer of complexity to the levelled lists
@@ -533,7 +541,9 @@ namespace StarArmory
                             var topleveloutfit = myMod.Outfits.AddNew();
                             topleveloutfit.EditorID = newoutfit.EditorID + "_SA_" + plan.gender;
                             topleveloutfit.Items = new ExtendedList<IFormLinkGetter<IOutfitTargetGetter>>();
-                            outfitmapping.Add(newoutfit.EditorID, newoutfit.EditorID + "_SA_" + plan.gender);
+                            if (!outfitmapping.Keys.Contains(newoutfit.EditorID)) {
+                                outfitmapping.Add(newoutfit.EditorID, newoutfit.EditorID + "_SA_" + plan.gender);
+                            }
                             if (outfit.Helmet == null)
                             {
                                 topleveloutfit.Items.Add(ListOutfitHats);
