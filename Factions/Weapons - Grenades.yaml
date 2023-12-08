@@ -1,0 +1,20 @@
+Name: Weapons - Grenades
+Grenades:
+- Formkey: 149196
+  Modname: Starfield.esm
+  EditorId: LL_Weapon_Grenade_General [LVLI:000246CC]
+- Formkey: 17079
+  Modname: Starfield.esm
+  EditorId: LL_Weapon_Thrown_XPL_General [LVLI:000042B7]
+- Formkey: 380634
+  Modname: Starfield.esm
+  EditorId: LL_Weapon_Thrown_XPL_CrimsonFleet [LVLI:0005CEDA]
+- Formkey: 380635
+  Modname: Starfield.esm
+  EditorId: LL_Weapon_Thrown_XPL_Ecliptic [LVLI:0005CEDB]
+- Formkey: 1888072
+  Modname: Starfield.esm
+  EditorId: LL_Weapon_Thrown_XPL_Any [LVLI:001CCF48]
+- Formkey: 4000057
+  Modname: Starfield.esm
+  EditorId: LL_Weapon_GrenadeSet_FragGrenade [LVLI:003D0939]

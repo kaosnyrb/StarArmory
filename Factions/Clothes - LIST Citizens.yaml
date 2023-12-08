@@ -1,0 +1,109 @@
+Name: Clothes - LIST Citizens
+Clothes: 
+- Formkey: 1441054
+  Modname: Starfield.esm
+  EditorId: LL_Clothes_Any [LVLI:0027926D]
+- Formkey: 1441054
+  Modname: Starfield.esm
+  EditorId: LL_Clothes_Civilian_Any [LVLI:0013420E]
+- Formkey: 2734548
+  Modname: Starfield.esm
+  EditorId: LL_Clothes_Settler_Any [LVLI:0029B9D4]
+- Formkey: 1262093
+  Modname: Starfield.esm
+  EditorId: LL_Clothes_Colonist_Any [LVLI:0013420D]
+OutfitClothes:
+- Formkey: 2440084
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_PaddedVest [OTFT:00253B94]
+- Formkey: 2497039
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_PaddedVest02 [OTFT:00261A0F]
+- Formkey: 1260918
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Colonist_Adventurous_01_NoHat [OTFT:00133D76]
+  Helmet: false
+- Formkey: 1260917
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Colonist_Adventurous_01_with_Hat [OTFT:00133D75]
+- Formkey: 1260916
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Colonist_Adventurous_Poncho_01_NoHat [OTFT:00133D74]
+  Helmet: false
+- Formkey: 1260915
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Colonist_Adventurous_Poncho_01_with_Hat [OTFT:00133D73]
+- Formkey: 1260910
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Colonist_BeadedCollarShirt_01_NoHat [OTFT:00133D6E]
+  Helmet: false
+- Formkey: 1260910
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Colonist_BeadedCollarShirt_01_NoHat [OTFT:00133D6E]
+  Helmet: false
+- Formkey: 1260909
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Colonist_BeadedCollarShirt_01_with_Hat [OTFT:00133D6D]
+- Formkey: 1260907
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Colonist_CroppedVest_01 [OTFT:00133D6B]
+- Formkey: 1260906
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Colonist_CroppedVest_02 [OTFT:00133D6A]
+- Formkey: 1260904
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Colonist_QuarterPaddedVest_01_NoHat [OTFT:00133D68]
+  Helmet: false
+- Formkey: 1260903
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Colonist_QuarterPaddedVest_01_with_Hat [OTFT:00133D67]
+- Formkey: 1260901
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Colonist_QuarterPaddedVest_02_NoHat [OTFT:00133D65]
+  Helmet: false
+- Formkey: 440896
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Civilian_RubberPocketPants_Jacket_02 [OTFT:0006BA40]
+- Formkey: 440899
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Civilian_RubberPocketPants_Jacket_03 [OTFT:0006BA43]
+- Formkey: 440992
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Civilian_RubberPocketPants_Jacket_04 [OTFT:0006BAA0]
+- Formkey: 441093
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Civilian_RubberPocketPants_02 [OTFT:0006BB05]
+- Formkey: 2440080
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Civilian_RubberPants_01 [OTFT:00253B90]
+- Formkey: 1828657
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Civilian_RubberPants_02 [OTFT:001BE731]
+- Formkey: 1260886
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Farmer_01_NoHat [OTFT:00133D56]
+  Helmet: false
+- Formkey: 1260887
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Farmer_01_with_Hat [OTFT:00133D57]
+- Formkey: 2440083
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_CroppedVest_CargoPants [OTFT:00253B93]
+- Formkey: 2497038
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_CroppedVest_CargoPants02 [OTFT:00261A0E]
+- Formkey: 50088
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Medical_Patient_01 [OTFT:0000C3A8]
+- Formkey: 436402
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Civilian_RubberPocketPants_01 [OTFT:0006A8B2]
+- Formkey: 436445
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Civilian_RubberPocketPants_Jacket_01 [OTFT:0006A8DD]
+- Formkey: 2826522
+  Modname: Starfield.esm
+  EditorId: Outfit_Citizen [OTFT:002B211A]
+- Formkey: 2535676
+  Modname: Starfield.esm
+  EditorId: Outfit_Colonist [OTFT:0026B0FC]

@@ -1,0 +1,70 @@
+Name: Spacesuit - Miners and Workers
+Spacesuits: 
+- Formkey: 1441036
+  Modname: Starfield.esm
+  EditorId: LL_Spacesuit_Miner_Body_AnyQuality [LVLI:0015FD0C]
+- Formkey: 1873049
+  Modname: Starfield.esm
+  EditorId: LL_Spacesuit_Any_Leveled [LVLI:001C9499]
+- Formkey: 1441054
+  Modname: Starfield.esm
+  EditorId: LL_Spacesuit_SpaceTrucker_Body_AnyQuality [LVLI:0015FD1E]  
+SpaceHelmets: 
+- Formkey: 1441035
+  Modname: Starfield.esm
+  EditorId: LL_Spacesuit_Miner_Helmet_AnyQuality [LVLI:0015FD0B]
+Boostpacks: 
+- Formkey: 1441037
+  Modname: Starfield.esm
+  EditorId: LL_Spacesuit_Miner_Backpack_Any_AnyQuality [LVLI:0015FD0D]
+- Formkey: 2513556
+  Modname: Starfield.esm
+  EditorId: LL_Spacesuit_Backpack_Any_Leveled [LVLI:00265A94]
+- Formkey: 837619
+  Modname: Starfield.esm
+  EditorId: LL_Spacesuit_Backpack_Citizen_Leveled [LVLI:000CC7F3]
+OutfitSpacesuit:
+- Formkey: 2535683
+  Modname: Starfield.esm
+  EditorId: Outfit_Spacesuit_Miner [OTFT:0026B103]
+- Formkey: 158708
+  Modname: Starfield.esm
+  EditorId: Outfit_Spacesuit_Miner_Deimos [OTFT:00026BF4]
+- Formkey: 1835837
+  Modname: Starfield.esm
+  EditorId: Outfit_Spacesuit_Miner_Deimos_CY [OTFT:001C033D]
+- Formkey: 372903
+  Modname: Starfield.esm
+  EditorId: Outfit_Spacesuit_Miner_NoHelmet [OTFT:0005B0A7]
+  Helmet: false
+- Formkey: 437250
+  Modname: Starfield.esm
+  EditorId: Outfit_Spacesuit_Miner_Orange [OTFT:0006AC02]
+- Formkey: 339085
+  Modname: Starfield.esm
+  EditorId: Outfit_Spacesuit_Miner_MQ101_NPCs [OTFT:00052C8D]
+- Formkey: 990459
+  Modname: Starfield.esm
+  EditorId: Outfit_Spacesuit_Miner_Deimos_CY_NoHelmet_NoBackpack [OTFT:000F1CFB]
+  Helmet: false
+- Formkey: 94340
+  Modname: Starfield.esm
+  EditorId: Outfit_Spacesuit_Trucker_NoHelmet_NoBackpack [OTFT:00017084]
+  Helmet: false
+- Formkey: 1783019
+  Modname: Starfield.esm
+  EditorId: Outfit_Spacesuit_Trucker_NoHelmet [OTFT:001B34EB]
+  Helmet: false
+- Formkey: 233634
+  Modname: Starfield.esm
+  EditorId: Outfit_Spacesuit_Loot_Trucker [OTFT:000390A2]
+- Formkey: 425106
+  Modname: Starfield.esm
+  EditorId: Outfit_Spacesuit_Settler [OTFT:00067C92]
+- Formkey: 99101
+  Modname: Starfield.esm
+  EditorId: Outfit_Spacesuit_ZeroNoHelmet [OTFT:0001831D]
+  Helmet: false
+- Formkey: 425105
+  Modname: Starfield.esm
+  EditorId: Outfit_Spacesuit_Citizen_NoBoostpack_NOTPLAYABLE [OTFT:00067C91]

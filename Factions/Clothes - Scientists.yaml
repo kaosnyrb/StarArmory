@@ -1,0 +1,67 @@
+Name: Clothes - Scientists
+Hats:
+Clothes: 
+- Formkey: 1262086
+  Modname: Starfield.esm
+  EditorId: LL_Clothes_Science_Any [LVLI:00134206]
+- Formkey: 150774
+  Modname: Starfield.esm
+  EditorId: LL_Clothes_Ryujin_LabWorker_Any [LVLI:00024CF6]
+- Formkey: 2535674
+  Modname: Starfield.esm
+  EditorId: LL_Clothes_SQ_Scientist_Any [LVLI:0026B0FA]
+OutfitClothes:
+- Formkey: 1260871
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Medical_Doctor_01 [OTFT:00133D47]
+- Formkey: 11405
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Medical_Doctor_02 [OTFT:00002C8D]
+- Formkey: 8697
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Medical_Doctor_03 [OTFT:000021F9]
+- Formkey: 1467384
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Ryujin_LabWorker_Any [OTFT:001663F8]
+- Formkey: 1052203
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Ryujin_LabWorker_Neuroamp [OTFT:00100E2B]
+- Formkey: 1260905
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Ryujin_LabWorker_NoHood [OTFT:00133D69]
+- Formkey: 1260900
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Ryujin_LabWorker_with_Hood [OTFT:00133D64]
+- Formkey: 2440091
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_ScienceLabTec [OTFT:00253B9B]
+- Formkey: 213269
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_ScienceLabTec_02 [OTFT:00034115]
+- Formkey: 3989707
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_ScienceLabTec_Generdyne_NoShield [OTFT:003CE0CB]
+- Formkey: 3855797
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_ScienceLabTec_NoShield [OTFT:003AD5B5]
+- Formkey: 1952601
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_ScienceLabTec_Xenofresh [OTFT:001DCB59]
+- Formkey: 1607372
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Science_Random_NoRyujin [OTFT:001886CC]
+- Formkey: 58110
+  Modname: Starfield.esm
+  EditorId: MQ207C_Outfit_Scientist [OTFT:0000E2FE]
+- Formkey: 815271
+  Modname: Starfield.esm
+  EditorId: Outfit_FayeSengsavahn [OTFT:000C70A7]
+- Formkey: 1002510
+  Modname: Starfield.esm
+  EditorId: CF05_Outfit_Clothes_Scientist [OTFT:000F4C0E]
+- Formkey: 1052197
+  Modname: Starfield.esm
+  EditorId: Outfit_UC_NA_ChiefEngineerKulkarni [OTFT:00100E25]
+- Formkey: 1052200
+  Modname: Starfield.esm
+  EditorId: Outfit_FC_Clinic_KendrickLane [OTFT:00100E28]

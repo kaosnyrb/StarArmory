@@ -1,0 +1,217 @@
+Name: Clothes - Miners and Workers
+Hats:
+- Formkey: 1629593
+  Modname: Starfield.esm
+  EditorId: LL_Clothes_CY_Citizen_Hat [LVLI:0018DD99]
+- Formkey: 46618
+  Modname: Starfield.esm
+  EditorId: LL_Clothes_NH_Citizen_Hat [LVLI:0000B61A]
+Clothes: 
+- Formkey: 202733
+  Modname: Starfield.esm
+  EditorId: LL_Outfit_CY_Miner_Any [LVLI:000317ED]
+- Formkey: 338676
+  Modname: Starfield.esm
+  EditorId: LL_Outfit_CY_Miner_Clothing [LVLI:00052AF4]  
+- Formkey: 1262082
+  Modname: Starfield.esm
+  EditorId: LL_Clothes_Utility_Any [LVLI:00134202]
+- Formkey: 2448640
+  Modname: Starfield.esm
+  EditorId: LL_Clothes_Miner_Any [LVLI:00255D00]
+- Formkey: 604730
+  Modname: Starfield.esm
+  EditorId: LL_Clothes_CY_Civilian_Any [LVLI:00093A3A]
+- Formkey: 46565
+  Modname: Starfield.esm
+  EditorId: LL_Clothes_NH_Civilian_Any [LVLI:0000B5E5]
+- Formkey: 496366
+  Modname: Starfield.esm
+  EditorId: LL_Clothes_Functional [LVLI:000792EE]
+- Formkey: 237775
+  Modname: Starfield.esm
+  EditorId: LL_Clothes_Worker_Any [LVLI:0003A0CF]
+OutfitClothes:
+- Formkey: 1262041
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Argos_Jumpsuit [OTFT:001341D9]
+- Formkey: 1803540
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Argos_Jumpsuit_OpenJacket [OTFT:001B8514]
+- Formkey: 2440093
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Mechanic_TankTop [OTFT:00253B9D]
+- Formkey: 1554167
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Worker_Jumpsuit_Janitor [OTFT:0017B6F7]
+- Formkey: 392082
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Miner_UtilitySuit_NoHardhat [OTFT:0005FB92]
+- Formkey: 2440092
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Mechanic [OTFT:00253B9C]
+- Formkey: 1246379
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Mechanic_Black [OTFT:001304AB]
+- Formkey: 1246380
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Mechanic_Brown [OTFT:001304AC]
+- Formkey: 1246383
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Mechanic_Gray [OTFT:001304AF]
+- Formkey: 2440093
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Mechanic_TankTop [OTFT:00253B9D]
+- Formkey: 544196
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Mechanic_Tanktop_Black [OTFT:00084DC4]
+- Formkey: 373794
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Mechanic_Tanktop_Brown [OTFT:0005B422]
+- Formkey: 544202
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Mechanic_Tanktop_Gray [OTFT:00084DCA]
+- Formkey: 544200
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Mechanic_Tanktop_Teal [OTFT:00084DC8]
+- Formkey: 837082
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Mechanic_Tanktop_with_WeldingHatUp_Black [OTFT:000CC5DA]
+- Formkey: 837084
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Mechanic_Teal [OTFT:000CC5DC]
+- Formkey: 202611
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Mechanic_Welding_with_ClosedWeldingHat_Black [OTFT:00031773]
+- Formkey: 202606
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Mechanic_Welding_with_ClosedWeldingHat_Gray [OTFT:0003176E]
+- Formkey: 202613
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Mechanic_Welding_with_ClosedWeldingHat_Teal [OTFT:00031775]
+- Formkey: 202613
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Mechanic_Welding_with_ClosedWeldingHat_Teal [OTFT:00031775]
+- Formkey: 2440096
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Mechanic_Welding_with_HelmetUp [OTFT:00253BA0]
+- Formkey: 2440094
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Mechanic_with_ClosedWeldingHat [OTFT:00253B9E]
+- Formkey: 2440097
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Mechanic_with_Hat_HeadphonesDown [OTFT:00253BA1]
+- Formkey: 31218
+  Modname: Starfield.esm
+  EditorId: Outfit_Miner_Jumpsuit_Shirt [OTFT:000079F2]
+- Formkey: 32633
+  Modname: Starfield.esm
+  EditorId: Outfit_DefaultPlayer [OTFT:00007F79]
+- Formkey: 1262041
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Argos_Jumpsuit [OTFT:001341D9]
+- Formkey: 378360
+  Modname: Starfield.esm
+  EditorId: Outfit_MinerJumpsuit_ClosedJacket [OTFT:0005C5F8]
+- Formkey: 378361
+  Modname: Starfield.esm
+  EditorId: Outfit_Miner_Jumpsuit_OpenJacket [OTFT:0005C5F9]
+- Formkey: 533273
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Worker_Jumpsuit_FilburnAG [OTFT:00082319]
+- Formkey: 565690
+  Modname: Starfield.esm
+  EditorId: Outfit_UtilityOveralls_ER_CoolingJacket [OTFT:0008A1BA]
+- Formkey: 1246496
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Factory_Jumpsuit_Blue [OTFT:00130520]
+- Formkey: 1249619
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Factory_Jumpsuit_Gray [OTFT:00131153]
+- Formkey: 1249657
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Factory_Jumpsuit_Yellow [OTFT:00131179]
+- Formkey: 1260857
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Xenofresh_Jumpsuit [OTFT:00133D39]
+- Formkey: 1419352
+  Modname: Starfield.esm
+  EditorId: Outfit_UtilityOveralls_Mechanic_Welding_with_WeldingHatUp [OTFT:0015A858]
+- Formkey: 1419354
+  Modname: Starfield.esm
+  EditorId: Outfit_UtilityOveralls_Mechanic_Welding_with_WeldingHatUp_Black [OTFT:0015A85A]
+- Formkey: 1419356
+  Modname: Starfield.esm
+  EditorId: Outfit_UtilityOveralls_Mechanic_Welding_with_WeldingHatUp_Brown [OTFT:0015A85C]
+- Formkey: 1419358
+  Modname: Starfield.esm
+  EditorId: Outfit_UtilityOveralls_Mechanic_Welding_with_WeldingHatUp_Gray [OTFT:0015A85E]
+- Formkey: 1419360
+  Modname: Starfield.esm
+  EditorId: Outfit_UtilityOveralls_Mechanic_Welding_with_WeldingHatUp_Teal [OTFT:0015A860]
+- Formkey: 2418538
+  Modname: Starfield.esm
+  EditorId: Outfit_UtilityOveralls_SSO [OTFT:0024E76A]
+- Formkey: 2440088
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Trucker_Flannel_01_NoHat [OTFT:1260873]
+  Helmet: false
+- Formkey: 1260874
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Trucker_Flannel_01_with_Hat [OTFT:00133D4A]
+- Formkey: 1260879
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Trucker_AShirt_01_NoHat [OTFT:00133D4F]
+  Helmet: false
+- Formkey: 1260878
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Trucker_AShirt_01_with_Hat [OTFT:00133D4E]
+- Formkey: 1260875
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Trucker_AShirt_Jacket_01_NoHat [OTFT:00133D4B]
+  Helmet: false
+- Formkey: 1260876
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Trucker_AShirt_Jacket_01_with_Hat [OTFT:00133D4C]
+- Formkey: 1260873
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Trucker_Flannel_01_NoHat [OTFT:00133D49]
+  Helmet: false
+- Formkey: 1260874
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Trucker_Flannel_01_with_Hat [OTFT:00133D4A]
+- Formkey: 1260870
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Trucker_Flannel_Jacket_01_NoHat [OTFT:00133D46]
+  Helmet: false
+- Formkey: 1260872
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Trucker_Flannel_Jacket_01_with_Hat [OTFT:00133D48]
+- Formkey: 1260867
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Trucker_LongSleeve_01_NoHat [OTFT:00133D43]
+  Helmet: false
+- Formkey: 1260869
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Trucker_LongSleeve_01_with_Hat [OTFT:00133D45]
+- Formkey: 1260865
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Trucker_LongSleeve_Jacket_01_NoHat [OTFT:00133D41]
+  Helmet: false
+- Formkey: 1260864
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Trucker_Tee_01_with_Hat [OTFT:00133D40]
+- Formkey: 1260861
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Trucker_Tee_Jacket_01_NoHat [OTFT:00133D3D]
+  Helmet: false
+- Formkey: 1260862
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Trucker_Tee_Jacket_01_with_Hat [OTFT:00133D3E]
+- Formkey: 1260863
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Trucker_Tee_01_NoHat [OTFT:00133D3F]
+  Helmet: false
+- Formkey: 3977078
+  Modname: Starfield.esm
+  EditorId: MQ305_HopetechGhost_Outfit [OTFT:003CAF76]

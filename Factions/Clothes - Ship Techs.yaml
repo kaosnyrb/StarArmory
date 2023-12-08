@@ -1,0 +1,17 @@
+Name: Clothes - Ship Techs
+Hats:
+Clothes: 
+OutfitClothes:
+- Formkey: 2440095
+  Modname: Starfield.esm
+  EditorId: Outfit_UtilityOveralls_SSO_CoolingJacket [OTFT:00253B9F]
+- Formkey: 413422
+  Modname: Starfield.esm
+  EditorId: Outfit_UtilityOveralls_SSO_CoolingJacket_NoHat [OTFT:00064EEE]
+  Helmet: false
+- Formkey: 2433877
+  Modname: Starfield.esm
+  EditorId: Outfit_UtilityOveralls_SSO_Jacket [OTFT:00252355]  
+- Formkey: 2440098
+  Modname: Starfield.esm
+  EditorId: Outfit_UtilityOveralls_Mechanic_with_Hat_HeadphonesUp [OTFT:00253BA2]

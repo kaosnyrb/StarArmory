@@ -1,0 +1,31 @@
+Name: Clothes - Lowlifes
+Hats:
+Clothes: 
+- Formkey: 2535671
+  Modname: Starfield.esm
+  EditorId: LL_Clothes_BountyHunter_Any [LVLI:0026B0F7]
+- Formkey: 363050
+  Modname: Starfield.esm
+  EditorId: LL_Clothes_RM_Patron_Any [LVLI:00058A2A]  
+OutfitClothes:
+- Formkey: 1304015
+  Modname: Starfield.esm
+  EditorId: Outfit_Mei_Devine [OTFT:0013E5CF]
+- Formkey: 3747560
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Service_Uniform_RedMile [OTFT:00392EE8]
+- Formkey: 25084
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Seokguh_Syndicate_Leader [OTFT:000061FC]
+- Formkey: 25085
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Seokguh_Syndicate_Member [OTFT:000061FD]
+- Formkey: 1052201
+  Modname: Starfield.esm
+  EditorId: Outfit_RI05_Kumiho [OTFT:00100E29]
+- Formkey: 1176497
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Neon_BusinessSuit_Seokguh_Syndicate_Member_01 [OTFT:0011F3B1]
+- Formkey: 1176503
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Neon_BusinessSuit_Seokguh_Syndicate_Leader_01 [OTFT:0011F3B7]

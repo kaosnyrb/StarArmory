@@ -1,0 +1,57 @@
+Name: Spacesuit - UC Navy
+Spacesuits: 
+SpaceHelmets: 
+Boostpacks: 
+OutfitSpacesuit:
+- Formkey: 2569136
+  Modname: Starfield.esm
+  EditorId: Outfit_Spacesuit_UCMarineSysDef [OTFT:002733B0]
+- Formkey: 3193121
+  Modname: Starfield.esm
+  EditorId: Outfit_Spacesuit_UCMarineSysDef_NoHelmet [OTFT:0030B921]
+  Helmet: false
+- Formkey: 310273
+  Modname: Starfield.esm
+  EditorId: Outfit_Spacesuit_UCMarine_Any [OTFT:0004BC01]
+- Formkey: 2457681
+  Modname: Starfield.esm
+  EditorId: Outfit_Spacesuit_UCMarine_Armored [OTFT:00258051]
+- Formkey: 776788
+  Modname: Starfield.esm
+  EditorId: Outfit_Spacesuit_UCMarine_BECrew_Pilot [OTFT:000BDA54]
+- Formkey: 2457769
+  Modname: Starfield.esm
+  EditorId: Outfit_Spacesuit_UCMarine_NoHelmet [OTFT:002580A9]
+  Helmet: false
+- Formkey: 801069
+  Modname: Starfield.esm
+  EditorId: Outfit_Spacesuit_UCMarine_UCSEC [OTFT:000C392D]
+- Formkey: 437192
+  Modname: Starfield.esm
+  EditorId: LC043_Outfit_Spacesuit_SY920_MarineUniform_NPCOnly [OTFT:0006ABC8]
+- Formkey: 437193
+  Modname: Starfield.esm
+  EditorId: LC043_Outfit_Spacesuit_SY920_EnsignUniform_NPCOnly [OTFT:0006ABC9]
+- Formkey: 437207
+  Modname: Starfield.esm
+  EditorId: LC043_Outfit_Spacesuit_SY920_CommanderUniform_NPCOnly [OTFT:0006ABD7]
+- Formkey: 548798
+  Modname: Starfield.esm
+  EditorId: Outfit_Spacesuit_UC_Pilot_01_NoHelmet [OTFT:00085FBE]
+  Helmet: false
+- Formkey: 548799
+  Modname: Starfield.esm
+  EditorId: Outfit_Spacesuit_UC_Pilot_01_with_Helmet [OTFT:00085FBF]
+- Formkey: 776787
+  Modname: Starfield.esm
+  EditorId: Outfit_Spacesuit_UCMarine_SysDef_BECrew_Pilot [OTFT:000BDA53]
+- Formkey: 593497
+  Modname: Starfield.esm
+  EditorId: LC043_Outfit_Spacesuit_SY920_PilotUniform_NPCOnly [OTFT:00090E59]
+- Formkey: 2877201
+  Modname: Starfield.esm
+  EditorId: 3208159 [OTFT:002BE711]
+- Formkey: 2877201
+  Modname: Starfield.esm
+  EditorId: Outfit_Spacesuit_UC_Pilot_SysDef_NoHelmet [OTFT:0030F3DF]
+  Helmet: false

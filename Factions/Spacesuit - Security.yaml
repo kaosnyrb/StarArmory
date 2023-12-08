@@ -1,0 +1,17 @@
+Name: Spacesuit - Security
+Spacesuits: 
+SpaceHelmets: 
+Boostpacks:
+OutfitSpacesuit:
+- Formkey: 246142
+  Modname: Starfield.esm
+  EditorId: Outfit_Spacesuit_Diver_NoBoostPack [OTFT:0003C17E] 
+- Formkey: 1070832
+  Modname: Starfield.esm
+  EditorId: Outfit_Spacesuit_Security_Freestar [OTFT:001056F0]
+- Formkey: 1415713
+  Modname: Starfield.esm
+  EditorId: Outfit_Spacesuit_Security_Generic [OTFT:00159A21]
+- Formkey: 2155216
+  Modname: Starfield.esm
+  EditorId: Outfit_Spacesuit_Assault_NoBoostPack [OTFT:0020E2D0]

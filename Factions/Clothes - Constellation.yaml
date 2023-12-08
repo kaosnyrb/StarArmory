@@ -1,0 +1,26 @@
+Name: Clothes - Constellation
+OutfitClothes:
+- Formkey: 420590
+  Modname: Starfield.esm
+  EditorId: Outfit_Sarah [OTFT:00066AEE]
+- Formkey: 1262039
+  Modname: Starfield.esm
+  EditorId: Outfit_Barrett [OTFT:001341D7]
+- Formkey: 1486262
+  Modname: Starfield.esm
+  EditorId: Outfit_Andreja [OTFT:0016ADB6]
+- Formkey: 2432117
+  Modname: Starfield.esm
+  EditorId: Outfit_Noel [OTFT:00251C75]
+- Formkey: 2432118
+  Modname: Starfield.esm
+  EditorId: Outfit_SamCoe [OTFT:00251C76]
+- Formkey: 2432116
+  Modname: Starfield.esm
+  EditorId: Outfit_Matteo [OTFT:00251C74]
+- Formkey: 2432120
+  Modname: Starfield.esm
+  EditorId: Outfit_WalterStroud [OTFT:00251C78]
+- Formkey: 2432119
+  Modname: Starfield.esm
+  EditorId: Outfit_VladimirSall [OTFT:00251C77]

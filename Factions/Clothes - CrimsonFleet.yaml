@@ -1,0 +1,43 @@
+Name: Clothes - Crimson Fleet
+Hats:
+Clothes: 
+- Formkey: 363050
+  Modname: Starfield.esm
+  EditorId: LL_Clothes_CrimsonFleet_Any [LVLI:0013420C]
+- Formkey: 363050
+  Modname: Starfield.esm
+  EditorId: LL_Clothes_CrimsonFleet_NoCaptain [LVLI:001CC022]
+OutfitClothes:
+- Formkey: 776794
+  Modname: Starfield.esm
+  EditorId: Outfit_CrimsonFleet_BECrew_Crew [OTFT:000BDA5A]
+- Formkey: 776799
+  Modname: Starfield.esm
+  EditorId: Outfit_CrimsonFleet_BECrew_Captain [OTFT:000BDA5F]
+- Formkey: 776807
+  Modname: Starfield.esm
+  EditorId: Outfit_CrimsonFleet_BECrew_Pilot [OTFT:000BDA67]
+- Formkey: 1260892
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_CrimsonFleet_SpacePirate_02 [OTFT:00133D5C]
+- Formkey: 1260893
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_CrimsonFleet_Space_Crew_01 [OTFT:00133D5D]
+- Formkey: 3060278
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_CrimsonFleet_Any [OTFT:002EB236]
+- Formkey: 1260897
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_CrimsonFleet_Captain_01 [OTFT:00133D61]
+- Formkey: 1260895
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_CrimsonFleet_Captain_02 [OTFT:00133D5F]
+- Formkey: 3360164
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_CrimsonFleet_Captain_03 [OTFT:003345A4]
+- Formkey: 3360165
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_CrimsonFleet_Captain_04 [OTFT:003345A5]
+- Formkey: 2656632
+  Modname: Starfield.esm
+  EditorId: Outfit_Elite_MathisCastillo [OTFT:00288978]

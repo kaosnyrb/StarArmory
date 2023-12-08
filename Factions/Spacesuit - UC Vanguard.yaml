@@ -1,0 +1,16 @@
+Name: Spacesuit - UC Vanguard
+Spacesuits: 
+SpaceHelmets: 
+Boostpacks: 
+OutfitSpacesuit:
+- Formkey: 615740
+  Modname: Starfield.esm
+  EditorId: Outfit_Spacesuit_UCVanguard [OTFT:0009653C]
+- Formkey: 27453
+  Modname: Starfield.esm
+  EditorId: Outfit_Spacesuit_UCVanguard_NoHelmet_NoBackpack [OTFT:00006B3D]
+  Helmet: false
+- Formkey: 27004
+  Modname: Starfield.esm
+  EditorId: Outfit_Spacesuit_UCVanguard_NoHelmet [OTFT:0000697C]
+  Helmet: false

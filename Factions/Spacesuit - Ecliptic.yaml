@@ -1,0 +1,29 @@
+Name: Spacesuit - Ecliptic
+Spacesuits: 
+- Formkey: 182193
+  Modname: Starfield.esm
+  EditorId: LL_Armor_Ecliptic_Body_Leveled_Any [LVLI:0002C7B1]
+SpaceHelmets: 
+- Formkey: 181767
+  Modname: Starfield.esm
+  EditorId: LL_Armor_Ecliptic_Helmet_Leveled_Any [LVLI:0002C607]
+Boostpacks: 
+- Formkey: 236332
+  Modname: Starfield.esm
+  EditorId: LL_Armor_Ecliptic_Backpack_Leveled_Any [LVLI:00039B2C]
+OutfitSpacesuit:
+- Formkey: 1304016
+  Modname: Starfield.esm
+  EditorId: Outfit_Spacesuit_Ecliptic_NoHelmet [OTFT:0013E5D0]
+  Helmet: false
+- Formkey: 1315414
+  Modname: Starfield.esm
+  EditorId: Outfit_Spacesuit_Ecliptic_NoBackpack [OTFT:00141256]
+  Helmet: false
+- Formkey: 2156292
+  Modname: Starfield.esm
+  EditorId: Outfit_Spacesuit_RAD05_Targ [OTFT:0020E704]
+- Formkey: 2156293
+  Modname: Starfield.esm
+  EditorId: Outfit_Spacesuit_RAD05_Targ_NoHelmet [OTFT:0020E705]
+  Helmet: false

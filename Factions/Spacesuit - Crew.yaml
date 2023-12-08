@@ -1,0 +1,77 @@
+Name: Spacesuit - Crew
+OutfitSpacesuit:
+- Formkey: 246139
+  Modname: Starfield.esm
+  EditorId: Outfit_Crew_Spacesuit_Assault [OTFT:0003C17B]
+- Formkey: 246140
+  Modname: Starfield.esm
+  EditorId: Outfit_Crew_Spacesuit_Explorer [OTFT:0003C17C]
+- Formkey: 2554169
+  Modname: Starfield.esm
+  EditorId: Outfit_Crew_Spacesuit_Generic [OTFT:0026F939]
+- Formkey: 246141
+  Modname: Starfield.esm
+  EditorId: Outfit_Crew_Spacesuit_Navigator [OTFT:0003C17D]
+- Formkey: 246143
+  Modname: Starfield.esm
+  EditorId: Outfit_Crew_Spacesuit_Recon [OTFT:0003C17F]
+- Formkey: 1084885
+  Modname: Starfield.esm
+  EditorId: Outfit_Spacesuit_Elite_AdoringFan [OTFT:00108DD5]
+- Formkey: 1084908
+  Modname: Starfield.esm
+  EditorId: Outfit_Spacesuit_Elite_AutumnMacMillan [OTFT:00108DEC]
+- Formkey: 1183189
+  Modname: Starfield.esm
+  EditorId: Outfit_Spacesuit_Loot_Citizen_DockingBay [OTFT:00120DD5]
+- Formkey: 1260509
+  Modname: Starfield.esm
+  EditorId: Outfit_Spacesuit_Elite_SophiaGrace [OTFT:00133BDD]
+- Formkey: 1260513
+  Modname: Starfield.esm
+  EditorId: Outfit_Spacesuit_Elite_OmariHassan [OTFT:00133BE1]
+- Formkey: 1486242
+  Modname: Starfield.esm
+  EditorId: Outfit_Spacesuit_Elite_SimeonBankowski [OTFT:0016ADA2]
+- Formkey: 1486243
+  Modname: Starfield.esm
+  EditorId: Outfit_Spacesuit_Elite_RosieTannehill [OTFT:0016ADA3]
+- Formkey: 1486244
+  Modname: Starfield.esm
+  EditorId: Outfit_Spacesuit_Elite_OtherPlayer [OTFT:0016ADA4]
+- Formkey: 1486245
+  Modname: Starfield.esm
+  EditorId: Outfit_Spacesuit_Elite_Moara [OTFT:0016ADA5]
+- Formkey: 1486246
+  Modname: Starfield.esm
+  EditorId: Outfit_Spacesuit_Elite_MickeyCaviar [OTFT:0016ADA6]
+- Formkey: 1486247
+  Modname: Starfield.esm
+  EditorId: Outfit_Spacesuit_Elite_MarikaBoros [OTFT:0016ADA7]
+- Formkey: 1486248
+  Modname: Starfield.esm
+  EditorId: Outfit_Spacesuit_Elite_LyleBrewer [OTFT:0016ADA8]
+- Formkey: 1486249
+  Modname: Starfield.esm
+  EditorId: Outfit_Spacesuit_Elite_Lin [OTFT:0016ADA9]
+- Formkey: 1486250
+  Modname: Starfield.esm
+  EditorId: Outfit_Spacesuit_Elite_JessamineGriffin [OTFT:0016ADAA]
+- Formkey: 1486251
+  Modname: Starfield.esm
+  EditorId: Outfit_Spacesuit_Elite_Heller [OTFT:0016ADAB]
+- Formkey: 1486252
+  Modname: Starfield.esm
+  EditorId: Outfit_Spacesuit_Elite_Hadrian [OTFT:0016ADAC]
+- Formkey: 1486253
+  Modname: Starfield.esm
+  EditorId: Outfit_Spacesuit_Elite_GideonAker [OTFT:0016ADAD]
+- Formkey: 1486254
+  Modname: Starfield.esm
+  EditorId: Outfit_Spacesuit_Elite_Ezekiel [OTFT:0016ADAE]
+- Formkey: 1486255
+  Modname: Starfield.esm
+  EditorId: Outfit_Spacesuit_Elite_DaniGarcia [OTFT:0016ADAF]
+- Formkey: 2455892
+  Modname: Starfield.esm
+  EditorId: Outfit_Spacesuit_Elite_BettyHowser [OTFT:00257954]

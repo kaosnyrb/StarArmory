@@ -1,0 +1,10 @@
+Name: Clothes - House Varuun
+Hats:
+Clothes: 
+OutfitClothes:
+- Formkey: 69948
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Tomisar [OTFT:0001113C]
+- Formkey: 1260923
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Varuun_Ambassador [OTFT:00133D7B]

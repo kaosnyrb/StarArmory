@@ -1,0 +1,11 @@
+Name: Spacesuit - Ship Techs
+Spacesuits: 
+SpaceHelmets: 
+Boostpacks: 
+OutfitSpacesuit:
+- Formkey: 242725
+  Modname: Starfield.esm
+  EditorId: Outfit_Spacesuit_ShipServices_Cydonia [OTFT:0003B425]
+- Formkey: 420466
+  Modname: Starfield.esm
+  EditorId: Outfit_Spacesuit_GroundCrew_Body [OTFT:00066A72]

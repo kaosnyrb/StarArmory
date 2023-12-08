@@ -1,0 +1,89 @@
+Name: Clothes - Neon Citizens
+Hats:
+- Formkey: 737735
+  Modname: Starfield.esm
+  EditorId: LL_Crowd_Hairs_Hats_Neon [LVLI:000B41C7]
+Clothes: 
+- Formkey: 1004639
+  Modname: Starfield.esm
+  EditorId: LL_Crowd_Clothes_Neon_Male [LVLI:000F545F]
+- Formkey: 684083
+  Modname: Starfield.esm
+  EditorId: LL_Crowd_Clothes_Neon_Female_Thin [LVLI:000A7033]
+- Formkey: 1004638
+  Modname: Starfield.esm
+  EditorId: LL_Crowd_Clothes_Neon_Female [LVLI:000F545E]
+- Formkey: 684082
+  Modname: Starfield.esm
+  EditorId: LL_Crowd_Clothes_Neon_Female_Overweight [LVLI:000A7032]
+- Formkey: 684084
+  Modname: Starfield.esm
+  EditorId: LL_Crowd_Clothes_Neon_Male_Overweight [LVLI:000A7034]
+- Formkey: 684087
+  Modname: Starfield.esm
+  EditorId: LL_Crowd_Clothes_Neon_Male_Thin [LVLI:000A7037]
+OutfitClothes:
+- Formkey: 3547042
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Neon_Nightlife_Jumpsuit_01 [OTFT:00361FA2]
+- Formkey: 1260932
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Neon_Nightlife_Skirt_01 [OTFT:00133D84]
+- Formkey: 2039251
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Neon_Nightlife_Skirt_Black [OTFT:001F1DD3]
+- Formkey: 2039252
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Neon_Nightlife_Skirt_OliveBrown [OTFT:001F1DD4]
+- Formkey: 2039252
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Neon_Nightlife_Skirt_OliveBrown [OTFT:001F1DD4]
+- Formkey: 2440086
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Fishworker_Hoodie [OTFT:00253B96]
+- Formkey: 2440087
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Fishworker_Hoodie_with_Mask [OTFT:00253B97]
+- Formkey: 2440088
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Fishworker_Poncho [OTFT:00253B98]
+- Formkey: 189781
+  Modname: Starfield.esm
+  EditorId: Outfit_Frank_Renick [OTFT:0002E555]
+- Formkey: 651502
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_City_CapeSuit_green [OTFT:0009F0EE]
+- Formkey: 651509
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_City_CapeSuit_brown [OTFT:0009F0F5]
+- Formkey: 1260922
+  Modname: Starfield.esm
+  EditorId: Outfit_FC_Neon_DominiqueSauvage [OTFT:00100E30]
+- Formkey: 1260889
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Dress_Sari [OTFT:00133D59]
+- Formkey: 2440081
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_LongSleevesPants_Jacket [OTFT:00253B91]
+- Formkey: 2497035
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_LongSleevesPants_Jacket02 [OTFT:00261A0B]
+- Formkey: 2497036
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_LongSleevesPants_Jacket03 [OTFT:00261A0C]
+- Formkey: 2497037
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_LongSleevesPants_Jacket04 [OTFT:00261A0D]
+- Formkey: 2440082
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_LongSleevesPants_Pockets [OTFT:00253B92]
+- Formkey: 2497034
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_LongSleevesPants_PocketsRed [OTFT:00261A0A]
+- Formkey: 776793
+  Modname: Starfield.esm
+  EditorId: Outfit_Citizen_Freestar_Neon_BECrew_Captain [OTFT:000BDA59]
+- Formkey: 776795
+  Modname: Starfield.esm
+  EditorId: Outfit_Citizen_Freestar_Neon_BECrew_Crew [OTFT:000BDA5B]
+  

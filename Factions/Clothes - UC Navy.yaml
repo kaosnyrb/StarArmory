@@ -1,0 +1,73 @@
+Name: Clothes - UC Navy
+Hats:
+Clothes: 
+OutfitClothes:
+- Formkey: 868861
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_UCNavy_ArmoredFatigues_Light01_SY-920 [OTFT:000D41FD]
+- Formkey: 868862
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_UCNavy_ArmoredFatigues_Light02_SY-920 [OTFT:000D41FE]
+- Formkey: 868860
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_UCNavy_ArmoredFatigues_SY-920 [OTFT:000D41FC]
+- Formkey: 418964
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_UCNavy_Armored_all [OTFT:00066494]
+- Formkey: 1429317
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_UCNavy_Crew [OTFT:0015CF45]
+- Formkey: 1429316
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_UCNavy_Crew_NoHat [OTFT:0015CF44]
+  Helmet: false
+- Formkey: 3353021
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_UCNavy_Crew_SysDef [OTFT:003329BD]
+- Formkey: 1429322
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_UCNavy_Fatigues [OTFT:0015CF4A]
+- Formkey: 1429321
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_UCNavy_Fatigues_NoHat [OTFT:0015CF49]
+  Helmet: false
+- Formkey: 868863
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_UCNavy_Fatigues_SY-920 [OTFT:000D41FF]
+- Formkey: 1082196
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_UCNavy_Ikande_SysDef [OTFT:00108354]
+- Formkey: 1429319
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_UCNavy_Officer [OTFT:0015CF47]
+- Formkey: 1429318
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_UCNavy_Officer_NoHat [OTFT:0015CF46]
+  Helmet: false
+- Formkey: 3977089
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_UCNavy_Officer_Vanguard [OTFT:003CAF81]
+- Formkey: 435386
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_UCNavy_Toft_Ikande_SysDef [OTFT:0006A4BA]
+- Formkey: 776791
+  Modname: Starfield.esm
+  EditorId: Outfit_UCMarine_BECrew_Security [OTFT:000BDA57]
+- Formkey: 776800
+  Modname: Starfield.esm
+  EditorId: Outfit_UCMarine_BECrew_Captain [OTFT:000BDA60]
+- Formkey: 776801
+  Modname: Starfield.esm
+  EditorId: Outfit_UCMarine_SysDef_BECrew_Captain [OTFT:000BDA61]
+- Formkey: 776802
+  Modname: Starfield.esm
+  EditorId: Outfit_UCMarine_SysDef_BECrew_Crew [OTFT:000BDA62]
+- Formkey: 776806
+  Modname: Starfield.esm
+  EditorId: Outfit_UCMarine_BECrew_Crew [OTFT:000BDA66]
+- Formkey: 1300231
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_ArmisticeArchives_ArmoredFatigues_Light01_Hat [OTFT:0013D707]  
+- Formkey: 2440090
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Flightsuit [OTFT:00253B9A]

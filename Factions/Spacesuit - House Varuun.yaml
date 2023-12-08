@@ -1,0 +1,12 @@
+Name: Spacesuit - House Varuun
+Spacesuits: 
+SpaceHelmets: 
+Boostpacks: 
+OutfitSpacesuit:
+- Formkey: 880552
+  Modname: Starfield.esm
+  EditorId: Outfit_Spacesuit_Varuun_NoHelmetNoBackpack [OTFT:000D6FA8]
+  Helmet: false
+- Formkey: 2590485
+  Modname: Starfield.esm
+  EditorId: Outfit_Spacesuit_Varuun [OTFT:00278715]

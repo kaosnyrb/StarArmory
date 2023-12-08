@@ -1,0 +1,142 @@
+Name: Clothes - Business
+Hats:
+Clothes: 
+- Formkey: 2535673
+  Modname: Starfield.esm
+  EditorId: LL_Clothes_Merchant_Any [LVLI:0026B0F9]
+OutfitClothes:
+- Formkey: 1260922
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Ryujin_BusinessSuit_Executive_01 [OTFT:00133D7A]
+- Formkey: 2440074
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_BusinessSuit [OTFT:00253B8A]
+- Formkey: 2497028
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_BusinessSuitGreen [OTFT:00261A04]
+- Formkey: 1052198
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_BusinessSuitGreen_Neuroamp [OTFT:00100E26]
+- Formkey: 1781067
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_BusinessSuit_InfinityLTD [OTFT:001B2D4B]
+- Formkey: 84211
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Business_Any_NoRyujin [OTFT:000148F3]
+- Formkey: 1627058
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Formal_ShirtSlacks [OTFT:0018D3B2]
+- Formkey: 1627059
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Formal_ShirtSlacks_Pink [OTFT:0018D3B3]
+- Formkey: 1627057
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Formal_ShirtSlacks_Vest [OTFT:0018D3B1]
+- Formkey: 1627060
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Formal_ShirtSlacks_VestOrange [OTFT:0018D3B4]
+- Formkey: 2440078
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_ShirtAndSlacks [OTFT:00253B8E]
+- Formkey: 1052194
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_ShirtAndSlacks_Neuroamp [OTFT:00100E22]
+- Formkey: 2497032
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_ShirtAndSlacks_Pink [OTFT:00261A08]
+- Formkey: 2440079
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_ShirtAndSlacks_Vest [OTFT:00253B8F]
+- Formkey: 2497033
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_ShirtAndSlacks_Vest_Orange [OTFT:00261A09]
+- Formkey: 1031298
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_ShirtAndSlacks_Vest_UC03_Lou [OTFT:000FBC82]
+- Formkey: 7336
+  Modname: Starfield.esm
+  EditorId: MQ105_Outfit_SlaytonEmployee [OTFT:00001CA8]
+- Formkey: 382971
+  Modname: Starfield.esm
+  EditorId: Outfit_NH_Tourist [OTFT:0005D7FB]
+- Formkey: 696485
+  Modname: Starfield.esm
+  EditorId: Outfit_Citizen_Formal [OTFT:000AA0A5]
+- Formkey: 1052202
+  Modname: Starfield.esm
+  EditorId: Outfit_FC_Neon_RT_Generic_ExecutiveClient_Male03 [OTFT:00100E2A]
+- Formkey: 1052204
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Neon_BusinessSuit_02_Neuroamp [OTFT:00100E2C]
+- Formkey: 1052205
+  Modname: Starfield.esm
+  EditorId: Outfit_Citizen_Neuroamp [OTFT:00100E2D]
+- Formkey: 1052207
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_ShirtAndSlacks_Vest_Orange_Neuroamp [OTFT:00100E2F]
+- Formkey: 1052209
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Neon_BusinessSuit_01_Neuroamp [OTFT:00100E31]
+- Formkey: 1052210
+  Modname: Starfield.esm
+  EditorId: Outfit_UC_CY_JoyBryant [OTFT:00100E32]
+- Formkey: 1052212
+  Modname: Starfield.esm
+  EditorId: Outfit_UC_CY_GillySeong [OTFT:00100E34]
+- Formkey: 1260888
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Employee_Uniform_Formal_01 [OTFT:00133D58]
+- Formkey: 1260908
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Ryujin_BusinessSuit_Worker_02 [OTFT:00133D6C]
+- Formkey: 1260911
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Ryujin_BusinessSuit_Worker_01 [OTFT:00133D6F]
+- Formkey: 1260912
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Ryujin_BusinessSuit_Manager_02 [OTFT:00133D70]
+- Formkey: 1260919
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Ryujin_BusinessSuit_Manager_01 [OTFT:00133D77]
+- Formkey: 1260921
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Ryujin_BusinessSuit_Executive_02 [OTFT:00133D79]
+- Formkey: 1260956
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_City_CapeSuit [OTFT:00133D9C]
+- Formkey: 1260964
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Neon_BusinessSuit_02 [OTFT:00133DA4]
+- Formkey: 1260965
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Neon_BusinessSuit_01 [OTFT:00133DA5]
+- Formkey: 1416273
+  Modname: Starfield.esm
+  EditorId: Outfit_AelysOrtiz [OTFT:00159C51]
+- Formkey: 1433379
+  Modname: Starfield.esm
+  EditorId: Outfit_DeziZhang [OTFT:0015DF23]
+- Formkey: 1467385
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Ryujin_BusinessSuit_Worker_Any [OTFT:001663F9]
+- Formkey: 1467386
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_Ryujin_BusinessSuit_Manager [OTFT:001663FA]
+- Formkey: 2497029
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_City_CapeSuit_blue [OTFT:00261A05]
+- Formkey: 1554166
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_City_Shirt [OTFT:0017B6F6]
+- Formkey: 1790723
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_City_Shirt_Blue [OTFT:001B5303]
+- Formkey: 1790724
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_City_Shirt_Brown [OTFT:001B5304]
+- Formkey: 1790725
+  Modname: Starfield.esm
+  EditorId: Outfit_Clothes_City_Shirt_Green [OTFT:001B5305]
+- Formkey: 2535677
+  Modname: Starfield.esm
+  EditorId: Outfit_Merchant [OTFT:0026B0FD]
