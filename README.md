@@ -19,9 +19,9 @@ Plan saving and loading.
 
 
 # Modes
+
 StarArmory can add modded items in two different ways:
 
-Additive support allowing merges with vanilla/other mods, meaning a larger range of ghings will spawn.
+Additive support allowing merges with vanilla/other mods, meaning a larger range of things will spawn. Useful for diverse crowds or nameless enemies.
 
-Vanilla removal mode, allowing only selected modded content to spawn.
-
+Vanilla removal mode, allowing only selected modded content to spawn. Useful for forcing companions to wear certain outfits.
