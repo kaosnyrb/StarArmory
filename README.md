@@ -7,7 +7,7 @@ This tool takes other peoples awesome armor/clothing/weapon mods and allows them
 
 # Features
 
-Load order based Item scanning, support for all mods even those not created yet.
+Load order based record scanning, support for all mods in your personal load order even those not created yet.
 
 Data driven faction integrations, allowing extention such as adding target dlc/mod npcs without code changes.
 
