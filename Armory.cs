@@ -1,9 +1,11 @@
-﻿using Mutagen.Bethesda;
+﻿using Ionic.Zlib;
+using Mutagen.Bethesda;
 using Mutagen.Bethesda.Plugins;
 using Mutagen.Bethesda.Starfield;
 using Noggog;
 using System.IO.Abstractions;
 using System.Linq;
+using static System.Windows.Forms.LinkLabel;
 
 namespace StarArmory
 {
@@ -41,6 +43,7 @@ namespace StarArmory
         public static void LoadClothes(List<string> mods)
         {
             StarArmory.logr.WriteLine("Starting to Load Mod Content");
+
             using (var env = StarArmory.GetGameEnvironment())
             {
                 var immutableLoadOrderLinkCache = env.LoadOrder.ToImmutableLinkCache();
@@ -50,6 +53,10 @@ namespace StarArmory
                 FormKey spacehelmet = new FormKey(env.LoadOrder[0].ModKey, 2344897);//ArmorTypeSpacesuitBackpack [KYWD:0023C7BF]
                 FormKey boostpack = new FormKey(env.LoadOrder[0].ModKey, 2344895);//ArmorTypeSpacesuitHelmet[KYWD: 0023C7C1]
 
+                Dictionary<FirstPersonFlag, string> ClothesFPF = new Dictionary<FirstPersonFlag, string>();
+                List<IArmorGetter> Leftovers = new List<IArmorGetter>();
+                int itemsAdded = 0;
+
                 foreach (var mod in env.LoadOrder)
                 {
                     if (!mods.Contains(mod.Value.FileName))
@@ -58,7 +65,6 @@ namespace StarArmory
                     }
                     if (mod.Value.Mod != null)
                     {
-                        int itemsAdded = 0;
                         try
                         {
                             var armours = mod.Value.Mod.Armors.ToList();
@@ -71,30 +77,27 @@ namespace StarArmory
                                 if (armor.HasKeyword(Apparel))
                                 {
                                     StarArmory.logr.WriteLine("Processing Armor: " + armor.EditorID + " flags " + armor.FirstPersonFlags.Value);
-
-                                    bool blacklisted = false;
-                                    //These are based on various armors i've in my mod list. There will be more here.
-                                    foreach(var blacklistflag in StarArmory.settingsManager.clothesFirstPersonFlagsBlacklist)
-                                    {
-                                        if (hasflag(armor.FirstPersonFlags.Value, blacklistflag))
-                                        {
-                                            blacklisted = true;
-                                            StarArmory.logr.WriteLine("Blacklisted flag: " + armor.EditorID  + " has " + blacklistflag.ToString());
-                                        }
-                                    }
-                                    if (!blacklisted && hasflag(armor.FirstPersonFlags.Value, FirstPersonFlag.BODY))
+                                    if (hasflag(armor.FirstPersonFlags.Value, FirstPersonFlag.BODY) )
                                     {
                                         clothes.Add(link);
                                         added = true;
                                         itemsAdded++;
+                                        StarArmory.logr.WriteLine("Added to clothes: " + armor.EditorID);
+                                     
+                                        foreach (FirstPersonFlag item in Enum.GetValues(typeof(FirstPersonFlag))) {
+                                            if (hasflag(armor.FirstPersonFlags.Value, item))
+                                            {
+                                                //StarArmory.logr.WriteLine("Has Flag: " + item);
+                                                if (!ClothesFPF.ContainsKey(item))
+                                                {
+                                                    ClothesFPF.Add(item, armor.EditorID);
+                                                }
+                                            }
+                                        }
                                     }
-                                    else
-                                    {
-                                        //Things that aren't outfits are probably accessories.
-                                        hats.Add(link);
-                                        added = true;
-                                        itemsAdded++;
-                                    }
+                                    else { 
+                                        Leftovers.Add(armor); 
+                                    }                                    
                                     Keyword = true;
                                 }
                                 if (armor.HasKeyword(Head))
@@ -190,6 +193,28 @@ namespace StarArmory
                         StarArmory.logr.WriteLine(mod.Value.FileName + " contained " + itemsAdded + " valid items");
                     }
                 }
+
+                //Some clothes didn't pass the first run. Here we try and add what we can to hats
+                foreach (var clothing in Leftovers)
+                {
+                    bool clashing = false;
+                    foreach (var flag in ClothesFPF)
+                    {
+                        if (hasflag(clothing.FirstPersonFlags.Value, flag.Key))
+                        {
+                            clashing = true;
+                            StarArmory.logr.WriteLine("Clashing FPF: " + clothing.EditorID + " flag " + flag.Key.ToString() + " was used in " + flag.Value);
+                        }
+                    }
+                    if (!clashing)
+                    {
+                        //Things that aren't outfits are probably accessories.
+                        hats.Add(clothing);
+                        itemsAdded++;
+                        StarArmory.logr.WriteLine("Added to hats: " + clothing.EditorID);
+                    }
+                }
+
                 StarArmory.logr.WriteLine("Finished procressing mods.");
                 StarArmory.logr.Flush();
             }
