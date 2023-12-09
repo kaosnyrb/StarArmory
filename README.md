@@ -19,6 +19,8 @@ Plan saving and loading.
 
 Levelled Item support. Armors and Weapons are assigned a level based on dps/defense. This will prevent overpowered drops at level 1.
 
+Extensive coverage of npcs/loot already implemented: https://github.com/kaosnyrb/StarArmory/tree/main/Factions
+
 # Modes
 
 StarArmory can add modded items in two different ways:
