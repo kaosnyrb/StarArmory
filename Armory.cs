@@ -32,6 +32,12 @@ namespace StarArmory
             boostpacks.Clear();
         }
 
+        public static bool hasflag(FirstPersonFlag value, FirstPersonFlag flag)
+        {
+            return ((value & flag) != 0);
+        }
+
+
         public static void LoadClothes(List<string> mods)
         {
             StarArmory.logr.WriteLine("Starting to Load Mod Content");
@@ -65,9 +71,18 @@ namespace StarArmory
                                 if (armor.HasKeyword(Apparel))
                                 {
                                     StarArmory.logr.WriteLine("Processing Armor: " + armor.EditorID + " flags " + armor.FirstPersonFlags.Value);
+
+                                    bool blacklisted = false;
                                     //These are based on various armors i've in my mod list. There will be more here.
-                                    if (!StarArmory.settingsManager.clothesFirstPersonFlagsBlacklist.Contains(armor.FirstPersonFlags.Value) &&
-                                        !StarArmory.settingsManager.clothesFirstPersonFlagsLongBlacklist.Contains((ulong)armor.FirstPersonFlags.Value))
+                                    foreach(var blacklistflag in StarArmory.settingsManager.clothesFirstPersonFlagsBlacklist)
+                                    {
+                                        if (hasflag(armor.FirstPersonFlags.Value, blacklistflag))
+                                        {
+                                            blacklisted = true;
+                                            StarArmory.logr.WriteLine("Blacklisted flag: " + armor.EditorID  + " has " + blacklistflag.ToString());
+                                        }
+                                    }
+                                    if (!blacklisted && hasflag(armor.FirstPersonFlags.Value, FirstPersonFlag.BODY))
                                     {
                                         clothes.Add(link);
                                         added = true;
@@ -131,8 +146,6 @@ namespace StarArmory
                             StarArmory.logr.WriteLine("Exception in Armor Processing in Mod: " + mod.Value.FileName);
                             StarArmory.logr.WriteLine("Exception: " + ex);
                         }
-
-
                         try
                         {
                             FormKey weapon_ranged = new FormKey(env.LoadOrder[0].ModKey, 177940);//WeaponTypeRanged [KYWD:0002B714]

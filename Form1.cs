@@ -728,6 +728,7 @@ namespace StarArmory
                         loadedMods.SetItemChecked(j, Armory.plans[i].mods.Contains(loadedMods.Items[j].ToString()));
                         found = true;
                     }
+                    donotusevanilla.Checked = Armory.plans[i].clearvanillaitems;
                     break;
                 }
             }

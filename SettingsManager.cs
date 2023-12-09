@@ -12,8 +12,6 @@ namespace StarArmory
         public float HatChance { get; set; }
 
         public List<FirstPersonFlag> clothesFirstPersonFlagsBlacklist { get; set; }
-        public List<ulong> clothesFirstPersonFlagsLongBlacklist { get; set; }
-
         public string DataPath { get; set; }
 
         public SettingsManager()
@@ -34,18 +32,6 @@ namespace StarArmory
                 FirstPersonFlag.Misc1VisOnly,
                 FirstPersonFlag.Misc2VisOnly,
                 FirstPersonFlag.Misc3VisOnly,
-
-            };
-            clothesFirstPersonFlagsLongBlacklist = new List<ulong>
-            {
-                288230376151711744,
-                2228224,
-                67633152,
-                2752512,
-                2228736,
-                655360,
-                67141632,
-                24576
             };
         }
     }
