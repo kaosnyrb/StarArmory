@@ -17,6 +17,7 @@ Faction types for Armor/Clothes/Weapons and Mod flitering shows only mods which 
 
 Plan saving and loading.
 
+Levelled Item support. Armors and Weapons are assigned a level based on dps/defense. This will prevent overpowered drops at level 1.
 
 # Modes
 
