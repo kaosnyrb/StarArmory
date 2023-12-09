@@ -74,6 +74,7 @@
             FactionList.Name = "FactionList";
             FactionList.Size = new Size(277, 23);
             FactionList.TabIndex = 5;
+            FactionList.SelectedIndexChanged += FactionList_SelectedIndexChanged;
             // 
             // button2
             // 

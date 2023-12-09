@@ -705,7 +705,7 @@ namespace StarArmory
 
         private void deleteplan_Click(object sender, EventArgs e)
         {
-            for(int i = 0; i < Armory.plans.Count; i++)
+            for (int i = 0; i < Armory.plans.Count; i++)
             {
                 if (Armory.plans[i].faction.Name == factionPlanTree.SelectedNode.Text)
                 {
@@ -713,7 +713,31 @@ namespace StarArmory
                     UpdatePlan();
                     break;
                 }
-            }            
+            }
+        }
+
+        private void FactionList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            bool found = false;
+            for (int i = 0; i < Armory.plans.Count; i++)
+            {
+                if (Armory.plans[i].faction.Name == FactionList.SelectedItem.ToString())
+                {                    
+                    for(int j = 0; j < loadedMods.Items.Count;j++)
+                    {
+                        loadedMods.SetItemChecked(j, Armory.plans[i].mods.Contains(loadedMods.Items[j].ToString()));
+                        found = true;
+                    }
+                    break;
+                }
+            }
+            if(!found)
+            {
+                for (int j = 0; j < loadedMods.Items.Count; j++)
+                {
+                    loadedMods.SetItemChecked(j, false);
+                }
+            }
         }
     }
 }

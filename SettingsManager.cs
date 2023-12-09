@@ -31,6 +31,8 @@ namespace StarArmory
                 FirstPersonFlag.SSAddonRig,
                 FirstPersonFlag.Hat,
                 FirstPersonFlag.Beard,
+                FirstPersonFlag.Misc1VisOnly,
+                FirstPersonFlag.Misc2VisOnly,
                 FirstPersonFlag.Misc3VisOnly,
 
             };
@@ -42,7 +44,8 @@ namespace StarArmory
                 2752512,
                 2228736,
                 655360,
-                67141632
+                67141632,
+                24576
             };
         }
     }
