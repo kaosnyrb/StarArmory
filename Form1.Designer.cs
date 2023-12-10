@@ -62,15 +62,15 @@
             // loadedMods
             // 
             loadedMods.FormattingEnabled = true;
-            loadedMods.Location = new Point(12, 131);
+            loadedMods.Location = new Point(12, 95);
             loadedMods.Name = "loadedMods";
-            loadedMods.Size = new Size(277, 400);
+            loadedMods.Size = new Size(277, 436);
             loadedMods.TabIndex = 3;
             // 
             // FactionList
             // 
             FactionList.FormattingEnabled = true;
-            FactionList.Location = new Point(12, 51);
+            FactionList.Location = new Point(12, 64);
             FactionList.Name = "FactionList";
             FactionList.Size = new Size(277, 23);
             FactionList.TabIndex = 5;
@@ -89,7 +89,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(507, 23);
+            label1.Location = new Point(507, 2);
             label1.Name = "label1";
             label1.Size = new Size(77, 15);
             label1.TabIndex = 7;
@@ -107,7 +107,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(12, 23);
+            label3.Location = new Point(12, 46);
             label3.Name = "label3";
             label3.Size = new Size(51, 15);
             label3.TabIndex = 9;
@@ -116,17 +116,17 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(10, 82);
+            label4.Location = new Point(12, 2);
             label4.Name = "label4";
-            label4.Size = new Size(53, 15);
+            label4.Size = new Size(55, 15);
             label4.TabIndex = 10;
-            label4.Text = "Mod List";
+            label4.Text = "Category";
             // 
             // factionPlanTree
             // 
-            factionPlanTree.Location = new Point(507, 41);
+            factionPlanTree.Location = new Point(507, 20);
             factionPlanTree.Name = "factionPlanTree";
-            factionPlanTree.Size = new Size(295, 490);
+            factionPlanTree.Size = new Size(295, 511);
             factionPlanTree.TabIndex = 11;
             // 
             // selectallbutton
@@ -152,7 +152,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(295, 23);
+            label5.Location = new Point(295, 2);
             label5.Name = "label5";
             label5.Size = new Size(91, 15);
             label5.TabIndex = 14;
@@ -162,7 +162,7 @@
             // donotusevanilla
             // 
             donotusevanilla.AutoSize = true;
-            donotusevanilla.Location = new Point(295, 53);
+            donotusevanilla.Location = new Point(295, 22);
             donotusevanilla.Name = "donotusevanilla";
             donotusevanilla.Size = new Size(138, 19);
             donotusevanilla.TabIndex = 15;
@@ -183,16 +183,16 @@
             // 
             genderdropdown.FormattingEnabled = true;
             genderdropdown.Items.AddRange(new object[] { "All", "Female Only", "Male Only" });
-            genderdropdown.Location = new Point(346, 74);
+            genderdropdown.Location = new Point(295, 64);
             genderdropdown.Name = "genderdropdown";
-            genderdropdown.Size = new Size(155, 23);
+            genderdropdown.Size = new Size(206, 23);
             genderdropdown.TabIndex = 17;
             genderdropdown.Visible = false;
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(295, 77);
+            label6.Location = new Point(295, 46);
             label6.Name = "label6";
             label6.Size = new Size(45, 15);
             label6.TabIndex = 18;
@@ -202,8 +202,8 @@
             // modfilter
             // 
             modfilter.FormattingEnabled = true;
-            modfilter.Items.AddRange(new object[] { "All", "Clothes", "Spacesuits", "Weapons", "Aid" });
-            modfilter.Location = new Point(12, 100);
+            modfilter.Items.AddRange(new object[] { "All", "Clothes", "Spacesuit", "Weapons", "Aid" });
+            modfilter.Location = new Point(12, 20);
             modfilter.Name = "modfilter";
             modfilter.Size = new Size(277, 23);
             modfilter.TabIndex = 19;

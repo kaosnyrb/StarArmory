@@ -8,6 +8,7 @@ using System.Globalization;
 using System.Reactive.Joins;
 using System.Windows.Forms;
 using YamlDotNet.Core.Tokens;
+using static Mutagen.Bethesda.FormKeys.Starfield.Starfield;
 
 namespace StarArmory
 {
@@ -17,12 +18,16 @@ namespace StarArmory
         public static SettingsManager settingsManager;
         public static StreamWriter logr;
 
+        public static List<String> AllFactions = new List<string>();
+
         public StarArmory()
         {
             InitializeComponent();
             FileStream log = new FileStream("Log.txt", FileMode.Create);
             logr = new StreamWriter(log);
             logr.WriteLine("StarArmory Starting...");
+            settingsManager = new SettingsManager();
+            modfilter.SelectedIndex = 0;
             try
             {
                 logr.WriteLine("Loading Settings.yaml");
@@ -92,6 +97,7 @@ namespace StarArmory
                     var faction = YamlImporter.getObjectFromFile<Faction>(entry);
                     Armory.factions.Add(faction.Name, faction);
                     FactionList.Items.Add(faction.Name);
+                    AllFactions.Add(faction.Name);
                 }
                 FactionList.SelectedItem = FactionList.Items[0];
             }
@@ -649,7 +655,7 @@ namespace StarArmory
                                     }
                                 }
                                 break;
-                            case "Spacesuits":
+                            case "Spacesuit":
                                 if (mod.Value.Mod.Armors != null)
                                 {
                                     if (mod.Value.Mod.Armors.Count > 0)
@@ -700,6 +706,27 @@ namespace StarArmory
                         }
                     }
                 }
+
+                //Filter the faction list by the category
+                FactionList.Items.Clear();
+                if (filter == "All")
+                {
+                    foreach (var faction in AllFactions)
+                    {
+                        FactionList.Items.Add(faction);
+                    }
+                }
+                else
+                {
+                    foreach (var faction in AllFactions)
+                    {
+                        if (faction.Contains(filter.ToString()))
+                        {
+                            FactionList.Items.Add(faction);
+                        }
+                    }
+                }
+                //FactionList.SelectedIndex = 0;
             }
         }
 
@@ -722,8 +749,8 @@ namespace StarArmory
             for (int i = 0; i < Armory.plans.Count; i++)
             {
                 if (Armory.plans[i].faction.Name == FactionList.SelectedItem.ToString())
-                {                    
-                    for(int j = 0; j < loadedMods.Items.Count;j++)
+                {
+                    for (int j = 0; j < loadedMods.Items.Count; j++)
                     {
                         loadedMods.SetItemChecked(j, Armory.plans[i].mods.Contains(loadedMods.Items[j].ToString()));
                         found = true;
@@ -732,7 +759,7 @@ namespace StarArmory
                     break;
                 }
             }
-            if(!found)
+            if (!found)
             {
                 for (int j = 0; j < loadedMods.Items.Count; j++)
                 {
