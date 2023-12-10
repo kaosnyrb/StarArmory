@@ -1,8 +1,11 @@
 Name: Weapons - Rifles
 RangedWeapons:
-- Formkey: 1888073
+- Formkey: 2645574
   Modname: Starfield.esm
-  EditorId: LL_Weapon_Ranged_Rifle [LVLI:001CCF49]
+  EditorId: LLS_Weapon_Ranged_Rifle_ByNPCFaction [LVLI:00285E46]
+- Formkey: 2645575
+  Modname: Starfield.esm
+  EditorId: LLS_Weapon_Ranged_Rifle_Any_Leveled [LVLI:00285E47]
 - Formkey: 2314238
   Modname: Starfield.esm
   EditorId: LL_Weapon_Ranged_Sniper [LVLI:00234FFE]

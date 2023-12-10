@@ -1,5 +1,8 @@
 Name: Weapons - Shotguns
 RangedWeapons:
-- Formkey: 1401825
+- Formkey: 2645582
   Modname: Starfield.esm
-  EditorId: LL_Weapon_Ranged_Shotgun [LVLI:001563E1]
+  EditorId: LLS_Weapon_Ranged_Shotgun_Any_Leveled [LVLI:00285E4E]
+- Formkey: 2645583
+  Modname: Starfield.esm
+  EditorId: LLS_Weapon_Ranged_Shotgun_ByNPCFaction [LVLI:00285E4F]

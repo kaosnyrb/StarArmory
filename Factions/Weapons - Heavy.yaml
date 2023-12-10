@@ -1,11 +1,8 @@
 Name: Weapons - Heavy
 RangedWeapons:
-- Formkey: 1351598
+- Formkey: 2645578
   Modname: Starfield.esm
-  EditorId: LL_Weapon_Ranged_Heavy [LVLI:00149FAE]
-- Formkey: 2201364
+  EditorId: LLS_Weapon_Ranged_Heavy_Any_Leveled [LVLI:00285E4A]
+- Formkey: 2645579
   Modname: Starfield.esm
-  EditorId: LL_LegendaryItem_WeaponListHeavyWeapons_Common [LVLI:00219714]
-
-
-  
+  EditorId: LLS_Weapon_Ranged_Heavy_ByNPCFaction [LVLI:00285E4B]

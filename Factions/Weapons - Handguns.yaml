@@ -1,5 +1,8 @@
 Name: Weapons - Handguns
 RangedWeapons:
-- Formkey: 1888074
+- Formkey: 2645576
   Modname: Starfield.esm
-  EditorId: LL_Weapon_Ranged_Handgun [LVLI:001CCF4A]
+  EditorId: LLS_Weapon_Ranged_Handgun_Any_Leveled [LVLI:00285E48]
+- Formkey: 2645577
+  Modname: Starfield.esm
+  EditorId: LLS_Weapon_Ranged_Handgun_ByNPCFaction [LVLI:00285E49]
