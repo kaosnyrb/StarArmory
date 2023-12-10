@@ -1,3 +1,4 @@
+using log4net;
 using Mutagen.Bethesda;
 using Mutagen.Bethesda.Environments;
 using Mutagen.Bethesda.Plugins;
@@ -16,40 +17,40 @@ namespace StarArmory
     {
         public static StarfieldMod myMod;
         public static SettingsManager settingsManager;
-        public static StreamWriter logr;
+
+        public static readonly ILog log = LogManager.GetLogger(typeof(StarArmory));
 
         public static List<String> AllFactions = new List<string>();
 
         public StarArmory()
         {
             InitializeComponent();
-            FileStream log = new FileStream("Log.txt", FileMode.Create);
-            logr = new StreamWriter(log);
-            logr.WriteLine("StarArmory Starting...");
+            log4net.Config.XmlConfigurator.Configure();
+            log.Info("StarArmory Starting...");
             settingsManager = new SettingsManager();
             modfilter.SelectedIndex = 0;
             try
             {
-                logr.WriteLine("Loading Settings.yaml");
+                log.Info("Loading Settings.yaml");
                 settingsManager = YamlImporter.getObjectFromFile<SettingsManager>("Settings.yaml");
             }
             catch (Exception ex)
             {
                 //MessageBox.Show(ex.Message);
-                logr.WriteLine("Exception loading Settings.yaml: " + ex.Message);
-                logr.WriteLine("Creating new Settings.yaml");
+                log.Info("Exception loading Settings.yaml: " + ex.Message);
+                log.Info("Creating new Settings.yaml");
                 settingsManager = new SettingsManager();
                 YamlExporter.WriteObjToYamlFile("Settings.yaml", settingsManager);
             }
 
             try
             {
-                logr.WriteLine("DataPath in Settings.yaml is: " + settingsManager.DataPath);
+                log.Info("DataPath in Settings.yaml is: " + settingsManager.DataPath);
                 using (var env = GetGameEnvironment())
                 {
-                    logr.WriteLine("Plugin.txt location: " + env.LoadOrderFilePath);
-                    logr.WriteLine("Load order length: " + env.LoadOrder.Count);
-                    logr.WriteLine("Scanning Load Order for valid armor mods...");
+                    log.Info("Plugin.txt location: " + env.LoadOrderFilePath);
+                    log.Info("Load order length: " + env.LoadOrder.Count);
+                    log.Info("Scanning Load Order for valid armor mods...");
 
                     foreach (var mod in env.LoadOrder)
                     {
@@ -62,25 +63,25 @@ namespace StarArmory
                                 if (mod.Value.Mod.Armors.Count > 0)
                                 {
                                     loadedMods.Items.Add(mod.Value.FileName, true);
-                                    logr.WriteLine(mod.Value.ModKey.FileName + " has " + mod.Value.Mod.Armors.Count + " Armors");
+                                    log.Info(mod.Value.ModKey.FileName + " has " + mod.Value.Mod.Armors.Count + " Armors");
                                     added = true;
                                 }
                             }
                             else
                             {
-                                logr.WriteLine(mod.Value.ModKey.FileName + " has no Armors, skipping.");
+                                log.Info(mod.Value.ModKey.FileName + " has no Armors, skipping.");
                             }
                             if (mod.Value.Mod.Weapons != null && !added)
                             {
                                 if (mod.Value.Mod.Weapons.Count > 0)
                                 {
                                     loadedMods.Items.Add(mod.Value.FileName, true);
-                                    logr.WriteLine(mod.Value.ModKey.FileName + " has " + mod.Value.Mod.Weapons.Count + " Weapons");
+                                    log.Info(mod.Value.ModKey.FileName + " has " + mod.Value.Mod.Weapons.Count + " Weapons");
                                 }
                             }
                             else
                             {
-                                logr.WriteLine(mod.Value.ModKey.FileName + " has no Weapons, skipping.");
+                                log.Info(mod.Value.ModKey.FileName + " has no Weapons, skipping.");
                             }
                         }
                     }
@@ -90,7 +91,7 @@ namespace StarArmory
                 Armory.plans = new List<FactionPlan>();
                 Armory.factions = new Dictionary<string, Faction>();
 
-                logr.WriteLine("Loading Faction Files...");
+                log.Info("Loading Faction Files...");
                 string[] fileEntries = Directory.GetFiles("Factions/");
                 foreach (var entry in fileEntries)
                 {
@@ -103,25 +104,23 @@ namespace StarArmory
             }
             catch (Exception ex)
             {
-                logr.WriteLine("Exception loading mods : " + ex.Message);
+                log.Info("Exception loading mods : " + ex.Message);
                 MessageBox.Show(ex.Message);
             }
-            logr.Flush();
             //Used to check these existed before loading them, but it was triggering virus scanners.
             try
             {
-                logr.WriteLine("Loading Plan.yaml");
+                log.Info("Loading Plan.yaml");
                 Armory.plans = YamlImporter.getObjectFromFile<List<FactionPlan>>("Plan.yaml");
                 UpdatePlan();
             }
             catch (Exception ex)
             {
                 //MessageBox.Show(ex.Message);
-                logr.WriteLine("Exception loading Plan.yaml. Assuming it's just not there.");
+                log.Info("Exception loading Plan.yaml. Assuming it's just not there.");
                 Armory.plans = new List<FactionPlan>();
             }
             genderdropdown.SelectedIndex = 0;
-            logr.Flush();
         }
 
         public void UpdatePlan()
@@ -164,7 +163,7 @@ namespace StarArmory
             }
             catch (Exception e)
             {
-                logr.WriteLine("Exception loading environment: " + e.Message);
+                log.Info("Exception loading environment: " + e.Message);
                 var env = GameEnvironment.Typical.Builder<IStarfieldMod, IStarfieldModGetter>(GameRelease.Starfield)
                     .TransformLoadOrderListings(x => x.Where(x => !x.ModKey.Name.Contains("StarArmory")))
                     .WithTargetDataFolder(new DirectoryPath(settingsManager.DataPath)).Build();
@@ -188,7 +187,7 @@ namespace StarArmory
                 {
                     factionplan.faction.Name += " - " + factionplan.gender;
                 }
-                logr.WriteLine("Adding " + factionplan.faction.Name + " to plan.");
+                log.Info("Adding " + factionplan.faction.Name + " to plan.");
                 List<string> checkedmods = new List<string>();
                 foreach (var item in loadedMods.CheckedItems)
                 {
@@ -208,9 +207,8 @@ namespace StarArmory
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-                logr.WriteLine("Exception adding faction: " + ex.Message);
+                log.Info("Exception adding faction: " + ex.Message);
             }
-            logr.Flush();
         }
 
 
@@ -220,7 +218,7 @@ namespace StarArmory
             Armory.UpgradedItems = new List<string>();
             try
             {
-                logr.WriteLine("Exporting Plan.yaml");
+                log.Info("Exporting Plan.yaml");
                 YamlExporter.WriteObjToYamlFile("Plan.yaml", Armory.plans);
                 string datapath = "";
                 string pluginspath = "";
@@ -229,7 +227,7 @@ namespace StarArmory
                     datapath = env.DataFolderPath;
                     pluginspath = env.LoadOrderFilePath;
                 }
-                logr.WriteLine("Data folder at:" + datapath);
+                log.Info("Data folder at:" + datapath);
                 //File.Delete(datapath + "\\StarArmoryPatch.esm");
 
                 ModKey newMod = new ModKey("StarArmoryPatch", ModType.Master);
@@ -237,7 +235,7 @@ namespace StarArmory
                 myMod.Clear();
                 foreach (var plan in Armory.plans)
                 {
-                    logr.WriteLine("Staring Faction : " + plan.faction.Name);
+                    log.Info("Staring Faction : " + plan.faction.Name);
 
                     Armory.Clear();
                     Armory.LoadClothes(plan.mods);
@@ -316,7 +314,7 @@ namespace StarArmory
                     //In vanilla some outfits link directly to armor, things like the starborn.
                     //We need to create a new levelled list then replace the outfit with these lists.
                     //We also want to peserve the original outfit as an option.
-                    logr.WriteLine("Starting Outfits");
+                    log.Info("Starting Outfits");
                     using (var env = StarArmory.GetGameEnvironment())
                     {
                         BuildSpaceOutfit(plan, env);
@@ -325,23 +323,18 @@ namespace StarArmory
                 }
 
                 //Export
-                logr.WriteLine("Exporting to " + datapath + "\\StarArmoryPatch.esm");
+                log.Info("Exporting to " + datapath + "\\StarArmoryPatch.esm");
                 myMod.WriteToBinary(datapath + "\\StarArmoryPatch.esm");
                 MessageBox.Show("Exported StarArmoryPatch.esm to Data Folder. Make sure to add it to plugins.txt at " + pluginspath);
-                logr.WriteLine("Export Complete");
+                log.Info("Export Complete");
             }
             catch (Exception ex)
             {
-                logr.WriteLine("Erroring editorid was: " + lastformkey.editorId);
-                logr.WriteLine("Erroring modname was: " + lastformkey.modname);
+                log.Info("Erroring editorid was: " + lastformkey.editorId);
+                log.Info("Erroring modname was: " + lastformkey.modname);
                 MessageBox.Show(ex.Message);
-                logr.WriteLine(ex.Message);
+                log.Info(ex.Message);
             }
-            finally
-            {
-                logr.Flush();
-            }
-            logr.Flush();
         }
 
         private static void BuildSpaceOutfit(FactionPlan plan, IGameEnvironment<IStarfieldMod, IStarfieldModGetter> env)
@@ -448,11 +441,10 @@ namespace StarArmory
                     }
                     catch (Exception ex)
                     {
-                        logr.WriteLine("Erroring editorid was: " + outfit.editorId);
-                        logr.WriteLine("Erroring modname was: " + outfit.modname);
+                        log.Info("Erroring editorid was: " + outfit.editorId);
+                        log.Info("Erroring modname was: " + outfit.modname);
                         MessageBox.Show(ex.Message);
-                        logr.WriteLine(ex.Message);
-                        logr.Flush();
+                        log.Info(ex.Message);
                     }
                 }
             }
@@ -570,15 +562,14 @@ namespace StarArmory
                     }
                     catch (Exception ex)
                     {
-                        logr.WriteLine("Erroring editorid was: " + outfit.editorId);
-                        logr.WriteLine("Erroring modname was: " + outfit.modname);
+                        log.Info("Erroring editorid was: " + outfit.editorId);
+                        log.Info("Erroring modname was: " + outfit.modname);
                         MessageBox.Show(ex.Message);
-                        logr.WriteLine(ex.Message);
-                        logr.Flush();
+                        log.Info(ex.Message);
                     }
                 }
             }
-            logr.WriteLine("Outfits to map : " + outfitmapping.Count);
+            log.Info("Outfits to map : " + outfitmapping.Count);
         }
 
         private void selectallbutton_Click(object sender, EventArgs e)

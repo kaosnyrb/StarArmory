@@ -29,7 +29,7 @@ namespace StarArmory
                 if (!found)
                 {
                     new Exception("Couldn't file mod name " + filename + " in load order! Check the factions yamls for the error file.");
-                    StarArmory.logr.WriteLine("Couldn't file mod name " + filename + " in load order! Check the factions yamls for the error file.");
+                    StarArmory.log.Info("Couldn't file mod name " + filename + " in load order! Check the factions yamls for the error file.");
                 }
                 FormKey formKey = new FormKey(key, levellist);
                 var citizenclothes = immutableLoadOrderLinkCache.Resolve<ILeveledItemGetter>(formKey);
@@ -74,7 +74,7 @@ namespace StarArmory
                     }
                     catch(Exception ex)
                     {
-                        StarArmory.logr.WriteLine("Error added legendary flags: " + ex.Message + " " + newitems[i].EditorID);
+                        StarArmory.log.Info("Error added legendary flags: " + ex.Message + " " + newitems[i].EditorID);
                     }
                     short level = 1;
                     
@@ -113,7 +113,7 @@ namespace StarArmory
                 if (!found)
                 {
                     new Exception("Couldn't file mod name " + filename + " in load order! Check the factions yamls for the error file.");
-                    StarArmory.logr.WriteLine("Couldn't file mod name " + filename + " in load order! Check the factions yamls for the error file.");
+                    StarArmory.log.Info("Couldn't file mod name " + filename + " in load order! Check the factions yamls for the error file.");
 
                 }
                 FormKey formKey = new FormKey(key, levellist);

@@ -42,7 +42,7 @@ namespace StarArmory
 
         public static void LoadClothes(List<string> mods)
         {
-            StarArmory.logr.WriteLine("Starting to Load Mod Content");
+            StarArmory.log.Info("Starting to Load Mod Content");
 
             using (var env = StarArmory.GetGameEnvironment())
             {
@@ -68,7 +68,7 @@ namespace StarArmory
                         try
                         {
                             var armours = mod.Value.Mod.Armors.ToList();
-                            StarArmory.logr.WriteLine("Loading Mod: " + mod.Value.FileName);
+                            StarArmory.log.Info("Loading Mod: " + mod.Value.FileName);
                             foreach (var armor in armours)
                             {
                                 bool added = false;
@@ -76,13 +76,13 @@ namespace StarArmory
                                 var link = immutableLoadOrderLinkCache.Resolve<IArmorGetter>(armor.FormKey);
                                 if (armor.HasKeyword(Apparel))
                                 {
-                                    StarArmory.logr.WriteLine("Processing Armor: " + armor.EditorID + " flags " + armor.FirstPersonFlags.Value);
+                                    StarArmory.log.Info("Processing Armor: " + armor.EditorID + " flags " + armor.FirstPersonFlags.Value);
                                     if (hasflag(armor.FirstPersonFlags.Value, FirstPersonFlag.BODY) )
                                     {
                                         clothes.Add(link);
                                         added = true;
                                         itemsAdded++;
-                                        StarArmory.logr.WriteLine("Added to clothes: " + armor.EditorID);
+                                        StarArmory.log.Info("Added to clothes: " + armor.EditorID);
                                      
                                         foreach (FirstPersonFlag item in Enum.GetValues(typeof(FirstPersonFlag))) {
                                             if (hasflag(armor.FirstPersonFlags.Value, item))
@@ -140,14 +140,14 @@ namespace StarArmory
                                 }
                                 if (!added)
                                 {
-                                    StarArmory.logr.WriteLine("Didn't load armor " + armor.EditorID + " from mod " + mod.Value.FileName + " Keyword found: " + Keyword.ToString() + " | FirstPersonFlags checks : " + added.ToString());
+                                    StarArmory.log.Info("Didn't load armor " + armor.EditorID + " from mod " + mod.Value.FileName + " Keyword found: " + Keyword.ToString() + " | FirstPersonFlags checks : " + added.ToString());
                                 }
                             }
                         }
                         catch (Exception ex) 
                         {
-                            StarArmory.logr.WriteLine("Exception in Armor Processing in Mod: " + mod.Value.FileName);
-                            StarArmory.logr.WriteLine("Exception: " + ex);
+                            StarArmory.log.Info("Exception in Armor Processing in Mod: " + mod.Value.FileName);
+                            StarArmory.log.Info("Exception: " + ex);
                         }
                         try
                         {
@@ -180,17 +180,17 @@ namespace StarArmory
                                 }
                                 if (!added)
                                 {
-                                    StarArmory.logr.WriteLine("Didn't load weapon " + weapon.EditorID + " from mod " + mod.Value.FileName + " Keyword found: " + added.ToString());
+                                    StarArmory.log.Info("Didn't load weapon " + weapon.EditorID + " from mod " + mod.Value.FileName + " Keyword found: " + added.ToString());
                                 }
                             }
                         } 
                         catch (Exception ex)
                         {
-                            StarArmory.logr.WriteLine("Exception in Weapon Processing in Mod: " + mod.Value.FileName);
-                            StarArmory.logr.WriteLine("Exception: " + ex);
+                            StarArmory.log.Info("Exception in Weapon Processing in Mod: " + mod.Value.FileName);
+                            StarArmory.log.Info("Exception: " + ex);
                         }
-                        StarArmory.logr.WriteLine("Finished procressing Mod: " + mod.Value.FileName);
-                        StarArmory.logr.WriteLine(mod.Value.FileName + " contained " + itemsAdded + " valid items");
+                        StarArmory.log.Info("Finished procressing Mod: " + mod.Value.FileName);
+                        StarArmory.log.Info(mod.Value.FileName + " contained " + itemsAdded + " valid items");
                     }
                 }
 
@@ -203,7 +203,7 @@ namespace StarArmory
                         if (hasflag(clothing.FirstPersonFlags.Value, flag.Key))
                         {
                             clashing = true;
-                            StarArmory.logr.WriteLine("Clashing FPF: " + clothing.EditorID + " flag " + flag.Key.ToString() + " was used in " + flag.Value);
+                            StarArmory.log.Info("Clashing FPF: " + clothing.EditorID + " flag " + flag.Key.ToString() + " was used in " + flag.Value);
                         }
                     }
                     if (!clashing)
@@ -211,12 +211,11 @@ namespace StarArmory
                         //Things that aren't outfits are probably accessories.
                         hats.Add(clothing);
                         itemsAdded++;
-                        StarArmory.logr.WriteLine("Added to hats: " + clothing.EditorID);
+                        StarArmory.log.Info("Added to hats: " + clothing.EditorID);
                     }
                 }
 
-                StarArmory.logr.WriteLine("Finished procressing mods.");
-                StarArmory.logr.Flush();
+                StarArmory.log.Info("Finished procressing mods.");
             }
         }
     }
