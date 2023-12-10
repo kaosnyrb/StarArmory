@@ -10,7 +10,7 @@ namespace StarArmory
 
     class LeveledItem
     {
-        public static void AddItemsToLevelledList(StarfieldMod myMod, List<IArmorGetter> newitems, string filename, uint levellist, bool clearlist = false)
+        public static void AddItemsToLevelledList(StarfieldMod myMod, List<IArmorGetter> newitems, string esmname, uint levellist, bool clearlist = false)
         {
             using (var env = StarArmory.GetGameEnvironment())
             {
@@ -19,7 +19,7 @@ namespace StarArmory
                 bool found = false;
                 for (int i = 0; i < env.LoadOrder.Count; i++)
                 {
-                    if (env.LoadOrder[i].FileName == filename)
+                    if (env.LoadOrder[i].FileName == esmname)
                     {
                         key = env.LoadOrder[i].ModKey;
                         found = true;
@@ -28,8 +28,8 @@ namespace StarArmory
                 }
                 if (!found)
                 {
-                    new Exception("Couldn't file mod name " + filename + " in load order! Check the factions yamls for the error file.");
-                    StarArmory.log.Info("Couldn't file mod name " + filename + " in load order! Check the factions yamls for the error file.");
+                    new Exception("Couldn't file mod name " + esmname + " in load order! Check the factions yamls for the error file.");
+                    StarArmory.log.Info("Couldn't file mod name " + esmname + " in load order! Check the factions yamls for the error file.");
                 }
                 FormKey formKey = new FormKey(key, levellist);
                 var citizenclothes = immutableLoadOrderLinkCache.Resolve<ILeveledItemGetter>(formKey);
@@ -93,7 +93,7 @@ namespace StarArmory
             }
         }
 
-        public static void AddItemsToLevelledList(StarfieldMod myMod, List<IWeaponGetter> newitems, string filename, uint levellist, bool clearlist = false)
+        public static void AddItemsToLevelledList(StarfieldMod myMod, List<IWeaponGetter> newitems, string esmname, uint levellist, bool clearlist = false)
         {
             using (var env = StarArmory.GetGameEnvironment())
             {
@@ -103,7 +103,7 @@ namespace StarArmory
                 bool found = false;
                 for (int i = 0; i < env.LoadOrder.Count; i++)
                 {
-                    if (env.LoadOrder[i].FileName == filename)
+                    if (env.LoadOrder[i].FileName == esmname)
                     {
                         key = env.LoadOrder[i].ModKey;
                         found = true;
@@ -112,8 +112,8 @@ namespace StarArmory
                 }
                 if (!found)
                 {
-                    new Exception("Couldn't file mod name " + filename + " in load order! Check the factions yamls for the error file.");
-                    StarArmory.log.Info("Couldn't file mod name " + filename + " in load order! Check the factions yamls for the error file.");
+                    new Exception("Couldn't find mod name " + esmname + " in load order! Check the factions yamls for the error file.");
+                    StarArmory.log.Info("Couldn't find mod name " + esmname + " in load order! Check the factions yamls for the error file.");
 
                 }
                 FormKey formKey = new FormKey(key, levellist);

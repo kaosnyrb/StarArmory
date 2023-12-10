@@ -7,7 +7,7 @@
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
     <ApplicationIcon>logo.ico</ApplicationIcon>
-    <AssemblyName>$(MSBuildProjectName)-tool</AssemblyName>
+    <AssemblyName>$(MSBuildProjectName)-v2.0.0</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>

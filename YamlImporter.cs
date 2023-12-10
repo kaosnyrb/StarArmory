@@ -12,7 +12,7 @@ namespace StarArmory
     public class YamlImporter
     {
 
-        public static T getObjectFromFile<T>(string filePath)
+        public static T getObjectFrom<T>(string filePath)
         {
             string content = File.ReadAllText(filePath);
             return getObjectFromYaml<T>(content);

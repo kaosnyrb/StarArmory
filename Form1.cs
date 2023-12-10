@@ -32,7 +32,7 @@ namespace StarArmory
             try
             {
                 log.Info("Loading Settings.yaml");
-                settingsManager = YamlImporter.getObjectFromFile<SettingsManager>("Settings.yaml");
+                settingsManager = YamlImporter.getObjectFrom<SettingsManager>("Settings.yaml");
             }
             catch (Exception ex)
             {
@@ -40,7 +40,7 @@ namespace StarArmory
                 log.Info("Exception loading Settings.yaml: " + ex.Message);
                 log.Info("Creating new Settings.yaml");
                 settingsManager = new SettingsManager();
-                YamlExporter.WriteObjToYamlFile("Settings.yaml", settingsManager);
+                YamlExporter.WriteObjToYaml("Settings.yaml", settingsManager);
             }
 
             try
@@ -91,11 +91,11 @@ namespace StarArmory
                 Armory.plans = new List<FactionPlan>();
                 Armory.factions = new Dictionary<string, Faction>();
 
-                log.Info("Loading Faction Files...");
-                string[] fileEntries = Directory.GetFiles("Factions/");
-                foreach (var entry in fileEntries)
+                log.Info("Loading Factions...");
+                string[] facs = Directory.GetFiles("Factions/");
+                foreach (var entry in facs)
                 {
-                    var faction = YamlImporter.getObjectFromFile<Faction>(entry);
+                    var faction = YamlImporter.getObjectFrom<Faction>(entry);
                     Armory.factions.Add(faction.Name, faction);
                     FactionList.Items.Add(faction.Name);
                     AllFactions.Add(faction.Name);
@@ -111,7 +111,7 @@ namespace StarArmory
             try
             {
                 log.Info("Loading Plan.yaml");
-                Armory.plans = YamlImporter.getObjectFromFile<List<FactionPlan>>("Plan.yaml");
+                Armory.plans = YamlImporter.getObjectFrom<List<FactionPlan>>("Plan.yaml");
                 UpdatePlan();
             }
             catch (Exception ex)
@@ -219,7 +219,7 @@ namespace StarArmory
             try
             {
                 log.Info("Exporting Plan.yaml");
-                YamlExporter.WriteObjToYamlFile("Plan.yaml", Armory.plans);
+                YamlExporter.WriteObjToYaml("Plan.yaml", Armory.plans);
                 string datapath = "";
                 string pluginspath = "";
                 using (var env = GetGameEnvironment())
@@ -228,7 +228,6 @@ namespace StarArmory
                     pluginspath = env.LoadOrderFilePath;
                 }
                 log.Info("Data folder at:" + datapath);
-                //File.Delete(datapath + "\\StarArmoryPatch.esm");
 
                 ModKey newMod = new ModKey("StarArmoryPatch", ModType.Master);
                 myMod = new StarfieldMod(newMod, StarfieldRelease.Starfield);

@@ -12,9 +12,9 @@ namespace StarArmory
     public class YamlExporter
     {
 
-        public static void WriteObjToYamlFile(string filePath, object obj)
+        public static void WriteObjToYaml(string loc, object obj)
         {
-            WriteStringToFile(filePath,BuildYaml(obj));
+            WriteStringTo(loc,BuildYaml(obj));
         }
 
         public static string BuildYaml(object obj)
@@ -27,18 +27,18 @@ namespace StarArmory
             return yaml;
         }
 
-        public static void WriteStringToFile(string filePath, string content)
+        public static void WriteStringTo(string loc, string content)
         {
             try
             {
                 // Create or overwrite the file with the specified content.
-                File.WriteAllText(filePath, content);
+                File.WriteAllText(loc, content);
 
-                Console.WriteLine("String successfully written to file: " + filePath);
+                Console.WriteLine("String successfully written to " + loc);
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Error writing to file: " + ex.Message);
+                Console.WriteLine("Error writing to " + ex.Message);
             }
         }
     }
