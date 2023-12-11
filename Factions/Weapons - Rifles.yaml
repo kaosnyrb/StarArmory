@@ -9,3 +9,9 @@ RangedWeapons:
 - Formkey: 2314238
   Modname: Starfield.esm
   EditorId: LL_Weapon_Ranged_Sniper [LVLI:00234FFE]
+- Formkey: 260314
+  Modname: Starfield.esm
+  EditorId: LLS_Vendor_Weapon_Rifle [LVLI:0003F8DA]
+- Formkey: 260316
+  Modname: Starfield.esm
+  EditorId: LLS_Vendor_Weapon_Sniper [LVLI:0003F8DC]

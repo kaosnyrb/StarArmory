@@ -6,3 +6,12 @@ RangedWeapons:
 - Formkey: 2645579
   Modname: Starfield.esm
   EditorId: LLS_Weapon_Ranged_Heavy_ByNPCFaction [LVLI:00285E4B]
+- Formkey: 260320
+  Modname: Starfield.esm
+  EditorId: LLS_Vendor_Weapon_Heavy [LVLI:0003F8E0]
+- Formkey: 260318
+  Modname: Starfield.esm
+  EditorId: LLS_Vendor_Weapon_Tool [LVLI:0003F8DE]
+
+
+ 

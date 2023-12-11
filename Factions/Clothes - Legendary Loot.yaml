@@ -3,7 +3,49 @@ Hats:
 - Formkey: 1842504
   Modname: Starfield.esm
   EditorId: LL_LegendaryItem_ArmorListHelmets_AnyNPCFaction [LVLI:001C1D48]
+- Formkey: 1793219
+  Modname: Starfield.esm
+  EditorId: LL_Loot_Clothes_MiscBox [LVLI:001B5CC3]
+- Formkey: 1009058
+  Modname: Starfield.esm
+  EditorId: LL_Vendor_Outfitter_Hats_All_75 [LVLI:000F65A2]
+- Formkey: 510007
+  Modname: Starfield.esm
+  EditorId: LL_Vendor_Outfitter_Hats_City_75 [LVLI:0007C837]
+- Formkey: 513734
+  Modname: Starfield.esm
+  EditorId: LL_Vendor_Outfitter_Hats_Settler_75 [LVLI:0007D6C6]
 Clothes: 
 - Formkey: 1842474
   Modname: Starfield.esm
   EditorId: LL_LegendaryItem_ArmorList_AnyNPCFaction [LVLI:001C1D2A]
+- Formkey: 1793219
+  Modname: Starfield.esm
+  EditorId: LL_Loot_Clothes_MiscBox [LVLI:001B5CC3]
+- Formkey: 510006
+  Modname: Starfield.esm
+  EditorId: LL_Vendor_Outfitter_Clothing_Akila_75 [LVLI:0007C836]
+- Formkey: 1009061
+  Modname: Starfield.esm
+  EditorId: LL_Vendor_Outfitter_Clothing_All_75 [LVLI:000F65A5]
+- Formkey: 513755
+  Modname: Starfield.esm
+  EditorId: LL_Vendor_Outfitter_Clothing_Cydonia_75 [LVLI:0007D6DB]
+- Formkey: 1793435
+  Modname: Starfield.esm
+  EditorId: LL_Vendor_Outfitter_Clothing_Functional_75 [LVLI:001B5D9B]
+- Formkey: 570124
+  Modname: Starfield.esm
+  EditorId: LL_Vendor_Outfitter_Clothing_Mining_75 [LVLI:0008B30C]
+- Formkey: 510005
+  Modname: Starfield.esm
+  EditorId: LL_Vendor_Outfitter_Clothing_Neon_75 [LVLI:0007C835]
+- Formkey: 570187
+  Modname: Starfield.esm
+  EditorId: LL_Vendor_Outfitter_Clothing_Street_75 [LVLI:0008B34B]
+- Formkey: 570187
+  Modname: Starfield.esm
+  EditorId: LL_Vendor_Outfitter_Clothing_Trucker_Any [LVLI:1046397]
+- Formkey: 1832888
+  Modname: Starfield.esm
+  EditorId: LL_Vendor_Outfitter_Clothing_UCSurplus_75 [LVLI:001BF7B8]
