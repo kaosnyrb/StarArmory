@@ -130,8 +130,19 @@ namespace StarArmory
             factionPlanTree.Nodes.Add("Plan");
             for (int i = 0; i < Armory.plans.Count; i++)
             {
-                Armory.plans[i].faction = Armory.factions[Armory.plans[i].faction.Name];
+                string originalfaction = Armory.plans[i].faction.Name;
+                string gendered = Armory.plans[i].faction.Name;
                 factionPlanTree.Nodes[0].Nodes.Add(Armory.plans[i].faction.Name);
+                if (originalfaction.Contains(" - Female Only"))
+                {
+                    originalfaction = originalfaction.Substring(0,originalfaction.IndexOf(" - Female Only"));                        
+                }
+                if (originalfaction.Contains(" - Male Only"))
+                {
+                    originalfaction = originalfaction.Substring(0, originalfaction.IndexOf(" - Male Only"));
+                }
+//                Armory.plans[i].faction = Armory.factions[originalfaction];
+                Armory.plans[i].faction.Name = gendered;
                 factionPlanTree.Nodes[0].Nodes[i].Nodes.Add("Clear Vanilla: " + Armory.plans[i].clearvanillaitems.ToString());
                 for (int j = 0; j < Armory.plans[i].mods.Count; j++)
                 {
@@ -241,14 +252,12 @@ namespace StarArmory
                     //Levelled Lists
                     //Here we inject the modded items into the levelled lists defined in the faction files.
                     //If we're gendered ignore this section
-                    if (plan.gender == "All" || plan.gender == null)
-                    {
                         if (plan.faction.Hats != null)
                         {
                             foreach (var hat in plan.faction.Hats)
                             {
                                 lastformkey = hat;
-                                LeveledItem.AddItemsToLevelledList(myMod, Armory.hats, hat.modname, hat.formkey, plan.clearvanillaitems);
+                                LeveledItem.AddItemsToLevelledList(myMod, Armory.hats, hat.modname, hat.formkey, plan.clearvanillaitems,plan.gender);
                             }
                         }
                         if (plan.faction.Clothes != null)
@@ -256,7 +265,7 @@ namespace StarArmory
                             foreach (var clothes in plan.faction.Clothes)
                             {
                                 lastformkey = clothes;
-                                LeveledItem.AddItemsToLevelledList(myMod, Armory.clothes, clothes.modname, clothes.formkey, plan.clearvanillaitems);
+                                LeveledItem.AddItemsToLevelledList(myMod, Armory.clothes, clothes.modname, clothes.formkey, plan.clearvanillaitems, plan.gender);
                             }
                         }
                         if (plan.faction.Spacesuits != null)
@@ -264,7 +273,7 @@ namespace StarArmory
                             foreach (var suit in plan.faction.Spacesuits)
                             {
                                 lastformkey = suit;
-                                LeveledItem.AddItemsToLevelledList(myMod, Armory.spacesuits, suit.modname, suit.formkey, plan.clearvanillaitems);
+                                LeveledItem.AddItemsToLevelledList(myMod, Armory.spacesuits, suit.modname, suit.formkey, plan.clearvanillaitems, plan.gender);
                             }
                         }
                         if (plan.faction.SpaceHelmets != null)
@@ -272,7 +281,7 @@ namespace StarArmory
                             foreach (var helm in plan.faction.SpaceHelmets)
                             {
                                 lastformkey = helm;
-                                LeveledItem.AddItemsToLevelledList(myMod, Armory.spacehelmets, helm.modname, helm.formkey, plan.clearvanillaitems);
+                                LeveledItem.AddItemsToLevelledList(myMod, Armory.spacehelmets, helm.modname, helm.formkey, plan.clearvanillaitems, plan.gender);
                             }
                         }
                         if (plan.faction.Boostpacks != null)
@@ -280,7 +289,7 @@ namespace StarArmory
                             foreach (var pack in plan.faction.Boostpacks)
                             {
                                 lastformkey = pack;
-                                LeveledItem.AddItemsToLevelledList(myMod, Armory.boostpacks, pack.modname, pack.formkey, plan.clearvanillaitems);
+                                LeveledItem.AddItemsToLevelledList(myMod, Armory.boostpacks, pack.modname, pack.formkey, plan.clearvanillaitems, plan.gender);
                             }
                         }
                         if (plan.faction.RangedWeapons != null)
@@ -307,7 +316,6 @@ namespace StarArmory
                                 LeveledItem.AddItemsToLevelledList(myMod, Armory.grenades, nade.modname, nade.formkey, plan.clearvanillaitems);
                             }
                         }
-                    }
                     //Outfits
                     //Outfits have another layer of complexity to the levelled lists
                     //In vanilla some outfits link directly to armor, things like the starborn.
@@ -404,7 +412,7 @@ namespace StarArmory
                                 Reference = suit.ToLink<ILeveledItemGetter>()
                             });
                         }
-                        LeveledItem.AddItemsToList(myMod, Armory.spacesuits, ListOutfitSpacesuit.Entries, 0);
+                        LeveledItem.AddItemsToList(myMod, Armory.spacesuits, ListOutfitSpacesuit.Entries, 0, plan.gender);
                         newoutfit.Items.Add(ListOutfitSpacesuit);
                         if (outfit.Helmet == null)
                         {
@@ -422,7 +430,7 @@ namespace StarArmory
                                     Reference = helmets.ToLink<ILeveledItemGetter>()
                                 });
                             }
-                            LeveledItem.AddItemsToList(myMod, Armory.spacehelmets, ListOutfitSpacehelmets.Entries, 0);
+                            LeveledItem.AddItemsToList(myMod, Armory.spacehelmets, ListOutfitSpacehelmets.Entries, 0, plan.gender);
                             newoutfit.Items.Add(ListOutfitSpacehelmets);
                         }
                         foreach (var boost in boostpacks)
@@ -435,7 +443,7 @@ namespace StarArmory
                                 Reference = boost.ToLink<ILeveledItemGetter>()
                             });
                         }
-                        LeveledItem.AddItemsToList(myMod, Armory.boostpacks, ListOutfitBoostPacks.Entries, 0);
+                        LeveledItem.AddItemsToList(myMod, Armory.boostpacks, ListOutfitBoostPacks.Entries, 0, plan.gender);
                         newoutfit.Items.Add(ListOutfitBoostPacks);
                     }
                     catch (Exception ex)
@@ -490,7 +498,7 @@ namespace StarArmory
                         }
                         //clear outfit
                         var newoutfit = myMod.Outfits.GetOrAddAsOverride(link);
-                        newoutfit.Items.Clear();
+                        //newoutfit.Items.Clear();
 
                         //create levelled list for each category for this outfit                        
                         var ListOutfitHats = myMod.LeveledItems.AddNew();
@@ -523,41 +531,15 @@ namespace StarArmory
                             });
                         }
                         //add modded items to each levelled list                                
-                        LeveledItem.AddItemsToList(myMod, Armory.hats, ListOutfitHats.Entries, 0);
-                        LeveledItem.AddItemsToList(myMod, Armory.clothes, ListOutfitClothes.Entries, 0);
+                        LeveledItem.AddItemsToList(myMod, Armory.hats, ListOutfitHats.Entries, 0, plan.gender);
+                        LeveledItem.AddItemsToList(myMod, Armory.clothes, ListOutfitClothes.Entries, 0, plan.gender);
                         //Add each levelled list to outfit
-                        if (plan.gender == "All")
+                        if (outfit.Helmet == null)
                         {
-                            if (outfit.Helmet == null)
-                            {
-                                newoutfit.Items.Add(ListOutfitHats);
-                            }
-                            newoutfit.Items.Add(ListOutfitClothes);
+                            newoutfit.Items.Add(ListOutfitHats);
                         }
                         else
-                        {
-                            var topleveloutfit = myMod.Outfits.AddNew();
-                            topleveloutfit.EditorID = newoutfit.EditorID + "_SA_" + plan.gender;
-                            topleveloutfit.Items = new ExtendedList<IFormLinkGetter<IOutfitTargetGetter>>();
-                            if (!outfitmapping.Keys.Contains(newoutfit.EditorID))
-                            {
-                                outfitmapping.Add(newoutfit.EditorID, newoutfit.EditorID + "_SA_" + plan.gender);
-                            }
-                            if (outfit.Helmet == null)
-                            {
-                                topleveloutfit.Items.Add(ListOutfitHats);
-                            }
-                            topleveloutfit.Items.Add(ListOutfitClothes);
-
-                            //Fun part, now we need to update every npc of a bodytype to wear the new outfit.
-                            //Loop through all npcs.... :|
-                            //Mutagen doesn't support this yet...
-                            /*
-                            foreach (var mod in env.LoadOrder)
-                            {
-                                mod.Value.Mod.Npcs
-                            }*/
-                        }
+                        newoutfit.Items.Add(ListOutfitClothes);
                     }
                     catch (Exception ex)
                     {

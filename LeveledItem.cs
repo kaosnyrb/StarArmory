@@ -4,13 +4,14 @@ using Mutagen.Bethesda.Starfield;
 using Mutagen.Bethesda;
 using Noggog;
 using Microsoft.VisualBasic.Logging;
+using log4net.Core;
 
 namespace StarArmory
 {
 
     class LeveledItem
     {
-        public static void AddItemsToLevelledList(StarfieldMod myMod, List<IArmorGetter> newitems, string esmname, uint levellist, bool clearlist = false)
+        public static void AddItemsToLevelledList(StarfieldMod myMod, List<IArmorGetter> newitems, string esmname, uint levellist, bool clearlist = false, string gender = "All")
         {
             using (var env = StarArmory.GetGameEnvironment())
             {
@@ -82,13 +83,38 @@ namespace StarArmory
                     {
                         level = (short)(newitems[i].ArmorRating / 10);
                     }
-                    newlist.Entries.Add(new LeveledItemEntry()
+
+                    var entry = new LeveledItemEntry()
                     {
                         Level = level,
                         ChanceNone = new Noggog.Percent(0),
                         Count = 1,
-                        Reference = newitems[i].ToLink<ILeveledItemGetter>()
-                    });
+                        Reference = newitems[i].ToLink<ILeveledItemGetter>(),
+                       
+                    };
+                    var condition = new ConditionFloat();
+                    if (gender == "Male Only") {
+                        condition.CompareOperator = CompareOperator.EqualTo;
+                        condition.ComparisonValue = 1;
+                        condition.Data = new GetIsSexConditionData()
+                        {
+                            RunOnType = Condition.RunOnType.Subject,
+                            FirstParameter = Mutagen.Bethesda.Plugins.Records.MaleFemaleGender.Male,
+                        };
+                        entry.Conditions.Add(condition);
+                    }
+                    if (gender == "Female Only")
+                    {
+                        condition.CompareOperator = CompareOperator.EqualTo;
+                        condition.ComparisonValue = 1;
+                        condition.Data = new GetIsSexConditionData()
+                        {
+                            RunOnType = Condition.RunOnType.Subject,
+                            FirstParameter = Mutagen.Bethesda.Plugins.Records.MaleFemaleGender.Female,
+                        };
+                        entry.Conditions.Add(condition);
+                    }
+                    newlist.Entries.Add(entry);
                 }
             }
         }
@@ -147,17 +173,44 @@ namespace StarArmory
             }
         }
 
-        public static void AddItemsToList(StarfieldMod myMod, List<IArmorGetter> newitems, ExtendedList<LeveledItemEntry> leveledItemEntries, double ChanceNone)
+        public static void AddItemsToList(StarfieldMod myMod, List<IArmorGetter> newitems, ExtendedList<LeveledItemEntry> leveledItemEntries, double ChanceNone, string gender = "All")
         {
+
             for (int i = 0; i < newitems.Count; i++)
             {
-                leveledItemEntries.Add(new LeveledItemEntry()
+                var entry = new LeveledItemEntry()
                 {
                     Level = 1,
-                    ChanceNone = new Noggog.Percent(ChanceNone),
+                    ChanceNone = new Noggog.Percent(0),
                     Count = 1,
-                    Reference = newitems[i].ToLink<ILeveledItemGetter>()
-                });
+                    Reference = newitems[i].ToLink<ILeveledItemGetter>(),
+
+                };
+                var condition = new ConditionFloat();
+                if (gender == "Male Only")
+                {
+                    condition.CompareOperator = CompareOperator.EqualTo;
+                    condition.ComparisonValue = 1;
+                    condition.Data = new GetIsSexConditionData()
+                    {
+                        RunOnType = Condition.RunOnType.Subject,
+                        FirstParameter = Mutagen.Bethesda.Plugins.Records.MaleFemaleGender.Male,
+                    };
+                    entry.Conditions.Add(condition);
+                }
+                if (gender == "Female Only")
+                {
+                    condition.CompareOperator = CompareOperator.EqualTo;
+                    condition.ComparisonValue = 1;
+                    condition.Data = new GetIsSexConditionData()
+                    {
+                        RunOnType = Condition.RunOnType.Subject,
+                        FirstParameter = Mutagen.Bethesda.Plugins.Records.MaleFemaleGender.Female,
+                    };
+                    entry.Conditions.Add(condition);
+                }
+
+                leveledItemEntries.Add(entry);
             }
         }
     }

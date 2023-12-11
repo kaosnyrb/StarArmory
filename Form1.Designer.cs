@@ -187,7 +187,6 @@
             genderdropdown.Name = "genderdropdown";
             genderdropdown.Size = new Size(206, 23);
             genderdropdown.TabIndex = 17;
-            genderdropdown.Visible = false;
             // 
             // label6
             // 
@@ -197,7 +196,6 @@
             label6.Size = new Size(45, 15);
             label6.TabIndex = 18;
             label6.Text = "Gender";
-            label6.Visible = false;
             // 
             // modfilter
             // 
