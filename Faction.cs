@@ -15,7 +15,7 @@ namespace StarArmory
         public List<SimpleForm> RangedWeapons { get; set; }
         public List<SimpleForm> MeleeWeapons { get; set; }
         public List<SimpleForm> Grenades { get; set; }
-
+        public List<SimpleForm> Consumables { get; set; }
     }
 
     class SimpleForm

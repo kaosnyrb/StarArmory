@@ -16,6 +16,9 @@ namespace StarArmory
         public static List<IArmorGetter> spacesuits { get; set; } = new List<IArmorGetter>();
         public static List<IArmorGetter> spacehelmets { get; set; } = new List<IArmorGetter>();
         public static List<IArmorGetter> boostpacks { get; set; } = new List<IArmorGetter>();
+
+        public static List<IIngestibleGetter> ingestibles { get; set; } = new List<IIngestibleGetter>();
+
         public static List<IWeaponGetter> ranged_weapons { get; set; } = new List<IWeaponGetter>();
         public static List<IWeaponGetter> melee_weapons { get; set; } = new List<IWeaponGetter>();
         public static List<IWeaponGetter> grenades { get; set; } = new List<IWeaponGetter>();
@@ -217,7 +220,21 @@ namespace StarArmory
                         // Aid/Food
                         //-------------------------------------------
                         //todo
-
+                        //ingestibles
+                        try
+                        {
+                            var Ingestibles = mod.Value.Mod.Ingestibles.ToList();
+                            foreach (var item in Ingestibles)
+                            {
+                                var link = immutableLoadOrderLinkCache.Resolve<IIngestibleGetter>(item.FormKey);
+                                ingestibles.Add(link);
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            StarArmory.log.Info("Exception in Aid/Food Processing in Mod: " + mod.Value.FileName);
+                            StarArmory.log.Info("Exception: " + ex);
+                        }
                         //-------------------------------------------
                         // Misc
                         //-------------------------------------------

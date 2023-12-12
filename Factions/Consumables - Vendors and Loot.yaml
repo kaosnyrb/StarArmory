@@ -1,0 +1,47 @@
+Name: Consumables - Vendors and Loot
+Consumables:
+- Formkey: 2593421
+  Modname: Starfield.esm
+  EditorId: LL_Food_Any_NoExclusive [LVLI:0027928D]
+- Formkey: 552598
+  Modname: Starfield.esm
+  EditorId: LL_Food_Cooler_NoExclusive [LVLI:00086E96]
+- Formkey: 525935
+  Modname: Starfield.esm
+  EditorId: LL_Drink_Cooler [LVLI:0008066F]
+- Formkey: 13565
+  Modname: Starfield.esm
+  EditorId: LL_Drink_NonAlcoholic_Any_NoExclusive [LVLI:000034FD]
+- Formkey: 203131
+  Modname: Starfield.esm
+  EditorId: LLS_Medkit_Aid_Basic_Leveled_Same [LVLI:0003197B]
+- Formkey: 203136
+  Modname: Starfield.esm
+  EditorId: LLS_Medkit_Aid_Affl_Leveled_Same [LVLI:00031980]
+- Formkey: 203132
+  Modname: Starfield.esm
+  EditorId: LLS_Medkit_Aid_Advanced_Leveled_Same [LVLI:0003197C]
+- Formkey: 3200751
+  Modname: Starfield.esm
+  EditorId: LL_Food_Convenience [LVLI:0030D6EF]
+- Formkey: 13568
+  Modname: Starfield.esm
+  EditorId: LL_Food_Chunks_Any [LVLI:00003500]
+- Formkey: 4022444
+  Modname: Starfield.esm
+  EditorId: LL_Food_Military [LVLI:003D60AC]
+- Formkey: 18233
+  Modname: Starfield.esm
+  EditorId: LL_Food_Packaged_Small_NoExclusive [LVLI:00004739]
+- Formkey: 18345
+  Modname: Starfield.esm
+  EditorId: LL_Drink_NonAlcoholic_Packaged_Small_NoExclusive [LVLI:000047A9]
+- Formkey: 2302760
+  Modname: Starfield.esm
+  EditorId: LL_Loot_Misc_OfficePersonal [LVLI:00232328]
+- Formkey: 2548791
+  Modname: Starfield.esm
+  EditorId: LL_Vendor_Misc_Junk_Cheap [LVLI:0026E437]
+- Formkey: 1445168
+  Modname: Starfield.esm
+  EditorId: LL_Aid_Basic_Leveled [LVLI:00160D30]

@@ -83,6 +83,18 @@ namespace StarArmory
                             {
                                 log.Info(mod.Value.ModKey.FileName + " has no Weapons, skipping.");
                             }
+                            if (mod.Value.Mod.Ingestibles != null && !added)
+                            {
+                                if (mod.Value.Mod.Ingestibles.Count > 0)
+                                {
+                                    loadedMods.Items.Add(mod.Value.FileName, true);
+                                    log.Info(mod.Value.ModKey.FileName + " has " + mod.Value.Mod.Ingestibles.Count + " Ingestibles");
+                                }
+                            }
+                            else
+                            {
+                                log.Info(mod.Value.ModKey.FileName + " has no Ingestibles, skipping.");
+                            }
                         }
                     }
                 }
@@ -135,7 +147,7 @@ namespace StarArmory
                 factionPlanTree.Nodes[0].Nodes.Add(Armory.plans[i].faction.Name);
                 if (originalfaction.Contains(" - Female Only"))
                 {
-                    originalfaction = originalfaction.Substring(0,originalfaction.IndexOf(" - Female Only"));                        
+                    originalfaction = originalfaction.Substring(0, originalfaction.IndexOf(" - Female Only"));
                 }
                 if (originalfaction.Contains(" - Male Only"))
                 {
@@ -257,70 +269,78 @@ namespace StarArmory
                     //Levelled Lists
                     //Here we inject the modded items into the levelled lists defined in the faction files.
                     //If we're gendered ignore this section
-                        if (plan.faction.Hats != null)
+                    if (plan.faction.Hats != null)
+                    {
+                        foreach (var hat in plan.faction.Hats)
                         {
-                            foreach (var hat in plan.faction.Hats)
-                            {
-                                lastformkey = hat;
-                                LeveledItem.AddItemsToLevelledList(myMod, Armory.hats, hat.modname, hat.formkey, plan.clearvanillaitems,plan.gender);
-                            }
+                            lastformkey = hat;
+                            LeveledItem.AddItemsToLevelledList(myMod, Armory.hats, hat.modname, hat.formkey, plan.clearvanillaitems, plan.gender);
                         }
-                        if (plan.faction.Clothes != null)
+                    }
+                    if (plan.faction.Clothes != null)
+                    {
+                        foreach (var clothes in plan.faction.Clothes)
                         {
-                            foreach (var clothes in plan.faction.Clothes)
-                            {
-                                lastformkey = clothes;
-                                LeveledItem.AddItemsToLevelledList(myMod, Armory.clothes, clothes.modname, clothes.formkey, plan.clearvanillaitems, plan.gender);
-                            }
+                            lastformkey = clothes;
+                            LeveledItem.AddItemsToLevelledList(myMod, Armory.clothes, clothes.modname, clothes.formkey, plan.clearvanillaitems, plan.gender);
                         }
-                        if (plan.faction.Spacesuits != null)
+                    }
+                    if (plan.faction.Spacesuits != null)
+                    {
+                        foreach (var suit in plan.faction.Spacesuits)
                         {
-                            foreach (var suit in plan.faction.Spacesuits)
-                            {
-                                lastformkey = suit;
-                                LeveledItem.AddItemsToLevelledList(myMod, Armory.spacesuits, suit.modname, suit.formkey, plan.clearvanillaitems, plan.gender);
-                            }
+                            lastformkey = suit;
+                            LeveledItem.AddItemsToLevelledList(myMod, Armory.spacesuits, suit.modname, suit.formkey, plan.clearvanillaitems, plan.gender);
                         }
-                        if (plan.faction.SpaceHelmets != null)
+                    }
+                    if (plan.faction.SpaceHelmets != null)
+                    {
+                        foreach (var helm in plan.faction.SpaceHelmets)
                         {
-                            foreach (var helm in plan.faction.SpaceHelmets)
-                            {
-                                lastformkey = helm;
-                                LeveledItem.AddItemsToLevelledList(myMod, Armory.spacehelmets, helm.modname, helm.formkey, plan.clearvanillaitems, plan.gender);
-                            }
+                            lastformkey = helm;
+                            LeveledItem.AddItemsToLevelledList(myMod, Armory.spacehelmets, helm.modname, helm.formkey, plan.clearvanillaitems, plan.gender);
                         }
-                        if (plan.faction.Boostpacks != null)
+                    }
+                    if (plan.faction.Boostpacks != null)
+                    {
+                        foreach (var pack in plan.faction.Boostpacks)
                         {
-                            foreach (var pack in plan.faction.Boostpacks)
-                            {
-                                lastformkey = pack;
-                                LeveledItem.AddItemsToLevelledList(myMod, Armory.boostpacks, pack.modname, pack.formkey, plan.clearvanillaitems, plan.gender);
-                            }
+                            lastformkey = pack;
+                            LeveledItem.AddItemsToLevelledList(myMod, Armory.boostpacks, pack.modname, pack.formkey, plan.clearvanillaitems, plan.gender);
                         }
-                        if (plan.faction.RangedWeapons != null)
+                    }
+                    if (plan.faction.RangedWeapons != null)
+                    {
+                        foreach (var rangedweapon in plan.faction.RangedWeapons)
                         {
-                            foreach (var rangedweapon in plan.faction.RangedWeapons)
-                            {
-                                lastformkey = rangedweapon;
-                                LeveledItem.AddItemsToLevelledList(myMod, Armory.ranged_weapons, rangedweapon.modname, rangedweapon.formkey, plan.clearvanillaitems);
-                            }
+                            lastformkey = rangedweapon;
+                            LeveledItem.AddItemsToLevelledList(myMod, Armory.ranged_weapons, rangedweapon.modname, rangedweapon.formkey, plan.clearvanillaitems);
                         }
-                        if (plan.faction.MeleeWeapons != null)
+                    }
+                    if (plan.faction.MeleeWeapons != null)
+                    {
+                        foreach (var meleeweapon in plan.faction.MeleeWeapons)
                         {
-                            foreach (var meleeweapon in plan.faction.MeleeWeapons)
-                            {
-                                lastformkey = meleeweapon;
-                                LeveledItem.AddItemsToLevelledList(myMod, Armory.melee_weapons, meleeweapon.modname, meleeweapon.formkey, plan.clearvanillaitems);
-                            }
+                            lastformkey = meleeweapon;
+                            LeveledItem.AddItemsToLevelledList(myMod, Armory.melee_weapons, meleeweapon.modname, meleeweapon.formkey, plan.clearvanillaitems);
                         }
-                        if (plan.faction.Grenades != null)
+                    }
+                    if (plan.faction.Grenades != null)
+                    {
+                        foreach (var nade in plan.faction.Grenades)
                         {
-                            foreach (var nade in plan.faction.Grenades)
-                            {
-                                lastformkey = nade;
-                                LeveledItem.AddItemsToLevelledList(myMod, Armory.grenades, nade.modname, nade.formkey, plan.clearvanillaitems);
-                            }
+                            lastformkey = nade;
+                            LeveledItem.AddItemsToLevelledList(myMod, Armory.grenades, nade.modname, nade.formkey, plan.clearvanillaitems);
                         }
+                    }
+                    if (plan.faction.Consumables != null)
+                    {
+                        foreach (var item in plan.faction.Consumables)
+                        {
+                            lastformkey = item;
+                            LeveledItem.AddItemsToLevelledList(myMod, Armory.ingestibles, item.modname, item.formkey, plan.clearvanillaitems);
+                        }
+                    }
                     //Outfits
                     //Outfits have another layer of complexity to the levelled lists
                     //In vanilla some outfits link directly to armor, things like the starborn.
@@ -544,7 +564,7 @@ namespace StarArmory
                             newoutfit.Items.Add(ListOutfitHats);
                         }
                         else
-                        newoutfit.Items.Add(ListOutfitClothes);
+                            newoutfit.Items.Add(ListOutfitClothes);
                     }
                     catch (Exception ex)
                     {
@@ -674,6 +694,24 @@ namespace StarArmory
                                             }
                                         }
                                         if (inmod)
+                                        {
+                                            loadedMods.Items.Add(mod.Value.FileName, true);
+                                        }
+                                    }
+                                }
+                                break;
+                            case "Consumables":
+                                if (mod.Value.Mod.Ingestibles != null)
+                                {
+                                    if (mod.Value.Mod.Ingestibles.Count > 0)
+                                    {
+                                        bool clothesinmod = false;
+                                        foreach (var armor in mod.Value.Mod.Ingestibles)
+                                        {
+                                            clothesinmod = true;
+                                            break;
+                                        }
+                                        if (clothesinmod)
                                         {
                                             loadedMods.Items.Add(mod.Value.FileName, true);
                                         }

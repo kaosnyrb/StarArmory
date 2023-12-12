@@ -200,7 +200,7 @@
             // modfilter
             // 
             modfilter.FormattingEnabled = true;
-            modfilter.Items.AddRange(new object[] { "All", "Clothes", "Spacesuit", "Weapons" });
+            modfilter.Items.AddRange(new object[] { "All", "Clothes", "Spacesuit", "Weapons", "Consumables" });
             modfilter.Location = new Point(12, 20);
             modfilter.Name = "modfilter";
             modfilter.Size = new Size(277, 23);
