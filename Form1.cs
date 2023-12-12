@@ -141,7 +141,7 @@ namespace StarArmory
                 {
                     originalfaction = originalfaction.Substring(0, originalfaction.IndexOf(" - Male Only"));
                 }
-//                Armory.plans[i].faction = Armory.factions[originalfaction];
+                Armory.plans[i].faction = YamlImporter.getObjectFromYaml<Faction>(YamlExporter.BuildYaml(Armory.factions[originalfaction]));
                 Armory.plans[i].faction.Name = gendered;
                 factionPlanTree.Nodes[0].Nodes[i].Nodes.Add("Clear Vanilla: " + Armory.plans[i].clearvanillaitems.ToString());
                 for (int j = 0; j < Armory.plans[i].mods.Count; j++)
@@ -187,6 +187,11 @@ namespace StarArmory
         {
             try
             {
+                if (FactionList.SelectedItem == null)
+                {
+                    log.Error("FactionList.SelectedItem == null");
+                    throw new Exception("FactionList SelectedItem is null! Not sure how.");
+                }
                 var factionplan = new FactionPlan
                 {
                     faction = YamlImporter.getObjectFromYaml<Faction>(YamlExporter.BuildYaml(Armory.factions[FactionList.SelectedItem.ToString()])), //Yeah, looks stupid but it creates a clone.

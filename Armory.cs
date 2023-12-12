@@ -67,6 +67,9 @@ namespace StarArmory
                     {
                         try
                         {
+                            //-------------------------------------------
+                            // Armor
+                            //-------------------------------------------
                             var armours = mod.Value.Mod.Armors.ToList();
                             StarArmory.log.Info("Loading Mod: " + mod.Value.FileName);
                             foreach (var armor in armours)
@@ -74,6 +77,9 @@ namespace StarArmory
                                 bool added = false;
                                 bool Keyword = false;
                                 var link = immutableLoadOrderLinkCache.Resolve<IArmorGetter>(armor.FormKey);
+                                //-------------------------------------------
+                                // Clothing
+                                //-------------------------------------------
                                 if (armor.HasKeyword(Apparel))
                                 {
                                     StarArmory.log.Info("Processing Armor: " + armor.EditorID + " flags " + armor.FirstPersonFlags.Value);
@@ -100,13 +106,10 @@ namespace StarArmory
                                     }                                    
                                     Keyword = true;
                                 }
-                                if (armor.HasKeyword(Head))
-                                {
-                                    hats.Add(link);
-                                    added = true;
-                                    Keyword = true;
-                                    itemsAdded++;
-                                }
+
+                                //-------------------------------------------
+                                // Spacesuits
+                                //-------------------------------------------
                                 if (armor.HasKeyword(spacesuit))
                                 {
                                     //Check that it actually is a spacesuit.
@@ -118,6 +121,10 @@ namespace StarArmory
                                     }
                                     Keyword = true;
                                 }
+
+                                //-------------------------------------------
+                                // Space Helmets
+                                //-------------------------------------------
                                 if (armor.HasKeyword(spacehelmet))
                                 {
                                     //Check that it actually is a helmet
@@ -131,6 +138,10 @@ namespace StarArmory
                                     }
                                     Keyword = true;
                                 }
+
+                                //-------------------------------------------
+                                // Boostpacks
+                                //-------------------------------------------
                                 if (armor.HasKeyword(boostpack))
                                 {
                                     boostpacks.Add(link);
@@ -149,6 +160,9 @@ namespace StarArmory
                             StarArmory.log.Info("Exception in Armor Processing in Mod: " + mod.Value.FileName);
                             StarArmory.log.Info("Exception: " + ex);
                         }
+                        //-------------------------------------------
+                        // Weapons
+                        //-------------------------------------------
                         try
                         {
                             FormKey weapon_ranged = new FormKey(env.LoadOrder[0].ModKey, 177940);//WeaponTypeRanged [KYWD:0002B714]
@@ -160,18 +174,27 @@ namespace StarArmory
                             {
                                 bool added = false;
                                 var link = immutableLoadOrderLinkCache.Resolve<IWeaponGetter>(weapon.FormKey);
+                                //-------------------------------------------
+                                // Ranged Weapons
+                                //-------------------------------------------
                                 if (weapon.HasKeyword(weapon_ranged))
                                 {
                                     ranged_weapons.Add(link);
                                     added = true;
                                     itemsAdded++;
                                 }
+                                //-------------------------------------------
+                                // Melee Weapons
+                                //-------------------------------------------
                                 if (weapon.HasKeyword(weapon_melee))
                                 {
                                     melee_weapons.Add(link);
                                     added = true;
                                     itemsAdded++;
                                 }
+                                //-------------------------------------------
+                                // Grenades
+                                //-------------------------------------------
                                 if (weapon.HasKeyword(grenade))
                                 {
                                     grenades.Add(link);
@@ -189,11 +212,76 @@ namespace StarArmory
                             StarArmory.log.Info("Exception in Weapon Processing in Mod: " + mod.Value.FileName);
                             StarArmory.log.Info("Exception: " + ex);
                         }
+
+                        //-------------------------------------------
+                        // Aid/Food
+                        //-------------------------------------------
+                        //todo
+
+                        //-------------------------------------------
+                        // Misc
+                        //-------------------------------------------
+                        //todo
+
+                        //-------------------------------------------
+                        // Resources
+                        //-------------------------------------------
+                        //todo
+
                         StarArmory.log.Info("Finished procressing Mod: " + mod.Value.FileName);
                         StarArmory.log.Info(mod.Value.FileName + " contained " + itemsAdded + " valid items");
                     }
                 }
 
+                //-------------------------------------------
+                // Hats
+                //-------------------------------------------
+                //We don't want to add hats that clash with the clothes, so we process clothes first then hats.
+                foreach (var mod in env.LoadOrder)
+                {
+                    if (!mods.Contains(mod.Value.FileName))
+                    {
+                        continue;
+                    }
+                    if (mod.Value.Mod != null)
+                    {
+                        try
+                        {
+                            var armours = mod.Value.Mod.Armors.ToList();
+                            StarArmory.log.Info("Loading Mod: " + mod.Value.FileName);
+                            foreach (var armor in armours)
+                            {
+                                var link = immutableLoadOrderLinkCache.Resolve<IArmorGetter>(armor.FormKey);
+                                if (armor.HasKeyword(Head))
+                                {
+                                    bool clashing = false;
+                                    foreach (var flag in ClothesFPF)
+                                    {
+                                        if (hasflag(armor.FirstPersonFlags.Value, flag.Key))
+                                        {
+                                            clashing = true;
+                                            StarArmory.log.Info("Clashing FPF: " + armor.EditorID + " flag " + flag.Key.ToString() + " was used in " + flag.Value);
+                                        }
+                                    }
+                                    if (!clashing)
+                                    {
+                                        hats.Add(link);
+                                        itemsAdded++;
+                                    }
+                                }
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            StarArmory.log.Info("Exception in Armor Processing in Mod: " + mod.Value.FileName);
+                            StarArmory.log.Info("Exception: " + ex);
+                        }
+                    }
+                }
+
+                //-------------------------------------------
+                // Accessories
+                //-------------------------------------------
                 //Some clothes didn't pass the first run. Here we try and add what we can to hats
                 foreach (var clothing in Leftovers)
                 {
