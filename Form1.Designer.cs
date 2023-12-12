@@ -187,6 +187,7 @@
             genderdropdown.Name = "genderdropdown";
             genderdropdown.Size = new Size(206, 23);
             genderdropdown.TabIndex = 17;
+            genderdropdown.SelectedIndexChanged += genderdropdown_SelectedIndexChanged;
             // 
             // label6
             // 

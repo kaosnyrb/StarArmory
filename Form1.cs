@@ -782,5 +782,30 @@ namespace StarArmory
                 }
             }
         }
+
+        private void genderdropdown_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            bool found = false;
+            for (int i = 0; i < Armory.plans.Count; i++)
+            {
+                if (Armory.plans[i].faction.Name == FactionList.SelectedItem.ToString() + " - " + genderdropdown.SelectedItem.ToString())
+                {
+                    for (int j = 0; j < loadedMods.Items.Count; j++)
+                    {
+                        loadedMods.SetItemChecked(j, Armory.plans[i].mods.Contains(loadedMods.Items[j].ToString()));
+                        found = true;
+                    }
+                    donotusevanilla.Checked = Armory.plans[i].clearvanillaitems;
+                    break;
+                }
+            }
+            if (!found)
+            {
+                for (int j = 0; j < loadedMods.Items.Count; j++)
+                {
+                    loadedMods.SetItemChecked(j, false);
+                }
+            }
+        }
     }
 }
