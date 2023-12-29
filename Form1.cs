@@ -639,7 +639,7 @@ namespace StarArmory
                                         bool clothesinmod = false;
                                         foreach (var armor in mod.Value.Mod.Armors)
                                         {
-                                            if (armor.Keywords.Contains(Apparel) || armor.Keywords.Contains(Head))
+                                            if (armor.HasKeyword(Apparel) || armor.HasKeyword(Head))
                                             {
                                                 clothesinmod = true;
                                                 break;
@@ -663,7 +663,7 @@ namespace StarArmory
                                         bool clothesinmod = false;
                                         foreach (var armor in mod.Value.Mod.Armors)
                                         {
-                                            if (armor.Keywords.Contains(spacesuit) || armor.Keywords.Contains(spacehelmet) || armor.Keywords.Contains(boostpack))
+                                            if (armor.HasKeyword(spacesuit) || armor.HasKeyword(spacehelmet) || armor.HasKeyword(boostpack))
                                             {
                                                 clothesinmod = true;
                                                 break;
@@ -687,7 +687,7 @@ namespace StarArmory
                                         bool inmod = false;
                                         foreach (var armor in mod.Value.Mod.Weapons)
                                         {
-                                            if (armor.Keywords.Contains(weapon_ranged) || armor.Keywords.Contains(weapon_melee) || armor.Keywords.Contains(grenade))
+                                            if (armor.HasKeyword(weapon_ranged) || armor.HasKeyword(weapon_melee) || armor.HasKeyword(grenade))
                                             {
                                                 inmod = true;
                                                 break;
