@@ -640,17 +640,25 @@ namespace StarArmory
                                         FormKey Apparel = new FormKey(env.LoadOrder[0].ModKey, 918668);//ArmorTypeApparelOrNakedBody[KYWD: 000E048C]
                                         FormKey Head = new FormKey(env.LoadOrder[0].ModKey, 918667);//ArmorTypeApparelHead [KYWD:000E048B]
                                         bool clothesinmod = false;
-                                        foreach (var armor in mod.Value.Mod.Armors)
+                                        try
                                         {
-                                            if (armor.HasKeyword(Apparel) || armor.HasKeyword(Head))
+                                            foreach (var armor in mod.Value.Mod.Armors)
                                             {
-                                                clothesinmod = true;
-                                                break;
+                                                if (armor.HasKeyword(Apparel) || armor.HasKeyword(Head))
+                                                {
+                                                    clothesinmod = true;
+                                                    break;
+                                                }
+                                            }
+                                            if (clothesinmod)
+                                            {
+                                                loadedMods.Items.Add(mod.Value.FileName, true);
                                             }
                                         }
-                                        if (clothesinmod)
+                                        catch (Exception ex)
                                         {
-                                            loadedMods.Items.Add(mod.Value.FileName, true);
+                                            //MessageBox.Show(ex.Message);
+                                            log.Info(mod.Value.FileName + " threw mod filter exception " + ex.Message);
                                         }
                                     }
                                 }
@@ -664,17 +672,25 @@ namespace StarArmory
                                         FormKey spacehelmet = new FormKey(env.LoadOrder[0].ModKey, 2344897);//ArmorTypeSpacesuitBackpack [KYWD:0023C7BF]
                                         FormKey boostpack = new FormKey(env.LoadOrder[0].ModKey, 2344895);//ArmorTypeSpacesuitHelmet[KYWD: 0023C7C1]
                                         bool clothesinmod = false;
-                                        foreach (var armor in mod.Value.Mod.Armors)
+                                        try
                                         {
-                                            if (armor.HasKeyword(spacesuit) || armor.HasKeyword(spacehelmet) || armor.HasKeyword(boostpack))
+                                            foreach (var armor in mod.Value.Mod.Armors)
                                             {
-                                                clothesinmod = true;
-                                                break;
+                                                if (armor.HasKeyword(spacesuit) || armor.HasKeyword(spacehelmet) || armor.HasKeyword(boostpack))
+                                                {
+                                                    clothesinmod = true;
+                                                    break;
+                                                }
+                                            }
+                                            if (clothesinmod)
+                                            {
+                                                loadedMods.Items.Add(mod.Value.FileName, true);
                                             }
                                         }
-                                        if (clothesinmod)
+                                        catch (Exception ex)
                                         {
-                                            loadedMods.Items.Add(mod.Value.FileName, true);
+                                            //MessageBox.Show(ex.Message);
+                                            log.Info(mod.Value.FileName + " threw mod filter exception " + ex.Message);
                                         }
                                     }
                                 }
@@ -688,17 +704,25 @@ namespace StarArmory
                                         FormKey weapon_melee = new FormKey(env.LoadOrder[0].ModKey, 303268);//WeaponTypeMelee1H [KYWD:0004A0A4]
                                         FormKey grenade = new FormKey(env.LoadOrder[0].ModKey, 303270);//WeaponTypeThrown [KYWD:0004A0A6]
                                         bool inmod = false;
-                                        foreach (var armor in mod.Value.Mod.Weapons)
+                                        try
                                         {
-                                            if (armor.HasKeyword(weapon_ranged) || armor.HasKeyword(weapon_melee) || armor.HasKeyword(grenade))
+                                            foreach (var armor in mod.Value.Mod.Weapons)
                                             {
-                                                inmod = true;
-                                                break;
+                                                if (armor.HasKeyword(weapon_ranged) || armor.HasKeyword(weapon_melee) || armor.HasKeyword(grenade))
+                                                {
+                                                    inmod = true;
+                                                    break;
+                                                }
+                                            }
+                                            if (inmod)
+                                            {
+                                                loadedMods.Items.Add(mod.Value.FileName, true);
                                             }
                                         }
-                                        if (inmod)
+                                        catch (Exception ex)
                                         {
-                                            loadedMods.Items.Add(mod.Value.FileName, true);
+                                            //MessageBox.Show(ex.Message);
+                                            log.Info(mod.Value.FileName + " threw mod filter exception " + ex.Message);
                                         }
                                     }
                                 }
@@ -709,14 +733,22 @@ namespace StarArmory
                                     if (mod.Value.Mod.Ingestibles.Count > 0)
                                     {
                                         bool clothesinmod = false;
-                                        foreach (var armor in mod.Value.Mod.Ingestibles)
+                                        try
                                         {
-                                            clothesinmod = true;
-                                            break;
+                                            foreach (var armor in mod.Value.Mod.Ingestibles)
+                                            {
+                                                clothesinmod = true;
+                                                break;
+                                            }
+                                            if (clothesinmod)
+                                            {
+                                                loadedMods.Items.Add(mod.Value.FileName, true);
+                                            }
                                         }
-                                        if (clothesinmod)
+                                        catch (Exception ex)
                                         {
-                                            loadedMods.Items.Add(mod.Value.FileName, true);
+                                            //MessageBox.Show(ex.Message);
+                                            log.Info(mod.Value.FileName + " threw mod filter exception " + ex.Message);
                                         }
                                     }
                                 }
