@@ -107,10 +107,13 @@ namespace StarArmory
                 string[] facs = Directory.GetFiles("Factions/");
                 foreach (var entry in facs)
                 {
-                    var faction = YamlImporter.getObjectFrom<Faction>(entry);
-                    Armory.factions.Add(faction.Name, faction);
-                    FactionList.Items.Add(faction.Name);
-                    AllFactions.Add(faction.Name);
+                    if (entry.Contains("yaml"))
+                    {
+                        var faction = YamlImporter.getObjectFrom<Faction>(entry);
+                        Armory.factions.Add(faction.Name, faction);
+                        FactionList.Items.Add(faction.Name);
+                        AllFactions.Add(faction.Name);
+                    }
                 }
                 FactionList.SelectedItem = FactionList.Items[0];
             }
